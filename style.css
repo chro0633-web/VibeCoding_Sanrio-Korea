@@ -87,6 +87,9 @@
 .main-area {
   background: url('./images/main_visual_bg.jpg') repeat 0 0/50px;
   position: relative;
+  /* 배경 스타일 사용법:
+    background: 색 이 반 고 윙/크
+    배경색 이미지 반복 고정 위치/크기 */
 }
 
 .banner-inner {
@@ -108,6 +111,6 @@
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 150px;
+  top: 100px;
   right: 50px;
 }
