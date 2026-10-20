@@ -1,0 +1,113 @@
+/* 헤더 전체 영역 스타일 */
+.header-area {
+  width: 100%;
+  background: #fff; /* 흰색 배경 */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.02); /* 약간의 그림자 효과 */
+  position: relative;
+  z-index: 20; /* 다른 요소보다 위 */
+}
+
+/* 헤더 내부 컨테이너 - 중앙 정렬 및 정렬 플렉스 */
+.header-area-inner {
+  max-width: 1440px; /* 최대 폭 */
+  margin: 0 auto; /* 가운데 정렬 */
+  display: flex; /* 내부 아이템 가로 정렬 */
+  align-items: center; /* 세로 중앙 정렬 */
+  justify-content: space-between; /* 좌우 정렬 */
+  height: 80px; /* 높이 */
+  padding: 0 24px;
+  box-sizing: border-box; /* 패딩 포함 크기 계산 */
+}
+
+/* 로고 박스 - 플렉스 및 수직 정렬 */
+.logo-box {
+  flex-shrink: 0; /* 크기 줄어들지 않음 */
+  display: flex;
+  align-items: center;
+}
+
+/* 로고 이미지 크기 고정 */
+.logo-box img {
+  height: 48px;
+  display: block;
+}
+
+/* 메뉴 리스트 네비게이션 스타일 */
+.menu-list {
+  display: flex;
+  align-items: center;
+}
+
+/* 메뉴 항목(ul) 플렉스 가로 정렬 + 간격 */
+.menu-list ul {
+  display: flex;
+  gap: 40px; /* 항목 사이 간격 */
+  list-style: none; /* 기본 불릿 제거 */
+  margin: 0;
+  padding: 0;
+}
+
+/* 각 메뉴 항목(li) 상대 포지셔닝 */
+.menu-list li {
+  position: relative;
+}
+
+/* 메뉴 각 링크 스타일 */
+.menu-list a {
+  text-decoration: none; /* 밑줄 제거 */
+  color: #444; /* 글자색 */
+  font-size: 18px;
+  font-family: 'Noto Sans KR', 'Arial', sans-serif;
+  padding: 6px 8px;
+  transition: color .2s; /* 색상 천천히 변경 */
+}
+
+/* 메뉴 항목 마우스 오버/포커스 색상 강조 */
+.menu-list a:hover, .menu-list a:focus {
+  color: #ff4499;
+}
+
+/* 모바일, 태블릿 대응 - 폭이 800px 이하일 때 */
+@media (max-width: 800px) {
+  .header-area-inner {
+    height: 64px; /* 높이 감소 */
+    padding: 0 12px;
+  }
+  .menu-list ul {
+    gap: 20px; /* 메뉴 간격 좁게 */
+  }
+  .menu-list a {
+    font-size: 16px; /* 폰트 크기 작게 */
+  }
+  .logo-box img {
+    height: 36px; /* 로고 크기 작게 */
+  }
+}
+
+.main-area {
+  background: url('./images/main_visual_bg.jpg') repeat 0 0/50px;
+  position: relative;
+}
+
+.banner-inner {
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  padding: 80px;
+  text-align: center;
+}
+
+.banner-image {
+  /* display: block; */
+  width: 984px;
+  max-width: 100%;
+}
+
+/* SNS 이동 버튼 박스 */
+.sns {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 150px;
+  right: 50px;
+}
