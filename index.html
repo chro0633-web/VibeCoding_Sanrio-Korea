@@ -147,12 +147,10 @@
       }
 
       .main-area {
-        background: url("./images/main_visual_bg.jpg") repeat 0 0/50px;
         position: relative;
         /* 배경 스타일 사용법:
     background: 색 이 반 고 윙/크
     배경색 이미지 반복 고정 위치/크기 */
-        padding: 80px;
         padding-bottom: 40px;
       }
 
@@ -162,6 +160,7 @@
         /* justify-content: center; */
         padding: 80px;
         text-align: center;
+        background: url("./images/main_visual_bg.jpg") repeat 0 0/50px;
       }
 
       .banner-image {
@@ -182,7 +181,7 @@
       /* 움직일 대상 마우스 */
       .scroll_btn {
         position: absolute;
-        bottom: 50px;
+        /* bottom: 50px; */
         left: 50%;
         translate: -50%;
         width: 79px;
@@ -262,6 +261,35 @@
           top: 27%;
         }
       }
+
+      /* 공통 타이틀 박스 */
+      .tit-box {
+        max-width: 1200px;
+        margin: 0 auto;
+        outline: 3px dashed blue;
+      }
+      /* 타이틀 파트 */
+      .tit-box .part-tit {
+        text-align: center;
+        padding: 40px 0;
+        font-size: 5rem;
+        font-weight: normal;
+      }
+      /* 타이틀 박스 하위 버튼 박스 */
+      .btn-box {
+        text-align: center;
+        padding: 20px 0;
+      }
+
+      a.btn-view {
+        display: inline-block; /* width: 80px; */
+        border: 1px solid #222;
+        padding: 10px 15px;
+        text-decoration: none;
+        color: #222;
+        font-size: 1.7rem;
+        border-radius: 25px;
+      }
     </style>
   </head>
 
@@ -321,8 +349,10 @@
         <!-- 1-2. 캐릭터영역 -->
         <section class="character-section">
           <div class="tit-box">
-            <h2 class="part-tit"></h2>
-            <div class="btn-box"><a href="#" class="btn-view"></a></div>
+            <h2 class="part-tit">character</h2>
+            <div class="btn-box">
+              <a href="#" class="btn-view">view more</a>
+            </div>
           </div>
         </section>
         <!-- 1-3. 컴퍼니영역 -->
