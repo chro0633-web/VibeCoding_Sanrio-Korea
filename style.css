@@ -1,3 +1,7 @@
+/* 웹폰트 로딩하기(CDN 방식)
+      CDN은 Content Dilivery Network 망으로 컨텐트를 배달시켜 쓰는 방법 */
+      @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nanum+Gothic&display=swap');
+      
 /* 헤더 전체 영역 스타일 */
 .header-area {
   width: 100%;
@@ -111,6 +115,7 @@
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 100px;
+  top: 50px;
   right: 50px;
+  width: 50px;
 }

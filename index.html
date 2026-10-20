@@ -3,7 +3,266 @@
   <head>
     <meta charset="UTF-8" />
     <title>산리오 코리아_SH</title>
-    <link rel="stylesheet" href="./style.css" />
+    <!-- <link rel="stylesheet" href="./style.css" /> -->
+    <style>
+      /* 웹폰트 로딩하기(CDN 방식)
+      CDN은 Content Dilivery Network 망으로 컨텐트를 배달시켜 쓰는 방법 */
+
+      /* 순서대로 위에서부터 Montserat, 나눔바른고딕 */
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nanum+Gothic&display=swap");
+      @import url("https://cdn.jsdelivr.net/gh/moonspam/NanumBarunGothic@1.0/nanumbarungothicsubset.css");
+
+      /* 전체 루트 설정 */
+      html {
+        /* rem 단위를 위한 Root 글자크기설정 */
+        font-size: 10px;
+        /* 왜 10px인가? 배수 비율인 rem 단위 계산에 용이함 */
+      }
+
+      html,
+      body {
+        /* 웹폰트체 지정(콤마는 우선 순위) */
+        font-family:
+          Montserrat, "Nanum Barun Gothic", AppleGothic, Dotum, sans-serif;
+
+        /* 공통 요소 초기화 */
+        /* 모든 요소의 마진, 패딩 초기화 */
+        html,
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        ul,
+        ol,
+        li,
+        dl,
+        dt,
+        dd,
+        blockquote,
+        pre,
+        figure,
+        fieldset,
+        form,
+        input,
+        textarea,
+        button,
+        table,
+        th,
+        td {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+      }
+
+      /* 헤더 전체 영역 스타일 */
+      .header-area {
+        width: 100%;
+        background: #fff; /* 흰색 배경 */
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02); /* 약간의 그림자 효과 */
+        position: relative;
+        z-index: 20; /* 다른 요소보다 위 */
+      }
+
+      /* 헤더 내부 컨테이너 - 중앙 정렬 및 정렬 플렉스 */
+      .header-area-inner {
+        max-width: 1440px; /* 최대 폭 */
+        margin: 0 auto; /* 가운데 정렬 */
+        display: flex; /* 내부 아이템 가로 정렬 */
+        align-items: center; /* 세로 중앙 정렬 */
+        justify-content: space-between; /* 좌우 정렬 */
+        height: 80px; /* 높이 */
+        padding: 0 24px;
+        box-sizing: border-box; /* 패딩 포함 크기 계산 */
+      }
+
+      /* 로고 박스 - 플렉스 및 수직 정렬 */
+      .logo-box {
+        flex-shrink: 0; /* 크기 줄어들지 않음 */
+        display: flex;
+        align-items: center;
+      }
+
+      /* 로고 이미지 크기 고정 */
+      .logo-box img {
+        height: 48px;
+        display: block;
+      }
+
+      /* 메뉴 리스트 네비게이션 스타일 */
+      .menu-list {
+        display: flex;
+        align-items: center;
+      }
+
+      /* 메뉴 항목(ul) 플렉스 가로 정렬 + 간격 */
+      .menu-list ul {
+        display: flex;
+        gap: 40px; /* 항목 사이 간격 */
+        list-style: none; /* 기본 불릿 제거 */
+        margin: 0;
+        padding: 0;
+      }
+
+      /* 각 메뉴 항목(li) 상대 포지셔닝 */
+      .menu-list li {
+        position: relative;
+        font-size: 1.6rem;
+        font-weight: 500;
+      }
+
+      /* 메뉴 각 링크 스타일 */
+      .menu-list a {
+        text-decoration: none; /* 밑줄 제거 */
+        color: #444; /* 글자색 */
+        transition: color 0.2s; /* 색상 천천히 변경 */
+        text-transform: uppercase; /* 대문자 변환 */
+      }
+
+      /* 메뉴 항목 마우스 오버/포커스 색상 강조 */
+      .menu-list a:hover,
+      .menu-list a:focus {
+        color: #ff4499;
+      }
+
+      /* 모바일, 태블릿 대응 - 폭이 800px 이하일 때 */
+      @media (max-width: 800px) {
+        .header-area-inner {
+          height: 64px; /* 높이 감소 */
+          padding: 0 12px;
+        }
+        .menu-list ul {
+          gap: 20px; /* 메뉴 간격 좁게 */
+        }
+        .menu-list a {
+          font-size: 16px; /* 폰트 크기 작게 */
+        }
+        .logo-box img {
+          height: 36px; /* 로고 크기 작게 */
+        }
+      }
+
+      .main-area {
+        background: url("./images/main_visual_bg.jpg") repeat 0 0/50px;
+        position: relative;
+        /* 배경 스타일 사용법:
+    background: 색 이 반 고 윙/크
+    배경색 이미지 반복 고정 위치/크기 */
+        padding: 80px;
+        padding-bottom: 40px;
+      }
+
+      .banner-inner {
+        /* display: flex; */
+        /* align-items: center; */
+        /* justify-content: center; */
+        padding: 80px;
+        text-align: center;
+      }
+
+      .banner-image {
+        /* display: block; */
+        width: 984px;
+        max-width: 100%;
+      }
+
+      /* SNS 이동 버튼 박스 */
+      .sns {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 50px;
+        right: 50px;
+        width: 40px;
+      }
+      /* 움직일 대상 마우스 */
+      .scroll_btn {
+        position: absolute;
+        bottom: 50px;
+        left: 50%;
+        translate: -50%;
+        width: 79px;
+        height: 70px;
+      }
+      /* 마우스 글자 박스 */
+      .scroll_btn p {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 1rem;
+      }
+
+      /* 마우스 애니메이션 키프레임 */
+      @keyframes mouse-ani {
+        /* 시작값 from은 처음 셋팅값과 같으면 생략 가능 */
+        from {
+          top: 0;
+        }
+        to {
+          top: 10px;
+        }
+      }
+
+      .scroll_btn .mouse {
+        width: 26px;
+        height: 36px;
+        background-color: white;
+        display: block;
+        border: 2px solid darkslateblue;
+        border-radius: 20px;
+        position: absolute;
+        left: 50%;
+        translate: -50%;
+        /* 애니메이션 호출 - 이시이지반방마
+        이름 시간 이징 지연시간 반복 방향 마지막상태*/
+        animation: mouse-ani 0.7s ease-in infinite alternate;
+      }
+
+      .scroll_btn .mouse span {
+        width: 5px;
+        height: 5px;
+        background-color: darkslateblue;
+        display: block;
+        position: absolute;
+        top: 27%;
+        opacity: 0;
+        left: 50%;
+        translate: -27% -50%;
+        border-radius: 5px;
+        /* 애니메이션 적용 */
+        animation: mouse-span-ani 1.5s ease-in infinite;
+      }
+
+      /* 마우스 휠 에니메이션 키프레임 */
+      @keyframes mouse-span-ani {
+        0% {
+          opacity: 0;
+          top: 27%;
+        }
+        10% {
+          opacity: 1;
+          top: 27%;
+        }
+        60% {
+          opacity: 1;
+          top: 50%;
+        }
+        75% {
+          opacity: 0;
+          top: 50%;
+        }
+        100% {
+          opacity: 0;
+          top: 27%;
+        }
+      }
+    </style>
   </head>
 
   <body>
@@ -29,28 +288,43 @@
       <!-- 메인영역 -->
       <main class="main-area">
         <!-- 1-1. 배너영역 -->
-        <section class="banner-section">
-          <div class="banner-inner">
-            <img
-              src="./images/main_visual_pc_v1.png"
-              alt="메인 비주얼"
-              class="banner-image"
-            />
-          </div>
+        <div class="banner-inner">
+          <img
+            src="./images/main_visual_pc_v1.png"
+            alt="메인 비주얼"
+            class="banner-image"
+          />
           <!-- SNS 이동 버튼 박스 -->
           <div class="sns">
             <a href="https://www.instagram.com/sanrio_kr/" target="_blank"
-              ><img src="./images/i_ins_pc_v3.png" alt="instargram"
+              ><img
+                src="./images/i_ins_pc_v3.png"
+                alt="instargram"
+                style="width: 100%"
             /></a>
             <a
               href="https://www.youtube.com/c/sanriokorea/featured"
               target="_blank"
-              ><img src="./images/i_you_pc_v3.png" alt="youtube"
+              ><img
+                src="./images/i_you_pc_v3.png"
+                alt="youtube"
+                style="width: 100%"
             /></a>
           </div>
-        </section>
+          <!-- 스크롤 유도 애니박스 -->
+          <div class="scroll_btn">
+            <span class="mouse"><span></span></span>
+            <p>scroll down</p>
+          </div>
+        </div>
+
         <!-- 1-2. 캐릭터영역 -->
-        <section class="character-section"></section>
+        <section class="character-section">
+          <div class="tit-box">
+            <h2 class="part-tit"></h2>
+            <div class="btn-box"><a href="#" class="btn-view"></a></div>
+          </div>
+        </section>
         <!-- 1-3. 컴퍼니영역 -->
         <section class="company-section"></section>
         <!-- 1-4. 리쿠르트영역 -->
