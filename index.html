@@ -9,8 +9,8 @@
       CDN은 Content Dilivery Network 망으로 컨텐트를 배달시켜 쓰는 방법 */
 
       /* 순서대로 위에서부터 Montserat, 나눔바른고딕 */
-      @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nanum+Gothic&display=swap");
-      @import url("https://cdn.jsdelivr.net/gh/moonspam/NanumBarunGothic@1.0/nanumbarungothicsubset.css");
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+      @import url("https://cdn.jsdelivr.net/gh/moonspam/NanumBarunGothic@latest/nanumbarungothicsubset.css");
 
       /* 전체 루트 설정 */
       html {
@@ -32,6 +32,7 @@
           margin: 0;
           padding: 0;
           box-sizing: border-box;
+          font-weight: normal;
         }
       }
 
@@ -293,24 +294,45 @@
 
       /* 캐릭터 카드 */
       .character-card {
-        width: 285px;
-        height: 285px;
+        /* 높이값이 없으면 기본값은 auto
+        의미는 내용물만큼 높이값이 생성됨=figma의 허그와 비슷 */
+        /* height: 285px; 
         display: flex;
+        플렉스 불필요 */
         flex-direction: column;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+        /* 박스 그림자 
+        inset은 내부 그림자, hoff는 x축, voff는 y축 이동, blur, spread는 그림자 크기, 컬러*/
         border-radius: 12px;
-        overflow: hidden;
+        /* overflow: hidden; */
         background: #fff;
+        width: 285px;
       }
 
       /* 카드 내부 상단 박스 */
-      .character-card-visual {
-        height: 204px;
-        display: flex;
+      .card-imgs {
+        /* 포지션을 준 이유: 자식요소 중 앱솔루트의 기준 */
+        position: relative;
+        /* height: 204px; 
+        display: flex;*/
         justify-content: center;
         align-items: center;
         gap: 8px;
         background: #f5f5f5;
+      }
+
+      /* 첫번째 이미지 셋팅 - 비율크기 유지 역할(버티기) */
+      .character-card .card-imgs img:first-child {
+        width: 100%;
+        /* 싸고 있는 부모 박스 기준 채우기 */
+      }
+
+      /* 두번째 이미지만 앱솔루트 주기 */
+      .character-card .card-imgs img:last-child {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        /* 부모는? 바로 위의 .card-imgs */
       }
 
       /* 카드 내부 하단 박스 */
@@ -320,19 +342,21 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding: 10px;
+        /* 비율유지 설정하기(높이값 불필요) */
+        aspect-ratio: 1 / 0.25;
       }
 
+      /* 한글 타이틀 */
       .character-card-info h3 {
         font-size: 2rem;
         margin-bottom: 6px;
-        color: #2a2a2a;
+        color: #444;
       }
-
+      /* 영어 타이틀 */
       .character-card-info h4 {
         font-size: 1.4rem;
         font-weight: 400;
-        color: #666;
+        color: #ccc;
       }
     </style>
   </head>
@@ -400,7 +424,7 @@
         <!-- 캐릭터 카드 박스 -->
         <div class="character-card">
           <!-- 내부 상단 박스 -->
-          <div class="character-card-visual">
+          <div class="card-imgs">
             <img src="./images/new_main_crt1.png" alt="캐릭터 메인" />
             <img src="./images/new_main_crt1_ov.png" alt="캐릭터 오버" />
           </div>
