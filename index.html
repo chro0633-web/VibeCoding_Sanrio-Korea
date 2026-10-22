@@ -136,7 +136,6 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
         /* 배경 스타일 사용법:
     background: 색 이 반 고 윙/크
     배경색 이미지 반복 고정 위치/크기 */
-        padding-bottom: 40px;
       }
 
       .banner-inner {
@@ -463,6 +462,33 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
         background-color: #4a679e;
       }
 
+      /* 푸터 영역 */
+      .footer-area{
+        background-color: #222;
+        padding: 50px;
+        display: flex;
+        /* 진행방향정렬: 사이 간격 일정하게 */
+        justify-content: space-between;
+        /* 진행방향의 수직정렬: 중간 */
+        align-items: center;
+      }
+
+      /* 하단 박스 아래 카피라이트 */
+      .footer-area img{
+      height: 13px;  
+      }
+
+      .footer-area .btn-box.simple{
+        margin: 0;
+      }
+
+      /* 하단 박스 개인전보처리방침 버튼 */
+      .footer-area .btn-view{
+        background-color: transparent;
+        color: #fff;
+        border-color: #fff;
+      }
+
       /* 카드 파트는 공통 영역-컴퍼니, 리크루트 */
       /* 카드 파트 리스트 - 가로 일정간격 */
       .card-part-list {
@@ -511,11 +537,14 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
         margin: 0 auto;
         background: #fff;
         border-radius: 20px;
-        overflow: hidden; /* 라운딩 밖으로 지도가 삐져나오지 않게 */
+        /* overflow: hidden 제거 - 키티 자동차가 박스 밖으로 나와도 보이게 */
       }
       
       /* 키티 자동차 이미지 */
-      #kitty-car{
+      #kitty-car {
+        position: absolute; /* 부모 .contact-info 기준 */
+        right: 50px;
+        bottom: -10%; /* 부모 높이의 10%만큼 아래로 */
         width: 207px;
         height: 240px;
       }
@@ -524,6 +553,8 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
       .contact-map {
         width: 50%;
         height: 100%;
+        border-radius: 20px 0 0 20px;
+        overflow: hidden;
       }
 
       .contact-map iframe {
@@ -536,6 +567,7 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
 
       /* 오른쪽 회사 정보 */
       .contact-info {
+        position: relative; /* #kitty-car의 기준 */
         width: 50%;
         padding: 0 50px;
         display: flex;
@@ -998,6 +1030,11 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
     </main>
 
     <!-- 3. 하단영역 -->
-    <footer class="footer-area"></footer>
+    <footer class="footer-area">
+      <img src="./images/copyright_2023_02_v2.png" alt="산리오 카피라이트">
+      <div class="btn-box simple">
+        <a href="#" class="btn-view">개인정보처리방침</a>
+      </div>
+    </footer>
   </body>
 </html>
