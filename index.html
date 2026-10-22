@@ -12,7 +12,6 @@
       @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
       @import url("https://cdn.rawgit.com/openhiun/hangul/14c0f6faa2941116bb53001d6a7dcd5e82300c3f/nanumbarungothic.css");
 
-      
       /* 전체 루트 설정 */
       html {
         /* rem 단위를 위한 Root 글자크기설정 */
@@ -124,13 +123,13 @@
         }
       }
 
-/* 공통셋팅 */
-/* 메인영역 하위박스 공통 */
-/* 직계 자식 선택자(>), 형제 선택자(+) 
+      /* 공통셋팅 */
+      /* 메인영역 하위박스 공통 */
+      /* 직계 자식 선택자(>), 형제 선택자(+) 
 section + section은  + 앞에 section 태그가 있는 section 태그를 모두 선택하라는 의미. 즉, 첫번째 section을 제외한 모든 section 선택(첫번째 섹션은 앞에 다른 섹션이 없으므로) */
-.main-area > section + section {
-  padding:85px 0;
-}
+      .main-area > section + section {
+        padding: 85px 0;
+      }
 
       .main-area {
         position: relative;
@@ -257,6 +256,7 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
         margin: 0 auto;
         text-transform: uppercase;
       }
+
       /* 타이틀 파트 */
       .tit-box .part-tit {
         text-align: center;
@@ -264,7 +264,7 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
         font-weight: normal;
         margin-bottom: 30px;
       }
-      
+
       /* 타이틀 박스 하위 버튼 박스 */
       .btn-box {
         text-align: center;
@@ -272,10 +272,51 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
         margin-bottom: 50px;
         /* 버튼이 사라지면 하단 마진도 사라지기 때문에 */
       }
-      
+
       /* 버튼출력안함 클래스 */
       .btn-box.off {
         display: none;
+      }
+
+      /* 버튼 흰색 테마 클래스 */
+      .tit-box.white .btn-view {
+        border: 1px solid #fff;
+        color: #fff;
+      }
+      
+      /* 타이틀 흰색 테마 클래스 */
+      .tit-box.white .part-tit {
+      color: #fff;
+      }
+
+      /* 타이틀 박스 로고 컨트롤 */
+
+    .tit-box.white .logo-box{
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+      .tit-box.white a.btn-view:hover {
+        color: #222;
+        background: #fff;
+      }
+      .tit-box.white a.btn-view:hover::after {
+        content: url(./images/ico_more1.png);
+      }
+      .tit-box.white a.btn-view::after {
+        content: url(./images/ico_more2.png);
+      }
+
+      /* 화살표 출력 안함 클래스 
+      -> 부모박스에 simple 클래스를 주면
+      자식 버튼의 가상요소 화살표가 출력 안됨*/
+      .btn-box.simple .btn-view::after {
+        display: none;
+      }
+
+      /* simple 클래스 버튼 디자인 변경 */
+      .btn-box.simple .btn-view {
+        padding: 11px 22px;
       }
 
       /* 타이틀 아래 버튼 */
@@ -312,7 +353,7 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
         padding-left: 10px;
         vertical-align: 1px;
       }
-      
+
       /* 캐릭터 카드 리스트 - 4열 줄바꿈 */
       .character-card-list {
         max-width: 1200px;
@@ -351,7 +392,6 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
         justify-content: center;
         align-items: center;
         gap: 8px;
-        background: #f5f5f5;
       }
 
       /* 첫번째 이미지 셋팅 - 비율크기 유지 역할(버티기) */
@@ -401,6 +441,66 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
         text-transform: uppercase;
       }
 
+      /* 컴퍼니 영역 */
+      .company-section {
+        background-color: #f5f5f5;
+      }
+
+      /* 리크루트 영역 */
+      .recruit-section {
+        /* 배경: 색 이 반 고 윙-크(위치-크기) */
+        background: url(./images/bg_recruit.png) no-repeat center 70px;
+      }
+
+      /* 플레이스 영역 */
+      .place-section {
+        background: url(./images/bg_shop.jpg) no-repeat center;
+        height: 34vh;
+      }
+
+      /* 컨택어스 영역 */
+      .contactus-section {
+        background-color: #4a679e;
+      }
+
+      /* 카드 파트는 공통 영역-컴퍼니, 리크루트 */
+      /* 카드 파트 리스트 - 가로 일정간격 */
+      .card-part-list {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      /* 개별카드박스 */
+      .card-part {
+        /* 플렉스 박스 */
+        display: flex;
+        /* ↓플렉스 방향 수직*/
+        flex-direction: column;
+        flex: 1;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .img-box {
+      }
+
+      /* 카드 타이틀 */
+      .card-title {
+        font-size: 2rem;
+        font-weight: 700;
+      }
+
+      /* 카드 설명 span */
+      .card-desc span {
+        /* 인라인 속성 span을 블록으로 변경 */
+        display: block;
+        font-size: 1.2rem;
+        font-weight: 400;
+      }
     </style>
   </head>
 
@@ -465,7 +565,7 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
             <a href="#" class="btn-view">view more</a>
           </div>
         </div>
-        
+
         <!-- 캐릭터 카드 리스트 -->
         <div class="character-card-list">
           <div class="character-card">
@@ -521,7 +621,10 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
           <div class="character-card">
             <div class="card-imgs">
               <img src="./images/new_main_crt6.png" alt="리틀트윈스타" />
-              <img src="./images/new_main_crt6_ov.png" alt="리틀트윈스타 오버" />
+              <img
+                src="./images/new_main_crt6_ov.png"
+                alt="리틀트윈스타 오버"
+              />
             </div>
             <div class="character-card-info">
               <h3>리틀트윈스타</h3>
@@ -541,7 +644,10 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
           <div class="character-card">
             <div class="card-imgs">
               <img src="./images/new_main_crt8.png" alt="케로케로케로피" />
-              <img src="./images/new_main_crt8_ov.png" alt="케로케로케로피 오버" />
+              <img
+                src="./images/new_main_crt8_ov.png"
+                alt="케로케로케로피 오버"
+              />
             </div>
             <div class="character-card-info">
               <h3>케로케로케로피</h3>
@@ -561,7 +667,10 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
           <div class="character-card">
             <div class="card-imgs">
               <img src="./images/new_main_crt10.png" alt="배드바츠마루" />
-              <img src="./images/new_main_crt10_ov.png" alt="배드바츠마루 오버" />
+              <img
+                src="./images/new_main_crt10_ov.png"
+                alt="배드바츠마루 오버"
+              />
             </div>
             <div class="character-card-info">
               <h3>배드바츠마루</h3>
@@ -591,7 +700,10 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
           <div class="character-card">
             <div class="card-imgs">
               <img src="./images/new_main_crt13.png" alt="딩구리데이즈" />
-              <img src="./images/new_main_crt13_ov.png" alt="딩구리데이즈 오버" />
+              <img
+                src="./images/new_main_crt13_ov.png"
+                alt="딩구리데이즈 오버"
+              />
             </div>
             <div class="character-card-info">
               <h3>딩구리데이즈</h3>
@@ -643,6 +755,61 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
             <a href="#" class="btn-view">view more</a>
           </div>
         </div>
+
+        <!-- 카드 섹션 파트 -->
+        <div class="card-part-list">
+          <figure class="card-part">
+            <!-- 아이콘 이미지 -->
+            <div class="img-box">
+              <img src="./images/ico_company1.png" alt="회사소개" />
+            </div>
+            <!-- 타이틀 -->
+            <h3 class="card-title">회사소개</h3>
+            <!-- 내용 -->
+            <p class="card-desc">
+              <span>맑고 깨끗한 강가에</span>
+              <span>문화를 쌓아 올리자.</span>
+            </p>
+            <!-- 버튼 박스 -->
+            <div class="btn-box simple">
+              <a href="#" class="btn-view">more</a>
+            </div>
+          </figure>
+          <figure class="card-part">
+            <!-- 아이콘 이미지 -->
+            <div class="img-box">
+              <img src="./images/ico_company3.png" alt="회사연혁" />
+            </div>
+            <!-- 타이틀 -->
+            <h3 class="card-title">회사연혁</h3>
+            <!-- 내용 -->
+            <p class="card-desc">
+              <span>산리오의 히스토리를</span>
+              <span>확인하세요.</span>
+            </p>
+            <!-- 버튼 박스 -->
+            <div class="btn-box simple">
+              <a href="#" class="btn-view">more</a>
+            </div>
+          </figure>
+          <figure class="card-part">
+            <!-- 아이콘 이미지 -->
+            <div class="img-box">
+              <img src="./images/ico_company4.png" alt="사업영역" />
+            </div>
+            <!-- 타이틀 -->
+            <h3 class="card-title">사업영역</h3>
+            <!-- 내용 -->
+            <p class="card-desc">
+              <span>소셜 커뮤니케이션을</span>
+              <span>산리오가 시작합니다.</span>
+            </p>
+            <!-- 버튼 박스 -->
+            <div class="btn-box simple">
+              <a href="#" class="btn-view">more</a>
+            </div>
+          </figure>
+        </div>
       </section>
 
       <!-- 1-4. 리쿠르트영역 -->
@@ -653,6 +820,61 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
           <div class="btn-box off">
             <a href="#" class="btn-view">view more</a>
           </div>
+        </div>
+
+        <!-- 카드 섹션 파트 -->
+        <div class="card-part-list">
+          <figure class="card-part">
+            <!-- 아이콘 이미지 -->
+            <div class="img-box">
+              <img src="./images/ico_recruit1.png" alt="채용공고" />
+            </div>
+            <!-- 타이틀 -->
+            <h3 class="card-title">채용공고</h3>
+            <!-- 내용 -->
+            <p class="card-desc">
+              <span>산리오코리아에서</span>
+              <span>인재를 찾습니다</span>
+            </p>
+            <!-- 버튼 박스 -->
+            <div class="btn-box simple">
+              <a href="#" class="btn-view">more</a>
+            </div>
+          </figure>
+          <figure class="card-part">
+            <!-- 아이콘 이미지 -->
+            <div class="img-box">
+              <img src="./images/ico_recruit2.png" alt="직무소개" />
+            </div>
+            <!-- 타이틀 -->
+            <h3 class="card-title">직무소개</h3>
+            <!-- 내용 -->
+            <p class="card-desc">
+              <span>산리오코리아에서는</span>
+              <span>어떤 일을 할까요?</span>
+            </p>
+            <!-- 버튼 박스 -->
+            <div class="btn-box simple">
+              <a href="#" class="btn-view">more</a>
+            </div>
+          </figure>
+          <figure class="card-part">
+            <!-- 아이콘 이미지 -->
+            <div class="img-box">
+              <img src="./images/ico_recruit3.png" alt="복리후생" />
+            </div>
+            <!-- 타이틀 -->
+            <h3 class="card-title">복리후생</h3>
+            <!-- 내용 -->
+            <p class="card-desc">
+              <span>산리오코리아에서</span>
+              <span>누릴 수 있는것!</span>
+            </p>
+            <!-- 버튼 박스 -->
+            <div class="btn-box simple">
+              <a href="#" class="btn-view">more</a>
+            </div>
+          </figure>
         </div>
       </section>
 
@@ -670,7 +892,10 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
       <!-- 1-6. 컨텍어스영역 -->
       <section class="contactus-section">
         <!-- 타이틀 박스 -->
-        <div class="tit-box">
+        <div class="tit-box white">
+          <div class="logo-box">
+            <img src="./images/logo_w.png" alt="화이트 로고" />
+          </div>
           <h2 class="part-tit">contact us</h2>
           <div class="btn-box">
             <a href="#" class="btn-view">view more</a>
