@@ -3,6 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <title>산리오 코리아_SH</title>
+    <!-- 미디어쿼리를 위한 뷰포트 필수
+     줄임말 meta:vp -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- <link rel="stylesheet" href="./style.css" /> -->
     <style>
       /* 웹폰트 로딩하기(CDN 방식)
@@ -57,17 +60,27 @@
         box-sizing: border-box; /* 패딩 포함 크기 계산 */
       }
 
+      /* 1024px 이하 미디어 쿼리 시작*/
+      @media screen and (max-width: 1024px) {
+        /* 기존 선택자와 동일하게 사용함 */
+        .header-area-inner {
+          background-color: red;
+        }
+      }
+      /* 1024px 이하 미디어 쿼리 종료*/
+
       /* 로고 박스 - 플렉스 및 수직 정렬 */
-      .logo-box {
-        flex-shrink: 0; /* 크기 줄어들지 않음 */
+      h1.logo-box {
+        /*flex-shrink: 0;  크기 줄어들지 않음 */
         display: flex;
         align-items: center;
+        width: 20%;
       }
 
       /* 로고 이미지 크기 고정 */
-      .logo-box img {
-        height: 48px;
+      h1.logo-box img {
         display: block;
+        max-width: 100%;
       }
 
       /* 메뉴 리스트 네비게이션 스타일 */
@@ -376,7 +389,7 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
         inset은 내부 그림자, hoff는 x축, voff는 y축 이동, blur, spread는 그림자 크기, 컬러*/
         border-radius: 12px;
         /* overflow: hidden; */
-        background: #fff;
+        background: transparent;
         width: calc(25% - 15px);
         /* calc(계산식)
         +, -는 기호 앞뒤를 띄어쓰기 필수, 곱하기 나누기는 상관없음 */
@@ -440,6 +453,21 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
         text-transform: uppercase;
       }
 
+      /* 캐릭터 영역 - 800px 이하 미디어 쿼리 시작 */
+      @media screen and (max-width: 800px) {
+        /* rem 기준 글자크기 조정: 타이틀 5rem이 32px이 되도록
+        10px x (32 / 50) = 6.4px → rem을 쓰는 나머지 글자는 자동 비례 축소 */
+        html {
+          font-size: 6.4px;
+        }
+
+        /* 카드 4개 → 2개 배열 (gap 20px 기준 계산) */
+        .character-card {
+          width: calc(50% - 10px);
+        }
+      }
+      /* 캐릭터 영역 - 800px 이하 미디어 쿼리 종료 */
+
       /* 컴퍼니 영역 */
       .company-section {
         background-color: #f5f5f5;
@@ -463,7 +491,7 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
       }
 
       /* 푸터 영역 */
-      .footer-area{
+      .footer-area {
         background-color: #222;
         padding: 50px;
         display: flex;
@@ -474,16 +502,16 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
       }
 
       /* 하단 박스 아래 카피라이트 */
-      .footer-area img{
-      height: 13px;  
+      .footer-area img {
+        height: 13px;
       }
 
-      .footer-area .btn-box.simple{
+      .footer-area .btn-box.simple {
         margin: 0;
       }
 
       /* 하단 박스 개인전보처리방침 버튼 */
-      .footer-area .btn-view{
+      .footer-area .btn-view {
         background-color: transparent;
         color: #fff;
         border-color: #fff;
@@ -511,9 +539,6 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
         gap: 10px;
       }
 
-      .img-box {
-      }
-
       /* 카드 타이틀 */
       .card-title {
         font-size: 2rem;
@@ -531,15 +556,14 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
       /* 컨택어스 정보 박스 (지도 + 회사정보) */
       .contact-box {
         display: flex;
-        width: 1200px;
-        max-width: 100%;
+        max-width: 1200px;
         height: 350px;
         margin: 0 auto;
         background: #fff;
         border-radius: 20px;
         /* overflow: hidden 제거 - 키티 자동차가 박스 밖으로 나와도 보이게 */
       }
-      
+
       /* 키티 자동차 이미지 */
       #kitty-car {
         position: absolute; /* 부모 .contact-info 기준 */
@@ -563,7 +587,6 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
         height: 100%;
         border: 0;
       }
-
 
       /* 오른쪽 회사 정보 */
       .contact-info {
@@ -606,9 +629,9 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
     <header class="header-area">
       <div class="header-area-inner">
         <!-- 로고 이미지 박스 -->
-        <div class="logo-box">
+        <h1 class="logo-box">
           <img src="./images/logo_2023.png" alt="산리오 코리아 로고" />
-        </div>
+        </h1>
         <!-- 메뉴 리스트 -->
         <nav class="menu-list">
           <ul>
@@ -1031,7 +1054,7 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
 
     <!-- 3. 하단영역 -->
     <footer class="footer-area">
-      <img src="./images/copyright_2023_02_v2.png" alt="산리오 카피라이트">
+      <img src="./images/copyright_2023_02_v2.png" alt="산리오 카피라이트" />
       <div class="btn-box simple">
         <a href="#" class="btn-view">개인정보처리방침</a>
       </div>
