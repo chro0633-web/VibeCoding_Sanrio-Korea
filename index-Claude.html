@@ -656,14 +656,14 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
           top: 24px;
         }
         /* 열렸을 때 X 모양 */
-        body.menu-open .menu-btn span:nth-child(1) {
+        body.menu-open .menu-btn.on span:nth-child(1) {
           top: 12px;
           transform: rotate(45deg);
         }
-        body.menu-open .menu-btn span:nth-child(2) {
+        body.menu-open .menu-btn.on span:nth-child(2) {
           opacity: 0;
         }
-        body.menu-open .menu-btn span:nth-child(3) {
+        body.menu-open .menu-btn.on span:nth-child(3) {
           top: 12px;
           transform: rotate(-45deg);
         }
@@ -682,30 +682,34 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
           background: #fff;
           justify-content: center;
           z-index: 1;
-          transform: translateX(100%);
-          visibility: hidden;
-          /* transition:
+          /* 변경 내용: 위치이동, 투명도*/
+          translate: 100%;
+          opacity: 0;
+          transition: .4s;
+
+          /* trnslate 속성은 하나만 쓰면 X축, 2개 쓰면 X,Y축 */
+          /* transform: translateX(100%); */
+          
+          /* visivility와 opacity 투명도 0의 차이는
+          투명해진 후 이벤트 적용 여부 차이다. 
+          opacity: 0은 이벤트가 적용되고 visivility:hidden은 이벤트 적용안됨*/ 
+          /* visibility: hidden; */
+
+            /* transition:
             transform 0.35s ease,
             visibility 0.35s; */
         }
 
         /* 모바일용 메뉴를 위한 클래스 지정: 트랜지션 넣기 */
         /* .mob 클래스를 자바 스크립트에서 작동시 넣어주면 된다 */
-        .header-area-inner.mob nav {
-          /* 트랜지션 설정 */
-          transition:
-            transform 0.4s ease,
-            visibility 0s 0.4s;
-        }
 
-        .header-area-inner.mob.on nav {
-          /* 트랜스폼: 보이게 설정 */
-          transform: translateX(0);
-          visibility: visible;
+        .header-area.mob.on nav {
+          translate: 0;
+          opacity: 1;
         }
 
         /* 메뉴가 열리면 뒤 화면 스크롤 방지 */
-        body.menu-open {
+        /* body.menu-open {
           overflow: hidden;
         }
 
@@ -715,7 +719,7 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
           transition:
             transform 0.35s ease,
             visibility 0.35s;
-        }
+        } */
 
         /* 항목은 세로로 쌓이고 가운데 정렬, 대문자, 큰 글자(2.625rem = 42px) */
         .menu-list ul {
@@ -1026,7 +1030,7 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
 
   <body>
     <!-- 1. 상단영역 -->
-    <header class="header-area">
+    <header class="header-area mob on">
       <div class="header-area-inner">
         <!-- 로고 이미지 박스 -->
         <h1 class="logo-box">
@@ -1546,7 +1550,15 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
         나야나함수("orange");
       }; /////onclick 함수/////
 
+      /////////햄버거 버튼 클릭시 메뉴 보이기/숨기기/////////
+      //1. 대상 선정
+      //1-1. 이벤트 대상 : menu-btn (햄버거 버튼)
+      let 햄버거 = document.querySelector('.menu-btn');
+      //1-2. 변경 대상: 상단영역 .header-area
+      let 상단박스 = document.querySelector('.header-area');
+      
 
+      console.log('선택 확인', 햄버거, 상단박스)
 
 
       // 햄버거 메뉴 열기/닫기
