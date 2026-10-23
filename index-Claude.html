@@ -2,10 +2,10 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <title>산리오 코리아_SH</title>
+    <title>산리오 코리아_클로드</title>
     <!-- 미디어쿼리를 위한 뷰포트 필수
      줄임말 meta:vp -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- <link rel="stylesheet" href="./style.css" /> -->
     <style>
       /* 웹폰트 로딩하기(CDN 방식)
@@ -65,7 +65,7 @@
         /*flex-shrink: 0;  크기 줄어들지 않음 */
         display: flex;
         align-items: center;
-        width: 20%;
+        width: 10%;
       }
 
       /* 로고 이미지 크기 고정 */
@@ -450,7 +450,7 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
       }
 
       /* 푸터 영역 */
-      .footer-area{
+      .footer-area {
         background-color: #222;
         padding: 50px;
         display: flex;
@@ -461,16 +461,16 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
       }
 
       /* 하단 박스 아래 카피라이트 */
-      .footer-area img{
-      height: 13px;  
+      .footer-area img {
+        height: 13px;
       }
 
-      .footer-area .btn-box.simple{
+      .footer-area .btn-box.simple {
         margin: 0;
       }
 
       /* 하단 박스 개인전보처리방침 버튼 */
-      .footer-area .btn-view{
+      .footer-area .btn-view {
         background-color: transparent;
         color: #fff;
         border-color: #fff;
@@ -498,9 +498,6 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
         gap: 10px;
       }
 
-      .img-box {
-      }
-
       /* 카드 타이틀 */
       .card-title {
         font-size: 2rem;
@@ -525,7 +522,7 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
         border-radius: 20px;
         /* overflow: hidden 제거 - 키티 자동차가 박스 밖으로 나와도 보이게 */
       }
-      
+
       /* 키티 자동차 이미지 */
       #kitty-car {
         position: absolute; /* 부모 .contact-info 기준 */
@@ -549,7 +546,6 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
         height: 100%;
         border: 0;
       }
-
 
       /* 오른쪽 회사 정보 */
       .contact-info {
@@ -612,6 +608,7 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
         }
 
         /* 2. 헤더: 높이 100px + 회색 구분선 */
+
         .header-area {
           border-bottom: 1px solid #ddd;
         }
@@ -671,6 +668,8 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
           transform: rotate(-45deg);
         }
 
+        /* 여기서 바깥으로 이동함 -> 처음부터 셋팅 필요
+        사이즈 변경시 갑자기 화면에 나타났다가 오른쪽으로 사라짐*/
         /* PC 가로 메뉴 → 전체 화면 흰색 패널(오른쪽에서 슬라이드) */
         .menu-list {
           position: fixed;
@@ -685,17 +684,39 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
           z-index: 1;
           transform: translateX(100%);
           visibility: hidden;
+          /* transition:
+            transform 0.35s ease,
+            visibility 0.35s; */
+        }
+
+        /* 모바일용 메뉴를 위한 클래스 지정: 트랜지션 넣기 */
+        /* .mob 클래스를 자바 스크립트에서 작동시 넣어주면 된다 */
+        .header-area-inner.mob nav {
+          /* 트랜지션 설정 */
+          transition:
+            transform 0.4s ease,
+            visibility 0s 0.4s;
+        }
+
+        .header-area-inner.mob.on nav {
+          /* 트랜스폼: 보이게 설정 */
+          transform: translateX(0);
+          visibility: visible;
+        }
+
+        /* 메뉴가 열리면 뒤 화면 스크롤 방지 */
+        body.menu-open {
+          overflow: hidden;
+        }
+
+        body.menu-open .menu-list {
+          transform: translateX(0);
+          visibility: visible;
           transition:
             transform 0.35s ease,
             visibility 0.35s;
         }
-        body.menu-open {
-          overflow: hidden; /* 메뉴가 열리면 뒤 화면 스크롤 방지 */
-        }
-        body.menu-open .menu-list {
-          transform: translateX(0);
-          visibility: visible;
-        }
+
         /* 항목은 세로로 쌓이고 가운데 정렬, 대문자, 큰 글자(2.625rem = 42px) */
         .menu-list ul {
           flex-direction: column;
@@ -713,7 +734,7 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
       @media screen and (max-width: 1024px) {
         /* 헤더: 로고 너비 30% */
         h1.logo-box {
-          width: 30%;
+          width: 20%;
         }
 
         /* SNS 아이콘: 고정 배치, 헤더 아래(top 112px) */
@@ -1047,7 +1068,10 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
           src="./images/main_visual_mo_v1.png"
           alt="메인 비주얼"
           class="banner-image m-ver"
-          onerror="this.onerror=null;this.src='./images/main_visual_pc_v1.png'"
+          onerror="
+            this.onerror = null;
+            this.src = './images/main_visual_pc_v1.png';
+          "
         />
         <!-- SNS 이동 버튼 박스 -->
         <div class="sns">
@@ -1451,38 +1475,106 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
 
     <!-- 3. 하단영역 -->
     <footer class="footer-area">
-      <img src="./images/copyright_2023_02_v2.png" alt="산리오 카피라이트">
+      <img src="./images/copyright_2023_02_v2.png" alt="산리오 카피라이트" />
       <div class="btn-box simple">
         <a href="#" class="btn-view">개인정보처리방침</a>
       </div>
     </footer>
     <script>
+      // 자바스크립트
+      console.log("안녕");
+
+      //document는 전체 문서객체(DOM-Document Object Model)
+      //점(.)은 객체의 하위 속성으로 들어감
+      //요소 선택법: querySelector(CSS선택자-CSS문법) -> 위에서부터 읽어내려오면서 만나는 첫번째 요소만 선택된다
+      // -> 참고로 여러 요소 선택은 querySelectorAll(CSS선택자)
+
+      //변수(저장주소)
+      let 나야나 = document.querySelector(".header-area-inner");
+      console.log("나는 누구인가?", 나야나);
+      //변수는 따옴표로 싸지 않는 문자다.
+      //변수는 let으로 선언한다.
+      // =은 오른쪽의 값이 왼쪽 변수에 할당 되는 것
+      //변수는 왜 쓰나? 재사용
+
+      //하단 요소의 배경색 바꾸기
+      //상단 요소의 배경색 바꾸기 -> 위에 변수가 택한 선택자만 변경
+      //아래의 코드가 호출시에만 실행하도록 하려면? 함수 안에 넣어준다
+      //함수 이름을 호출할때 실행됨
+
+      //전통적인 함수
+      //function 함수명(전달변수){코드}
+
+      //요즘 쓰는 화살표 함수: let 함수명 = ()=>{}
+      //이때 함수명은 함수를 담을 변수를 뜻함
+
+      //const는 상수 또는 함수를 담는 변수 선언
+      //보안상 let보다 const를 함수 담을때 많이 쓴다
+
+      //const 나야나함수 = ()=>{};
+      const 나야나함수 = (색상) => {
+        나야나.style.backgroundColor = 색상;
+        //나야나.style.rotate = '360deg';
+        //회전은 로고가 하도록 변경 (아래 쿼리셀렉트 logo-box 추가)
+        나야나.style.transition = '2s ease-in-out';
+        나야나.querySelector('.logo-box').style.rotate = '360deg';
+        나야나.querySelector('.logo-box').style.transition = '4s ease-in-out';
+      };
+      /////// 구분을 위해 함수 끝에 이런식으로 주석을 붙이기도..(쌤스타일) ///////
+
+      // 할당된 화살표 함수는 반드시 함수 아래쪽에서 호출해야함
+      //또는 이벤트 발생시엔 상관 없음 (이벤트는 바로 발생하지 않기 때문에 순서가 상관없을수도 있음)
+
+      //함수는 호출시 함수명(전달값) -> 소괄호 필수
+      //만약 전달변수가 있다면 값을 써서 보내야함. 전달값이 없으면 비워도 오케이.
+      //나야나함수("orange");
+
+      //최종 요구사항
+      // -> 상단 배너 클릭시 상단 메뉴 배경색을 변경하고
+      //상단 메뉴는 360도 회전함
+      //트랜지션으로 애니메이션 2초간 되게함
+
+      //대상선정
+      //1. 이벤트 대상: 상단 배너 (.banner-image pc-ver)
+      let 너를클릭해 = document.querySelector(".banner-image.pc-ver");
+      //2. 변경 대상: 상단 영역은 이미 위에서 선택
+      //3. 이벤트 설정하기: 클릭 이벤트
+      // 클릭 이벤트는 onclick. 이외에 html에서 on~ 으로 on이벤트 종류를 확인 할 수 있다.
+      //클릭시 함수 호출은 바로 실행 안되게 화살표 함수로 표시
+      너를클릭해.onclick = () => {
+        //해당 요소의 클릭 이벤트가 발생하면 이 구역을 실행함
+        나야나함수("orange");
+      }; /////onclick 함수/////
+
+
+
+
       // 햄버거 메뉴 열기/닫기
-      (function () {
-        var btn = document.querySelector(".menu-btn");
-        var links = document.querySelectorAll(".menu-list a");
+      // (function () {
+      //   var btn = document.querySelector(".menu-btn");
+      //   var links = document.querySelectorAll(".menu-list a");
 
-        function setMenu(open) {
-          document.body.classList.toggle("menu-open", open);
-          btn.setAttribute("aria-expanded", open);
-          btn.setAttribute("aria-label", open ? "메뉴 닫기" : "메뉴 열기");
-        }
+      //   function setMenu(open) {
+      //     document.body.classList.toggle("menu-open", open);
+      //     btn.setAttribute("aria-expanded", open);
+      //     btn.setAttribute("aria-label", open ? "메뉴 닫기" : "메뉴 열기");
+      //   }
 
-        btn.addEventListener("click", function () {
-          var open = !document.body.classList.contains("menu-open");
-          if (open) window.scrollTo(0, 0); // 패널이 헤더 위치와 맞도록
-          setMenu(open);
-        });
-        links.forEach(function (a) {
-          a.addEventListener("click", function () {
-            setMenu(false);
-          });
-        });
-        // PC 폭으로 돌아오면 자동으로 닫기
-        window.addEventListener("resize", function () {
-          if (window.innerWidth > 1199) setMenu(false);
-        });
-      })();
+      //   btn.addEventListener("click", function () {
+      //     var open = !document.body.classList.contains("menu-open");
+      //     if (open) window.scrollTo(0, 0); // 패널이 헤더 위치와 맞도록
+      //     setMenu(open);
+      //   });
+      //   links.forEach(function (a) {
+      //     a.addEventListener("click", function () {
+      //       setMenu(false);
+      //     });
+      //   });
+      //   // PC 폭으로 돌아오면 자동으로 닫기
+      //   window.addEventListener("resize", function () {
+      //     if (window.innerWidth > 1199) setMenu(false);
+      //   });
+      // })();
     </script>
   </body>
 </html>
