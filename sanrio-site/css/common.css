@@ -1,0 +1,470 @@
+/* =====================================================
+   common.css - 모든 페이지 공통 스타일
+   글꼴 / 공통 레이아웃 / 제목 / 버튼 / 헤더 / 푸터
+   ※ reset.css 다음에 불러올 것 (순서: reset → common → 페이지별 css)
+   ===================================================== */
+
+
+/* 웹폰트 로딩하기(CDN 방식)
+CDN은 Content Dilivery Network 망으로 컨텐트를 배달시켜 쓰는 방법 */
+
+/* 순서대로 위에서부터 Montserat, 나눔바른고딕 */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://cdn.rawgit.com/openhiun/hangul/14c0f6faa2941116bb53001d6a7dcd5e82300c3f/nanumbarungothic.css");
+
+/* 전체 루트 설정 */
+html {
+  /* rem 단위를 위한 Root 글자크기설정 */
+  font-size: 10px;
+  /* 왜 10px인가? 배수 비율인 rem 단위 계산에 용이함 */
+}
+
+/* 웹폰트체 지정(콤마는 우선 순위) */
+html,
+body {
+  font-family:
+    Montserrat, "Nanum Barun Gothic", AppleGothic, Dotum, sans-serif;
+}
+
+/* 헤더 전체 영역 스타일 */
+.header-area {
+  width: 100%;
+  background: #fff; /* 흰색 배경 */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02); /* 약간의 그림자 효과 */
+  position: relative;
+  z-index: 20; /* 다른 요소보다 위 */
+}
+
+/* 헤더 내부 컨테이너 - 중앙 정렬 및 정렬 플렉스 */
+.header-area-inner {
+  max-width: 1440px; /* 최대 폭 */
+  margin: 0 auto; /* 가운데 정렬 */
+  display: flex; /* 내부 아이템 가로 정렬 */
+  align-items: center; /* 세로 중앙 정렬 */
+  justify-content: space-between; /* 좌우 정렬 */
+  height: 80px; /* 높이 */
+  padding: 0 24px;
+  box-sizing: border-box; /* 패딩 포함 크기 계산 */
+}
+
+/* 로고 박스 - 플렉스 및 수직 정렬 */
+h1.logo-box {
+  /*flex-shrink: 0;  크기 줄어들지 않음 */
+  display: flex;
+  align-items: center;
+  width: 10%;
+}
+
+/* 로고 이미지 크기 고정 */
+h1.logo-box img {
+  display: block;
+  max-width: 100%;
+}
+
+/* 메뉴 리스트 네비게이션 스타일 */
+.menu-list {
+  display: flex;
+  align-items: center;
+}
+
+/* 메뉴 항목(ul) 플렉스 가로 정렬 + 간격 */
+.menu-list ul {
+  display: flex;
+  gap: 40px; /* 항목 사이 간격 */
+  list-style: none; /* 기본 불릿 제거 */
+  margin: 0;
+  padding: 0;
+}
+
+/* 각 메뉴 항목(li) 상대 포지셔닝 */
+.menu-list li {
+  position: relative;
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+/* 메뉴 각 링크 스타일 */
+.menu-list a {
+  text-decoration: none; /* 밑줄 제거 */
+  color: #444; /* 글자색 */
+  transition: color 0.2s; /* 색상 천천히 변경 */
+  text-transform: uppercase; /* 대문자 변환 */
+}
+
+/* 메뉴 항목 마우스 오버/포커스 색상 강조 */
+.menu-list a:hover,
+.menu-list a:focus {
+  color: #ff4499;
+}
+
+/* 공통 타이틀 박스 */
+.tit-box {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-transform: uppercase;
+}
+
+/* 타이틀 파트 */
+.tit-box .part-tit {
+  text-align: center;
+  font-size: 5rem;
+  font-weight: normal;
+  margin-bottom: 30px;
+}
+
+/* 타이틀 박스 하위 버튼 박스 */
+.btn-box {
+  text-align: center;
+  /* padding: 20px 0; */
+  margin-bottom: 50px;
+  /* 버튼이 사라지면 하단 마진도 사라지기 때문에 */
+}
+
+/* 버튼출력안함 클래스 */
+.btn-box.off {
+  display: none;
+}
+
+/* 버튼 흰색 테마 클래스 */
+.tit-box.white .btn-view {
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+/* 타이틀 흰색 테마 클래스 */
+.tit-box.white .part-tit {
+  color: #fff;
+}
+
+/* 타이틀 박스 로고 컨트롤 */
+
+.tit-box.white .logo-box {
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.tit-box.white a.btn-view:hover {
+  color: #222;
+  background: #fff;
+}
+.tit-box.white a.btn-view:hover::after {
+  content: url(../images/ico_more1.png);
+}
+.tit-box.white a.btn-view::after {
+  content: url(../images/ico_more2.png);
+}
+
+/* 화살표 출력 안함 클래스 
+-> 부모박스에 simple 클래스를 주면
+자식 버튼의 가상요소 화살표가 출력 안됨*/
+.btn-box.simple .btn-view::after {
+  display: none;
+}
+
+/* simple 클래스 버튼 디자인 변경 */
+.btn-box.simple .btn-view {
+  padding: 11px 22px;
+}
+
+/* 타이틀 아래 버튼 */
+a.btn-view {
+  display: inline-block; /* width: 80px; */
+  border: 1px solid #222;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #222;
+  font-size: 1.2rem;
+  border-radius: 25px;
+  transition: 0.3s;
+}
+
+/* 버튼 오버시 가상 클래스 :hover를 사용함 */
+a.btn-view:hover {
+  color: #fff;
+  background: #222;
+  /* 트랜지션 양방향은 원본에 설정함 */
+  /* hover에만 설정하면 오버시에만 애니됨 */
+  /* transition: 0.5s; */
+}
+
+/* 버튼 오버시 가상 요소 :after 이미지 변경 */
+a.btn-view:hover::after {
+  content: url(../images/ico_more2.png);
+}
+
+/* 버튼 가상 요소 이미지 넣기 */
+/* 앞은 ::before 뒤는 ::after */
+a.btn-view::after {
+  /* before, after의 필수 속성 content */
+  content: url(../images/ico_more1.png);
+  padding-left: 10px;
+  vertical-align: 1px;
+}
+
+/* 푸터 영역 */
+.footer-area {
+  background-color: #222;
+  padding: 50px;
+  display: flex;
+  /* 진행방향정렬: 사이 간격 일정하게 */
+  justify-content: space-between;
+  /* 진행방향의 수직정렬: 중간 */
+  align-items: center;
+}
+
+/* 하단 박스 아래 카피라이트 */
+.footer-area img {
+  height: 13px;
+}
+
+.footer-area .btn-box.simple {
+  margin: 0;
+}
+
+/* 하단 박스 개인전보처리방침 버튼 */
+.footer-area .btn-view {
+  background-color: transparent;
+  color: #fff;
+  border-color: #fff;
+}
+
+/* PC에서는 햄버거 버튼을 숨김 */
+.menu-btn {
+  display: none;
+}
+
+/* =====================================================
+   반응형 미디어쿼리 (공통: 헤더·메뉴·제목·푸터)
+   순서: 1199px → 1024px → 800px → 767px → 736px
+   (큰 값 → 작은 값 순서여야 나중 규칙이 덮어쓰며 정상 동작)
+   ===================================================== */
+
+/* ---------- 1199px 이하 ---------- */
+@media screen and (max-width: 1199px) {
+  /* 1. 공통 컨테이너: 고정 너비 → 가로 꽉 참, 좌우 14px 여백 */
+  .tit-box {
+    max-width: none;
+    margin-left: 14px;
+    margin-right: 14px;
+  }
+
+  /* 2. 헤더: 높이 100px + 회색 구분선 */
+  .header-area {
+    border-bottom: 1px solid #ddd;
+  }
+
+  .header-area-inner {
+    height: 100px;
+    padding: 0 14px;
+  }
+
+  /* 로고는 메뉴 패널 위에 보이도록 */
+  h1.logo-box {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* 햄버거 버튼 (너비 34px) */
+  .menu-btn {
+    display: block;
+    position: relative;
+    z-index: 2;
+    width: 34px;
+    height: 28px;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+  }
+
+  .menu-btn span {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background: #444;
+    transition:
+      top 0.3s,
+      transform 0.3s,
+      opacity 0.3s;
+  }
+
+  .menu-btn span:nth-child(1) {
+    top: 0;
+  }
+
+  .menu-btn span:nth-child(2) {
+    top: 12px;
+  }
+
+  .menu-btn span:nth-child(3) {
+    top: 24px;
+  }
+
+  /* 열렸을 때 X 모양 */
+  body.menu-open .menu-btn.on span:nth-child(1) {
+    top: 12px;
+    transform: rotate(45deg);
+  }
+
+  body.menu-open .menu-btn.on span:nth-child(2) {
+    opacity: 0;
+  }
+
+  body.menu-open .menu-btn.on span:nth-child(3) {
+    top: 12px;
+    transform: rotate(-45deg);
+  }
+
+  /* 여기서 바깥으로 이동함 -> 처음부터 셋팅 필요
+  사이즈 변경시 갑자기 화면에 나타났다가 오른쪽으로 사라짐*/
+  /* PC 가로 메뉴 → 전체 화면 흰색 패널(오른쪽에서 슬라이드) */
+  .menu-list {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding-top: 100px;
+    background: #fff;
+    justify-content: center;
+    z-index: 1;
+    /* 변경 내용: 위치이동, 투명도*/
+    translate: 100%;
+    opacity: 0;
+    transition: .4s;
+
+    /* trnslate 속성은 하나만 쓰면 X축, 2개 쓰면 X,Y축 */
+    /* transform: translateX(100%); */
+    
+    /* visivility와 opacity 투명도 0의 차이는
+    투명해진 후 이벤트 적용 여부 차이다. 
+    opacity: 0은 이벤트가 적용되고 visivility:hidden은 이벤트 적용안됨*/ 
+    /* visibility: hidden; */
+
+      /* transition:
+      transform 0.35s ease,
+      visibility 0.35s; */
+  }
+
+  /* 모바일용 메뉴를 위한 클래스 지정: 트랜지션 넣기 */
+  /* .mob 클래스를 자바 스크립트에서 작동시 넣어주면 된다 */
+  .header-area.on nav {
+    translate: 0;
+    opacity: 1;
+  }
+
+  /* 메뉴가 열리면 뒤 화면 스크롤 방지 */
+  /* body.menu-open {
+    overflow: hidden;
+  }
+
+  body.menu-open .menu-list {
+    transform: translateX(0);
+    visibility: visible;
+    transition:
+      transform 0.35s ease,
+      visibility 0.35s;
+  } */
+  /* 항목은 세로로 쌓이고 가운데 정렬, 대문자, 큰 글자(2.625rem = 42px) */
+  .menu-list ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .menu-list li {
+    font-size: 4.2rem;
+    text-transform: uppercase;
+  }
+}
+
+/* ---------- 1024px 이하 ---------- */
+@media screen and (max-width: 1024px) {
+  /* 헤더: 로고 너비 30% */
+  h1.logo-box {
+    width: 20%;
+  }
+}
+
+/* ---------- 800px 이하 ---------- */
+@media screen and (max-width: 800px) {
+  /* 푸터: 가로 → 세로로 쌓임, 가운데 정렬 */
+  .footer-area {
+    display: block;
+    text-align: center;
+  }
+
+  .footer-area img {
+    display: block;
+    margin: 0 auto 20px;
+  }
+}
+
+/* ---------- 767px 이하 ---------- */
+@media screen and (max-width: 767px) {
+  /* 기본 글자 크기 87.5% (root 10px 기준 → 8.75px) */
+  html {
+    font-size: 8.75px;
+  }
+}
+
+/* ---------- 736px 이하 ---------- */
+@media screen and (max-width: 736px) {
+  /* 헤더: 높이 50px, 햄버거 24px(선 3px), 메뉴 글자 28px */
+  .header-area-inner {
+    height: 50px;
+  }
+
+  .menu-btn {
+    width: 24px;
+    height: 17px;
+  }
+
+  .menu-btn span {
+    height: 3px;
+  }
+
+  .menu-btn span:nth-child(2) {
+    top: 7px;
+  }
+
+  .menu-btn span:nth-child(3) {
+    top: 14px;
+  }
+
+  body.menu-open .menu-btn span:nth-child(1),
+  body.menu-open .menu-btn span:nth-child(3) {
+    top: 7px;
+  }
+
+  .menu-list {
+    padding-top: 50px;
+  }
+
+  .menu-list ul {
+    gap: 16px;
+  }
+
+  .menu-list li {
+    font-size: 28px;
+  }
+
+  /* 제목 글자 축소(2.33rem ≈ 32px) */
+  .tit-box .part-tit {
+    font-size: 32px;
+  }
+
+  /* 푸터: 여백 30px / 50px, 저작권 이미지 60% */
+  .footer-area {
+    padding: 30px 50px;
+  }
+
+  .footer-area img {
+    width: 60%;
+    height: auto;
+  }
+}

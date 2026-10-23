@@ -1,0 +1,13 @@
+/* =====================================================
+   reset.css - 초기화 (모든 페이지 공통, 가장 먼저 불러올 것)
+   ===================================================== */
+
+/* 공통 요소 초기화
+   모든 요소의 마진, 패딩 초기화 */
+/* prettier-ignore */
+html,body,h1,h2,h3,h4,h5,h6,p,ul,ol,li,dl,dt,dd,blockquote,pre,figure,fieldset,form,input,textarea,button,table,th,td {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-weight: normal;
+}

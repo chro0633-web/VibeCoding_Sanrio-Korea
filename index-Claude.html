@@ -703,7 +703,7 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
         /* 모바일용 메뉴를 위한 클래스 지정: 트랜지션 넣기 */
         /* .mob 클래스를 자바 스크립트에서 작동시 넣어주면 된다 */
 
-        .header-area.mob.on nav {
+        .header-area.on nav {
           translate: 0;
           opacity: 1;
         }
@@ -821,21 +821,20 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
           padding: 10px 0;
         }
 
-        /* company: 2×2 배치, 항목 사이 회색 선, 위/아래 5% 여백 */
+        /* company: 카드 1개씩 세로 나열, 가운데 정렬 */
         .company-section .card-part-list {
-          flex-wrap: wrap;
-          justify-content: center;
+          flex-direction: column;
+          align-items: center;
+          gap: 40px;
         }
         .company-section .card-part {
-          flex: 0 0 calc(50% - 10px);
-        }
-        .company-section .card-part:nth-child(-n + 2) {
-          padding-bottom: 5%;
-          margin-bottom: 5%;
-          border-bottom: 1px solid #ccc;
+          flex: none;
+          width: 100%;
+          align-items: center;
+          text-align: center;
         }
 
-        /* recruit: 모바일 배경(90% 크기, 상단 30px), 항목 가로 배치(아이콘 57% + 텍스트 33%) */
+        /* recruit: 모바일 배경(90% 크기, 상단 30px), 카드 세로 나열 + 카드 안(이미지/텍스트/버튼)도 세로 중앙 정렬 */
         .recruit-section {
           background-size: 90%;
           background-position: center 30px;
@@ -844,31 +843,27 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
         }
         .recruit-section .card-part-list {
           flex-direction: column;
-          gap: 30px;
+          align-items: center;
+          gap: 40px;
         }
         .recruit-section .card-part {
-          display: grid;
-          grid-template-columns: 57% 33%;
-          justify-content: space-between;
+          flex: none;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
           align-items: center;
-          row-gap: 6px;
+          text-align: center;
+          gap: 10px;
         }
         .recruit-section .img-box {
-          grid-column: 1;
-          grid-row: 1 / span 3;
           text-align: center;
         }
         .recruit-section .img-box img {
           max-width: 100%;
         }
-        .recruit-section .card-title,
-        .recruit-section .card-desc,
-        .recruit-section .btn-box {
-          grid-column: 2;
-        }
         .recruit-section .btn-box {
           margin-bottom: 0;
-          text-align: left;
+          text-align: center;
         }
 
         /* place: 모바일 배경, cover로 채움 */
@@ -955,10 +950,10 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
           width: 34px;
         }
 
-        /* 메인 비주얼: 좌우 여백 제거, 스크롤 버튼 하단 20px */
+        /* 메인 비주얼: 좌우 여백 20px (기존 0 → 이미지가 화면에 붙던 문제 수정), 스크롤 버튼 하단 20px */
         .banner-inner {
-          padding-left: 0;
-          padding-right: 0;
+          padding-left: 20px;
+          padding-right: 20px;
         }
         .scroll_btn {
           bottom: 20px;
@@ -985,10 +980,7 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
           width: 100%;
         }
 
-        /* recruit: 아이콘 52% / 텍스트 48%, 더보기 버튼 최대 80px */
-        .recruit-section .card-part {
-          grid-template-columns: 52% 48%;
-        }
+        /* recruit: 더보기 버튼 최대 80px */
         .recruit-section .btn-view {
           box-sizing: border-box;
           max-width: 80px;
@@ -1030,7 +1022,7 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
 
   <body>
     <!-- 1. 상단영역 -->
-    <header class="header-area mob on">
+    <header class="header-area">
       <div class="header-area-inner">
         <!-- 로고 이미지 박스 -->
         <h1 class="logo-box">
@@ -1557,6 +1549,13 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
       //1-2. 변경 대상: 상단영역 .header-area
       let 상단박스 = document.querySelector('.header-area');
       
+      //2. 이벤트 함수 만들기
+      // 햄버거 클릭시 상단박스 클래스 on 넣기
+      햄버거.onclick=()=>{
+        //classList 객체는 클래스를 넣고(.add('클래스명')) 빼는(.remove('클래스명')) 등의 기능을 가지고있음
+        //toggle('클래스명')-클래스넣기빼기전환
+        상단박스.classList.toggle('on');
+      }; //-------------클릭 이벤트 함수----------------
 
       console.log('선택 확인', 햄버거, 상단박스)
 
