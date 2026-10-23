@@ -566,9 +566,9 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
     padding: 4px 0;
   }
 
-  /* company: 아이콘 35% 크기 */
+  /* company: 아이콘 15% 크기 */
   .company-section .img-box {
-    width: 35%;
+    width: 15%;
   }
 
   .company-section .img-box img {

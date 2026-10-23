@@ -303,16 +303,16 @@ a.btn-view::after {
   }
 
   /* 열렸을 때 X 모양 */
-  body.menu-open .menu-btn.on span:nth-child(1) {
+  .menu-btn.on span:nth-child(1) {
     top: 12px;
     transform: rotate(45deg);
   }
 
-  body.menu-open .menu-btn.on span:nth-child(2) {
+  .menu-btn.on span:nth-child(2) {
     opacity: 0;
   }
 
-  body.menu-open .menu-btn.on span:nth-child(3) {
+  .menu-btn.on span:nth-child(3) {
     top: 12px;
     transform: rotate(-45deg);
   }
@@ -453,6 +453,12 @@ a.btn-view::after {
     font-size: 28px;
   }
 
+  .banner-inner .sns{
+    right: 2vw;
+    position: absolute;
+    top: 50px;
+  }
+
   /* 제목 글자 축소(2.33rem ≈ 32px) */
   .tit-box .part-tit {
     font-size: 32px;
@@ -466,5 +472,12 @@ a.btn-view::after {
   .footer-area img {
     width: 60%;
     height: auto;
+  }
+}
+
+/* ---------- 425px 이하 ---------- */
+@media screen and (max-width: 425px) {
+  .banner-inner .sns{
+    display: none;
   }
 }
