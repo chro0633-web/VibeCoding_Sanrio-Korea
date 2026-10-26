@@ -247,21 +247,65 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
 
 /* 플레이스 영역 */
 .place-section {
-  background: url(../images/bg_shop.jpg) no-repeat 0 / 100%;
-    /* height: 34vh; */
+  /* 배경 이미지는 제거 → 슬라이드 박스 3개가 대신 담당 */
+  position: relative;
+  overflow: hidden; /* 오른쪽에서 들어오는 슬라이드가 박스 밖으로 보이지 않게 */
+  aspect-ratio: 1920 / 500;
+  box-sizing: border-box;
+  padding: 3vw !important;
+}
 
-    /* 비율은 가로/세로 -> 높이값 없이 비율로 유지
-    비율값은 이미지 가로, tpfh 값을 써도 된다.
-    단, 비율이기 때문에 단위는 기입X */
-    aspect-ratio: 1920 / 500;
-    /* 박스 사이징을 쓰면 기본 속성인 'content-box' 속성을 지닌다.
-    즉, 박스 크기 외의 패딩과 보더 값이 있으면 커진다. 크기가 지정될때 더 커지고, 기본값인 with:auto인 경우
-    padding과 border는 포함된다.
-    이때 높이값 설정이 있으면 패딩과 보더를 포함하는 소것ㅇ값인 'border-box'로 설정해야함.*/
-    box-sizing: border-box;
-    /* 더 강한 패딩 설정을 덮어쓰므로 !importatnt로 가장 최우선 되는 강력한 설정 부여(주의: 남발 금지) */
-    padding: 3vw !important;
-    /* vw 단위는 뷰포트 단위로 보이는 화면 가로 크기 기준 %크기임 */
+/* 슬라이더: 섹션과 정확히 같은 크기, 슬라이드 3개를 flex로 배치 */
+.place-slider {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  z-index: 0;
+}
+
+/* 슬라이드 박스: 각각 슬라이더와 같은 크기(100%)
+   margin-right: -100% 로 3장이 같은 자리에 겹쳐짐 (flex 유지) */
+.place-slide {
+  flex: 0 0 100%;
+  margin-right: -100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  will-change: transform;
+}
+.place-slide.slide-1 { background-image: url(../images/bg_shop.jpg); }
+.place-slide.slide-2 { background-image: url(../images/bg_shop_2.jpg); }
+.place-slide.slide-3 { background-image: url(../images/bg_shop_3.jpg); }
+
+/* 어두운 반투명 막: 어떤 배경에서도 글자가 잘 보이게 (슬라이드 위, 타이틀 아래) */
+.place-slider::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 9999; /* JS가 올리는 슬라이드 z-index보다 항상 위 */
+  pointer-events: none;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+/* 타이틀/버튼: 이미지·막보다 위 + 가독성 확보 */
+.place-section .tit-box {
+  position: relative;
+  z-index: 10000;
+}
+.place-section .part-tit {
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+.place-section .btn-view {
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.55);
+  border: 1px solid #fff;
+  text-shadow: none;
+}
+.place-section .btn-view:hover {
+  background-color: #fff;
+  color: #222;
 }
 
 /* 컨택어스 영역 */
@@ -537,12 +581,6 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
   .recruit-section .btn-box {
     margin-bottom: 0;
     text-align: center;
-  }
-
-  /* place: 모바일 배경, cover로 채움 */
-  .place-section {
-    background-size: cover;
-    /* background-image: url(../images/bg_shop_mobile.jpg); */
   }
 
   /* contact us: 지도 위 / 정보 아래로 쌓임, 지도 높이 280px, 위쪽 모서리 20px */
