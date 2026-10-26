@@ -457,6 +457,7 @@ a.btn-view::after {
     right: 2vw;
     position: absolute;
     top: 50px;
+    display: none;
   }
 
   /* 제목 글자 축소(2.33rem ≈ 32px) */
@@ -472,12 +473,5 @@ a.btn-view::after {
   .footer-area img {
     width: 60%;
     height: auto;
-  }
-}
-
-/* ---------- 425px 이하 ---------- */
-@media screen and (max-width: 425px) {
-  .banner-inner .sns{
-    display: none;
   }
 }

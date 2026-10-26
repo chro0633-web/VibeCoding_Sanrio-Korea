@@ -35,6 +35,22 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
   /* display: block; */
   width: 984px;
   max-width: 100%;
+  /* 로딩 1초 후 위에서 내려오며 나타남
+  이름 시간 이징 지연시간 채우기방식
+  both: 지연시간(1초) 동안에도 from 상태(투명) 유지, 끝나면 to 상태 유지 */
+  animation: banner-drop 0.8s ease-out 1s both;
+}
+
+/* 배너 이미지 등장 키프레임: 투명 + 위로 20% → 불투명 + 원래 위치 */
+@keyframes banner-drop {
+  from {
+    opacity: 0;
+    translate: 0 -20%;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
 }
 
 /* SNS 이동 버튼 박스 */
@@ -345,7 +361,7 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
   color: #444;
 }
 
-/* PC에서는 모바일 전용 요소를 숨김 */
+/* PC에서는 모바일용 이미지(.m-ver)를 숨김 */
 .m-ver {
   display: none;
 }
@@ -383,10 +399,12 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
     padding-right: 30px;
   }
 
+  /* PC용 이미지 숨김 */
   .pc-ver {
     display: none;
   }
 
+  /* 모바일용 이미지 표시 */
   .m-ver {
     display: block;
     margin: 0 auto;
@@ -400,10 +418,10 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
     /* background-image: url(../images/bg_recruit_tablet.png); */
   }
 
-  /* place: 태블릿용 배경 */
+  /* place: 태블릿용 배경 
   .place-section {
-    /* background-image: url(../images/bg_shop_tablet.jpg); */
-  }
+    background-image: url(../images/bg_shop_tablet.jpg);
+  } +/
 
   /* contact us: 아래 여백 150px, 스티커 위치 */
   .main-area > .contactus-section {
