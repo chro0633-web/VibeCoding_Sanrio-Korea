@@ -444,6 +444,15 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
     margin-left: 14px;
     margin-right: 14px;
   }
+
+  .header-area{
+    position: fixed;
+    top: 0;
+  }
+
+  .banner-inner{
+    padding-top: 235px;
+  }
 }
 
 /* ---------- 1024px 이하 ---------- */

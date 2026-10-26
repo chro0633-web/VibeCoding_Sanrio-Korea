@@ -10,6 +10,12 @@
     <!-- <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/common.css" /> -->
     <link rel="stylesheet" href="./css/main.css" />
+
+    <!-- 공통 기능(메뉴) → 메인 페이지 기능(배너) 순서 -->
+    <script src="./js/common.js" defer></script>
+    <script src="./js/main.js" defer></script>
+    <!-- js 파일명 뒤 defer 속성을 넣으면 html 파일이 다 로딩된 후에 Js를 실행함 -->
+     <!-- 이것을 안할경우  JS 파일 내에 'DOMContentLoaded' 이벤트 구역을 설정하여야 html을 모두 로딩 후 실행함 -->
   </head>
 
   <body>
@@ -469,8 +475,5 @@
         <a href="#" class="btn-view">개인정보처리방침</a>
       </div>
     </footer>
-    <!-- 공통 기능(메뉴) → 메인 페이지 기능(배너) 순서 -->
-    <script src="./js/common.js"></script>
-    <script src="./js/main.js"></script>
   </body>
 </html>
