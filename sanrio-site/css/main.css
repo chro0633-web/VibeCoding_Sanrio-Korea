@@ -633,6 +633,7 @@ section + section은  + 앞에 section 태그가 있는 section 태그를 모두
   .banner-inner {
     padding-left: 20px;
     padding-right: 20px;
+    padding-top: 100px;
   }
 
   .scroll_btn {
