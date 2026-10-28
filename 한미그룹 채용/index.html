@@ -293,16 +293,66 @@
         position: absolute;
         display: block;
       }
-      .mv-micro { left: 51.041667%; top: 14.687500%; width: 17.135417%; height: 26.250000%; }
-      .mv-char1 { left: 53.958333%; top: 31.666667%; width: 15.000000%; height: 46.770833%; }
-      .mv-char2 { left: 67.083333%; top: 31.458333%; width: 10.729167%; height: 45.104167%; }
-      .mv-char3 { left: 49.479167%; top: 52.291667%; width: 12.812500%; height: 31.041667%; }
-      .mv-char4 { left: 70.572917%; top: 54.791667%; width: 17.291667%; height: 24.479167%; }
-      .mv-star1 { left: 60.260417%; top: 24.791667%; width: 1.041667%; height: 1.979167%; }
-      .mv-star2 { left: 49.531250%; top: 52.291667%; width: 1.354167%; height: 2.812500%; }
-      .mv-star3a { left: 83.541667%; top: 52.916667%; width: 1.250000%; height: 2.500000%; }
-      .mv-star3b { left: 84.583333%; top: 47.916667%; width: 2.031250%; height: 4.166667%; }
-      .mv-star4 { left: 74.427083%; top: 26.250000%; width: 1.406250%; height: 2.916667%; }
+      .mv-micro {
+        left: 51.041667%;
+        top: 14.6875%;
+        width: 17.135417%;
+        height: 26.25%;
+      }
+      .mv-char1 {
+        left: 53.958333%;
+        top: 31.666667%;
+        width: 15%;
+        height: 46.770833%;
+      }
+      .mv-char2 {
+        left: 67.083333%;
+        top: 31.458333%;
+        width: 10.729167%;
+        height: 45.104167%;
+      }
+      .mv-char3 {
+        left: 49.479167%;
+        top: 52.291667%;
+        width: 12.8125%;
+        height: 31.041667%;
+      }
+      .mv-char4 {
+        left: 70.572917%;
+        top: 54.791667%;
+        width: 17.291667%;
+        height: 24.479167%;
+      }
+      .mv-star1 {
+        left: 60.260417%;
+        top: 24.791667%;
+        width: 1.041667%;
+        height: 1.979167%;
+      }
+      .mv-star2 {
+        left: 49.53125%;
+        top: 52.291667%;
+        width: 1.354167%;
+        height: 2.8125%;
+      }
+      .mv-star3a {
+        left: 83.541667%;
+        top: 52.916667%;
+        width: 1.25%;
+        height: 2.5%;
+      }
+      .mv-star3b {
+        left: 84.583333%;
+        top: 47.916667%;
+        width: 2.03125%;
+        height: 4.166667%;
+      }
+      .mv-star4 {
+        left: 74.427083%;
+        top: 26.25%;
+        width: 1.40625%;
+        height: 2.916667%;
+      }
 
       .scroll-btn {
         position: absolute;
@@ -401,13 +451,48 @@
         pointer-events: none;
         user-select: none;
       }
-      .job__cloud--blur1 { z-index: 1; left: 4%; top: 11.3%; width: 28.3%; }
-      .job__cloud--blur2 { z-index: 1; left: 72%; top: 42.7%; width: 12.4%; }
-      .job__cloud--left { z-index: 2; left: 0; top: 35.4%; width: 14.4%; }
-      .job__cloud--right { z-index: 2; right: 0; top: 17.8%; width: 24%; }
-      .job__char { z-index: 2; left: -13%; top: 6%; width: 128.7%; }
-      .job__star--1 { z-index: 3; left: 56.7%; top: 25%; width: 2.6%; }
-      .job__star--2 { z-index: 3; left: 37.7%; top: 47.4%; width: 3.05%; }
+      .job__cloud--blur1 {
+        z-index: 1;
+        left: 4%;
+        top: 11.3%;
+        width: 28.3%;
+      }
+      .job__cloud--blur2 {
+        z-index: 1;
+        left: 72%;
+        top: 42.7%;
+        width: 12.4%;
+      }
+      .job__cloud--left {
+        z-index: 2;
+        left: 0;
+        top: 35.4%;
+        width: 14.4%;
+      }
+      .job__cloud--right {
+        z-index: 2;
+        right: 0;
+        top: 17.8%;
+        width: 24%;
+      }
+      .job__char {
+        z-index: 2;
+        left: -13%;
+        top: 6%;
+        width: 128.7%;
+      }
+      .job__star--1 {
+        z-index: 3;
+        left: 56.7%;
+        top: 25%;
+        width: 2.6%;
+      }
+      .job__star--2 {
+        z-index: 3;
+        left: 37.7%;
+        top: 47.4%;
+        width: 3.05%;
+      }
 
       /* ---------- Year (연혁 섹션: id="year") ---------- */
       .year-section {
@@ -1037,7 +1122,7 @@
         transform: translateY(-6px);
         box-shadow: 0 16px 48px rgba(230, 110, 70, 0.16);
         background: rgba(255, 255, 255);
-        transition: .5s;
+        transition: 0.5s;
       }
       .worker-card__photo {
         margin: 0;
@@ -1118,6 +1203,211 @@
         line-height: 1.2;
       }
 
+      /* ---------- Grow (회사 성장 섹션: id="grow") ---------- */
+      .grow {
+        /* 1440px 시안 기준 1u = 1vw (1440px 이상에서는 고정) */
+        --u: min(1vw, 14.4px);
+        position: relative;
+        overflow: hidden; /* 장식 요소가 영역 밖으로 스크롤을 만들지 않도록 */
+        padding: calc(var(--u) * 6.45) 0 calc(var(--u) * 13.3);
+        background: #fdf5f2;
+      }
+      /* 배경 그라데이션 장식: 중심(포인트 컬러) → 바깥쪽 투명 */
+      .grow__glow {
+        position: absolute;
+        z-index: 0;
+        background: radial-gradient(
+          circle closest-side,
+          var(--orange) 0%,
+          rgba(255, 93, 50, 0) 100%
+        );
+        pointer-events: none;
+      }
+      /* 우상단: 30vw 정사각형, 박스의 약 40%만 섹션 안쪽 */
+      .grow__glow--tr {
+        top: -7vw;
+        right: -11vw;
+        width: 30vw;
+        height: 30vw;
+        opacity: 0.2;
+      }
+      /* 좌하단: 20vw 정사각형, 박스의 약 60%만 섹션 안쪽 */
+      .grow__glow--bl {
+        bottom: -8vw;
+        left: -8vw;
+        width: 20vw;
+        height: 20vw;
+        opacity: 0.2;
+      }
+      .grow__inner {
+        position: relative;
+        z-index: 1;
+        max-width: var(--container);
+        margin: 0 auto;
+        padding: 0 calc(var(--u) * 4.17);
+      }
+      .grow__head {
+        text-align: center;
+      }
+      .grow__title {
+        font-size: calc(var(--u) * 3.34);
+        font-weight: 800;
+        line-height: 1.58;
+        letter-spacing: -0.05em;
+      }
+      .grow__desc {
+        margin-top: calc(var(--u) * 1.95);
+        font-size: max(13px, calc(var(--u) * 1.31));
+        font-weight: 500;
+        line-height: 1.5;
+        letter-spacing: -0.03em;
+      }
+
+      /* 본문 패널 */
+      .grow__panel {
+        position: relative; /* 장식 이미지 기준점 (overflow는 열어 둠) */
+        margin-top: calc(var(--u) * 6.1);
+        padding: calc(var(--u) * 4.2) calc(var(--u) * 4.4) calc(var(--u) * 4.4);
+        border: 1px solid rgba(255, 255, 255, 0.9);
+        border-radius: calc(var(--u) * 1.6);
+        background: rgba(255, 255, 255, 0.5);
+        box-shadow: 0 8px 24px rgba(210, 110, 80, 0.12);
+      }
+      /* 패널 상단 경계선 중앙에 걸치는 장식 (분자식 + 원자) */
+      .grow__formula,
+      .grow__atom {
+        position: absolute;
+        top: 0;
+        left: 88%;
+        height: auto;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+        user-select: none;
+      }
+      .grow__formula {
+        z-index: 1;
+        width: calc(var(--u) * 24.44); /* 원본 352px */
+      }
+      .grow__atom {
+        z-index: 2;
+        width: calc(var(--u) * 12.5);
+      }
+      /* 패널 좌하단 바깥 장식 (분자 모형) */
+      .grow__mol {
+        position: absolute;
+        top: calc(100% + var(--u) * 1.5);
+        left: 0;
+        width: calc(var(--u) * 12.5);
+        height: auto;
+        pointer-events: none;
+        user-select: none;
+      }
+
+      /* 말풍선 리스트 */
+      .grow__news {
+        position: relative;
+        z-index: 3;
+        display: flex;
+        flex-direction: column;
+        gap: calc(var(--u) * 2.85);
+      }
+
+      .grow__item {
+        display: flex;
+        justify-content: flex-start;
+      }
+
+      .grow__item > a {
+        filter: drop-shadow(0 4px 2px rgba(230, 110, 70, 0.3));
+      }
+
+      .grow__item--right {
+        justify-content: flex-end;
+      }
+
+      /* 말풍선: 본체(CSS) + 꼬리(ino_ico_bubble_tail.svg 배경)
+         텍스트 길이에 따라 본체는 늘어나고 꼬리는 em 단위로 고정 비율 유지 */
+      .grow-bubble {
+        --tail-w: 1.146em; /* 22px / 19.2px */
+        --tail-h: 0.68em; /* 13px / 19.2px */
+        --tail-x: -0.641em; /* 꼬리 곡선 시작점(12.3/22)이 본체 모서리에 맞물리도록 */
+        position: relative;
+        display: block;
+        width: fit-content;
+        max-width: 100%;
+        padding: 1.05em 1.4em;
+        border-radius: 1.3em;
+        font-size: max(13px, calc(var(--u) * 1.33));
+        font-weight: 600;
+        line-height: 1.52;
+        letter-spacing: -0.03em;
+        transition:
+          transform var(--transition),
+          filter var(--transition);
+      }
+      .grow-bubble__line {
+        display: block;
+      }
+      .grow-bubble::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        width: var(--tail-w);
+        height: var(--tail-h);
+        background: url("images/ino_ico_bubble_tail.svg") no-repeat center /
+          100% 100%;
+        pointer-events: none;
+      }
+      /* 오렌지: 꼬리 좌하단, 흰 글씨 */
+      .grow-bubble--orange {
+        border-bottom-left-radius: 0;
+        background: var(--orange);
+        color: var(--white);
+      }
+      .grow-bubble--orange::after {
+        left: var(--tail-x);
+      }
+      /* 화이트: 꼬리 우하단(좌우 반전 + 흰색으로 반전), 오렌지 글씨 */
+      .grow-bubble--white {
+        border-bottom-right-radius: 0;
+        background: var(--white);
+        color: var(--orange);
+      }
+      .grow-bubble--white::after {
+        right: var(--tail-x);
+        transform: scaleX(-1);
+        filter: brightness(0) invert(1);
+      }
+      .grow-bubble:hover,
+      .grow-bubble:focus-visible {
+        transform: translateY(-3px);
+      }
+      .grow-bubble:focus-visible {
+        outline: 2px solid var(--red);
+        outline-offset: 4px;
+      }
+
+      /* 안내 문구 */
+      .grow__note {
+        margin-top: calc(var(--u) * 2.95);
+        font-size: max(11px, calc(var(--u) * 0.85));
+        line-height: 1.4;
+        letter-spacing: -0.03em;
+        text-align: right;
+        color: #bdb6b3;
+      }
+      .grow__note::before {
+        content: "";
+        display: inline-block;
+        width: 0.34em;
+        height: 0.34em;
+        margin-right: 0.7em;
+        border-radius: 50%;
+        background: var(--red);
+        opacity: 0.55;
+        vertical-align: middle;
+      }
+
       /* ---------- 기타 일반 섹션 및 푸터 ---------- */
       .section {
         display: flex;
@@ -1168,28 +1458,59 @@
           width: 162px;
           height: 28px;
         }
-        .gnb__list { gap: 24px; }
-        .gnb__link { font-size: 16px; }
-        .gnb__cta { padding-left: 24px; }
+        .gnb__list {
+          gap: 24px;
+        }
+        .gnb__link {
+          font-size: 16px;
+        }
+        .gnb__cta {
+          padding-left: 24px;
+        }
 
         .main-visual {
           height: 760px;
           min-height: 0;
         }
-        .main-visual__inner { align-items: flex-start; }
+        .main-visual__inner {
+          align-items: flex-start;
+        }
         .mv-text {
           gap: 56px;
           width: auto;
           margin: 108px 0 0 40px;
         }
-        .mv-text__head { gap: 22px; }
-        .mv-eyebrow { font-size: 28px; line-height: 40px; letter-spacing: -0.58px; }
-        .mv-title__em { font-size: 60px; line-height: 64px; letter-spacing: -1.5px; }
-        .mv-title__sub { font-size: 38px; line-height: 60px; letter-spacing: -0.95px; }
-        .mv-period { font-size: 19px; white-space: normal; }
-        .btn--cta { width: 322px; height: 68px; font-size: 21px; }
+        .mv-text__head {
+          gap: 22px;
+        }
+        .mv-eyebrow {
+          font-size: 28px;
+          line-height: 40px;
+          letter-spacing: -0.58px;
+        }
+        .mv-title__em {
+          font-size: 60px;
+          line-height: 64px;
+          letter-spacing: -1.5px;
+        }
+        .mv-title__sub {
+          font-size: 38px;
+          line-height: 60px;
+          letter-spacing: -0.95px;
+        }
+        .mv-period {
+          font-size: 19px;
+          white-space: normal;
+        }
+        .btn--cta {
+          width: 322px;
+          height: 68px;
+          font-size: 21px;
+        }
 
-        .mv-ring { display: none; }
+        .mv-ring {
+          display: none;
+        }
         .mv-stage {
           right: auto;
           left: 50%;
@@ -1201,8 +1522,9 @@
           transform: scale(0.75);
           transform-origin: 0 0;
         }
-        .scroll-btn { bottom: 50px; }
-
+        .scroll-btn {
+          bottom: 50px;
+        }
       }
 
       @media (max-width: 768px) {
@@ -1211,11 +1533,20 @@
         .gnb {
           height: 64px;
         }
-        .header__inner { padding: 0 20px; }
+        .header__inner {
+          padding: 0 20px;
+        }
         .header__logo,
-        .header__logo img { width: 130px; height: 22px; }
-        .gnb__list { display: none; }
-        .gnb__cta { padding-left: 0; }
+        .header__logo img {
+          width: 130px;
+          height: 22px;
+        }
+        .gnb__list {
+          display: none;
+        }
+        .gnb__cta {
+          padding-left: 0;
+        }
         .btn--header {
           height: 28px;
           padding: 0 14px;
@@ -1224,7 +1555,9 @@
           letter-spacing: -0.25px;
           border-width: 1px;
         }
-        .btn--header svg { display: none; }
+        .btn--header svg {
+          display: none;
+        }
 
         .gnb__toggle {
           display: block;
@@ -1244,31 +1577,78 @@
           height: 24px;
         }
 
-        .main-visual { height: 785px; }
+        .main-visual {
+          height: 785px;
+        }
         .mv-text {
           gap: 52px;
           width: auto;
           margin: 96px 0 0 20px;
         }
-        .mv-text__head { gap: 14px; }
-        .mv-eyebrow { font-size: 22px; line-height: 32px; letter-spacing: -0.45px; }
-        .mv-title__em { font-size: 57px; line-height: 62px; letter-spacing: -1.4px; }
-        .mv-title__sub { font-size: 36px; line-height: 52px; letter-spacing: -0.9px; }
-        .mv-period { font-size: 13.5px; line-height: 20px; letter-spacing: -0.3px; }
-        .btn--cta { width: 202px; height: 48px; padding: 0; font-size: 16px; line-height: 24px; letter-spacing: -0.34px; }
+        .mv-text__head {
+          gap: 14px;
+        }
+        .mv-eyebrow {
+          font-size: 22px;
+          line-height: 32px;
+          letter-spacing: -0.45px;
+        }
+        .mv-title__em {
+          font-size: 57px;
+          line-height: 62px;
+          letter-spacing: -1.4px;
+        }
+        .mv-title__sub {
+          font-size: 36px;
+          line-height: 52px;
+          letter-spacing: -0.9px;
+        }
+        .mv-period {
+          font-size: 13.5px;
+          line-height: 20px;
+          letter-spacing: -0.3px;
+        }
+        .btn--cta {
+          width: 202px;
+          height: 48px;
+          padding: 0;
+          font-size: 16px;
+          line-height: 24px;
+          letter-spacing: -0.34px;
+        }
 
-        .mv-ring { display: block; left: 50%; }
-        .mv-ring--glow { top: 400px; width: 360px; height: 360px; margin-left: -180px; border-width: 3px; }
-        .mv-ring--line { top: 430px; width: 300px; height: 300px; margin-left: -150px; }
+        .mv-ring {
+          display: block;
+          left: 50%;
+        }
+        .mv-ring--glow {
+          top: 400px;
+          width: 360px;
+          height: 360px;
+          margin-left: -180px;
+          border-width: 3px;
+        }
+        .mv-ring--line {
+          top: 430px;
+          width: 300px;
+          height: 300px;
+          margin-left: -150px;
+        }
 
         .mv-stage {
           top: 397px;
           margin-left: calc(-1160px * 0.48);
           transform: scale(0.48);
         }
-        .scroll-btn { bottom: 20px; width: 40px; height: 40px; }
-        .scroll-btn svg { width: 20px; height: 20px; }
-
+        .scroll-btn {
+          bottom: 20px;
+          width: 40px;
+          height: 40px;
+        }
+        .scroll-btn svg {
+          width: 20px;
+          height: 20px;
+        }
 
         /* 모바일 전체메뉴 패널 */
         .m-menu {
@@ -1280,7 +1660,9 @@
           background: var(--white);
           transform: translateX(100%);
           visibility: hidden;
-          transition: transform 0.3s ease, visibility 0s linear 0.3s;
+          transition:
+            transform 0.3s ease,
+            visibility 0s linear 0.3s;
         }
         .m-menu.is-open {
           transform: translateX(0);
@@ -1303,8 +1685,12 @@
           color: var(--black);
           cursor: pointer;
         }
-        .m-menu__list { margin: 48px 20px 0; }
-        .m-menu__list li { border-bottom: 1px solid #ebebeb; }
+        .m-menu__list {
+          margin: 48px 20px 0;
+        }
+        .m-menu__list li {
+          border-bottom: 1px solid #ebebeb;
+        }
         .m-menu__link {
           display: block;
           padding: 20px 2px;
@@ -1322,7 +1708,11 @@
           line-height: 24px;
           background: var(--red);
         }
-        .m-menu__cta svg { width: 7px; height: 12px; margin-left: 10px; }
+        .m-menu__cta svg {
+          width: 7px;
+          height: 12px;
+          margin-left: 10px;
+        }
         .m-menu__char {
           position: absolute;
           right: 4px;
@@ -1332,7 +1722,9 @@
           pointer-events: none;
         }
         html.is-menu-open,
-        html.is-menu-open body { overflow: hidden; }
+        html.is-menu-open body {
+          overflow: hidden;
+        }
       }
 
       /* ---------- Worker Responsive ---------- */
@@ -1452,6 +1844,90 @@
           height: 42px;
           margin-top: 36px;
           font-size: 15px;
+        }
+      }
+
+      /* ---------- Grow Responsive ---------- */
+      /* Tablet (768px 시안 기준) */
+      @media (max-width: 1024px) {
+        .grow {
+          padding: 6.2vw 0 12.9vw;
+        }
+        .grow__inner {
+          padding: 0 3.9vw;
+        }
+        .grow__desc {
+          margin-top: 1.8vw;
+          font-size: clamp(13px, 1.52vw, 16px);
+        }
+        .grow__panel {
+          margin-top: 8.5vw;
+          padding: 6.1vw 6.2vw 6.25vw;
+          border-radius: 1.9vw;
+        }
+        .grow__news {
+          gap: 4.2vw;
+        }
+        .grow-bubble {
+          font-size: clamp(13px, 1.85vw, 16px);
+        }
+        .grow__note {
+          margin-top: 4.05vw;
+          font-size: clamp(11px, 1.4vw, 13px);
+          color: #444;
+        }
+        .grow__note::before {
+          opacity: 1;
+        }
+      }
+
+      /* Mobile (767px 이하, 430px 시안 기준) */
+      @media (max-width: 767px) {
+        .grow {
+          padding: clamp(28px, 8.4vw, 44px) 0 clamp(72px, 21vw, 100px);
+        }
+        .grow__inner {
+          padding: 0 clamp(16px, 5.6vw, 32px);
+        }
+        .grow__title {
+          font-size: clamp(20px, 5.25vw, 26px);
+          line-height: 1.64;
+        }
+        .grow__desc {
+          margin-top: 12px;
+          font-size: clamp(12px, 2.9vw, 14px);
+          line-height: 1.9;
+          letter-spacing: -0.04em;
+        }
+        .grow__panel {
+          margin-top: clamp(28px, 8.7vw, 44px);
+          padding: clamp(14px, 4.7vw, 22px) clamp(18px, 6.5vw, 32px)
+            clamp(16px, 5vw, 24px);
+          border-radius: 14px;
+        }
+        .grow__formula {
+          left: 87%;
+          width: clamp(88px, 25.8vw, 140px);
+        }
+        .grow__atom {
+          left: 87%;
+          width: clamp(44px, 13vw, 70px);
+        }
+        .grow__mol {
+          top: calc(100% + 1.9vw);
+          width: clamp(52px, 15vw, 80px);
+        }
+        .grow__news {
+          gap: clamp(10px, 2.8vw, 14px);
+        }
+        .grow-bubble {
+          padding: 0.83em 1.1em;
+          border-radius: 1.15em;
+          font-size: clamp(11.5px, 2.95vw, 14.5px);
+        }
+        .grow__note {
+          margin-top: clamp(16px, 4.6vw, 22px);
+          font-size: clamp(10px, 2.4vw, 12px);
         }
       }
     </style>
@@ -1666,252 +2142,357 @@
       <!-- 세 번째 섹션: 연혁 (id="year") -->
       <section class="year-section" id="year" aria-labelledby="year-title">
         <div class="year-panel" id="year-panel">
-        <div class="year-inner">
-          <img class="year-deco year-deco--star" src="./images/obj_star_big.png" alt="" width="240" height="288" loading="lazy" />
-          <h2 class="year-title" id="year-title">
-            한미의 도전은 작은 가능성에서<br />시작되었습니다.
-          </h2>
+          <div class="year-inner">
+            <img
+              class="year-deco year-deco--star"
+              src="./images/obj_star_big.png"
+              alt=""
+              width="240"
+              height="288"
+              loading="lazy"
+            />
+            <h2 class="year-title" id="year-title">
+              한미의 도전은 작은 가능성에서<br />시작되었습니다.
+            </h2>
 
-          <p class="year-count" aria-label="53주년">
-            <span class="year-count__num" aria-hidden="true">53</span>
-            <span class="year-count__unit" aria-hidden="true">th</span>
-          </p>
-
-          <div class="year-timeline">
-            <!-- 1973~2001 -->
-            <article class="year-item year-item--a">
-              <img class="year-deco year-deco--beaker" src="./images/obj_beaker.png" alt="" width="240" height="288" loading="lazy" />
-              <h3 class="year-range">1973~2001</h3>
-              <div class="year-text">
-                <p class="year-lead">한계를 하나씩 넘을 때마다,</p>
-                <ul class="year-list">
-                  <li class="year-list__item">
-                    <strong class="year-list__year">1973</strong>
-                    <span class="year-list__text">한미약품공업주식회사 설립</span>
-                  </li>
-                  <li class="year-list__item">
-                    <strong class="year-list__year">1984</strong>
-                    <span class="year-list__text">팔탄 GMP 공장 신축</span>
-                  </li>
-                  <li class="year-list__item">
-                    <strong class="year-list__year">1989</strong>
-                    <span class="year-list__text">세프트리악손 제조방법 Roche사 기술 수출</span>
-                  </li>
-                  <li class="year-list__item">
-                    <strong class="year-list__year">1997</strong>
-                    <span class="year-list__text">마이크로에멀젼 제제기술 Novartis사 기술 수출</span>
-                  </li>
-                </ul>
-                <span class="year-dots" aria-hidden="true"></span>
-              </div>
-              <figure class="year-figure">
-                <img
-                  src="./images/his1.png"
-                  alt="한미의 대표 어린이 영양제 텐텐과 쎄쎄 제품"
-                  width="375"
-                  height="202"
-                  loading="lazy"
-                />
-              </figure>
-            </article>
-
-            <!-- 2002~2010 -->
-            <article class="year-item year-item--b">
-              <img class="year-deco year-deco--blur-blue" src="./images/obj_mol_blur1.png" alt="" width="420" height="465" loading="lazy" />
-              <img class="year-deco year-deco--microscope" src="./images/obj_microscope.png" alt="" width="218" height="306" loading="lazy" />
-              <h3 class="year-range">2002~2010</h3>
-              <div class="year-text">
-                <ul class="year-list">
-                  <li class="year-list__item">
-                    <strong class="year-list__year">2004</strong>
-                    <span class="year-list__text">국내 최초 고혈압치료제 ‘아모디핀’ 미국특허 획득</span>
-                  </li>
-                  <li class="year-list__item">
-                    <strong class="year-list__year">2006</strong>
-                    <span class="year-list__text">세계 최초 유소아 해열 시럽제 개량신약 ‘맥시부펜’ 개발 성공</span>
-                  </li>
-                  <li class="year-list__item">
-                    <strong class="year-list__year">2008</strong>
-                    <span class="year-list__text">국내 최초 주사용항생제 세프트리악손 美 FDA 승인</span>
-                  </li>
-                  <li class="year-list__item">
-                    <strong class="year-list__year">2009</strong>
-                    <span class="year-list__text">세계최초 암로디핀+로살탄 복합제 ‘아모잘탄’ 발매</span>
-                  </li>
-                </ul>
-                <span class="year-dots" aria-hidden="true"></span>
-              </div>
-              <figure class="year-figure">
-                <img
-                  src="./images/his2.png"
-                  alt="노을 지는 해변에서 손을 잡고 함께 점프하는 사람들의 실루엣"
-                  width="415"
-                  height="300"
-                  loading="lazy"
-                />
-              </figure>
-            </article>
-
-            <!-- 2011~2015 -->
-            <article class="year-item year-item--a">
-              <img class="year-deco year-deco--blur-gray" src="./images/obj_mol_blur2.png" alt="" width="338" height="372" loading="lazy" />
-              <h3 class="year-range">2011~2015</h3>
-              <div class="year-text">
-                <p class="year-lead">새로운 가능성이 현실이 되었어요.</p>
-                <ul class="year-list">
-                  <li class="year-list__item">
-                    <strong class="year-list__year">2011</strong>
-                    <span class="year-list__text">MSD와 ‘아모잘탄’ 50여개국 수출 계약 체결</span>
-                  </li>
-                  <li class="year-list__item">
-                    <strong class="year-list__year">2012</strong>
-                    <span class="year-list__text">‘LAPS-GCSF’ 美 스펙트럼사와 공동개발 및 상업화 계약</span>
-                  </li>
-                  <li class="year-list__item">
-                    <strong class="year-list__year">2013</strong>
-                    <span class="year-list__text">국내 개량신약 최초 미국 FDA 승인 및 미국 출시 ‘에소메졸’</span>
-                  </li>
-                  <li class="year-list__item">
-                    <strong class="year-list__year">2014</strong>
-                    <span class="year-list__text">‘트리약손’ 국내 최초 유럽 4개국 시판 허가</span>
-                  </li>
-                  <li class="year-list__item">
-                    <strong class="year-list__year">2015</strong>
-                    <span class="year-list__text">한국 사상 최대규모 릴레이 기술수출</span>
-                  </li>
-                </ul>
-                <span class="year-dots" aria-hidden="true"></span>
-              </div>
-              <figure class="year-figure">
-                <img
-                  src="./images/his3.png"
-                  alt="에소메졸 20mg·40mg 제품과 스펙트럼 파마슈티컬스 로고"
-                  width="500"
-                  height="254"
-                  loading="lazy"
-                />
-              </figure>
-            </article>
-
-            <!-- 2016~2020 -->
-            <article class="year-item year-item--b">
-              <h3 class="year-range">2016~2020</h3>
-              <div class="year-text">
-                <ul class="year-list">
-                  <li class="year-list__item">
-                    <strong class="year-list__year">2016</strong>
-                    <span class="year-list__text">차세대 RAF 저해제, Roche 제넨텍 기술수출</span>
-                  </li>
-                  <li class="year-list__item">
-                    <strong class="year-list__year">2017</strong>
-                    <span class="year-list__text">‘에소메졸’ 국내 제약회사 최초 미국약전(USP) 등재</span>
-                  </li>
-                  <li class="year-list__item">
-                    <strong class="year-list__year">2018</strong>
-                    <span class="year-list__text">‘Glucagon Analog’, ‘오락솔’ 차세대 AML 치료제 美 희귀의약품 지정</span>
-                  </li>
-                  <li class="year-list__item">
-                    <strong class="year-list__year">2019</strong>
-                    <span class="year-list__text">최근 10년간 처방실적 최다 4조 4,176억원</span>
-                  </li>
-                </ul>
-                <span class="year-dots" aria-hidden="true"></span>
-              </div>
-              <figure class="year-figure">
-                <img
-                  src="./images/his4.png"
-                  alt="ASCO 로고, 로수젯 제품군, USP 로고"
-                  width="467"
-                  height="226"
-                  loading="lazy"
-                />
-              </figure>
-            </article>
-
-            <!-- 2021~2026 -->
-            <article class="year-item year-item--a">
-              <img class="year-deco year-deco--molecule" src="./images/obj_mol_big.png" alt="" width="237" height="293" loading="lazy" />
-              <h3 class="year-range">2021~2026</h3>
-              <div class="year-text">
-                <p class="year-lead">하지만 아직, 가야 할 길이 더 남아 있습니다.</p>
-                <ul class="year-list">
-                  <li class="year-list__item">
-                    <strong class="year-list__year">2021</strong>
-                    <span class="year-list__text">‘로수젯’, 국내사 개발 처방의약품 매출 1위 달성</span>
-                  </li>
-                  <li class="year-list__item">
-                    <strong class="year-list__year">2022</strong>
-                    <span class="year-list__text"
-                      >‘롤론티스’ 한국 최초 FDA 허가 받은 바이오신약 등재<br />‘로수젯 RACING 연구’ 세계 최고 권위 의학저널 ‘LANCET’ 등재</span
-                    >
-                  </li>
-                  <li class="year-list__item">
-                    <strong class="year-list__year">2023</strong>
-                    <span class="year-list__text">비만 프로젝트 ‘H.O.P’ 프로젝트 가동</span>
-                  </li>
-                  <li class="year-list__item">
-                    <strong class="year-list__year">2024</strong>
-                    <span class="year-list__text">근손실 한계 뛰어넘은 신개념 비만 신약 ‘HM17321’ 발표</span>
-                  </li>
-                  <li class="year-list__item">
-                    <strong class="year-list__year">2025</strong>
-                    <span class="year-list__text"
-                      >‘로수젯’ 한국 전문의약품 시장 1위 품목 등록<br />한미약품 8년 연속 원외처방 1위<br />미국암연구학회(AACR)서 국내 최다 11개 연구 성과 발표<br />한미사이언스 약국화장품 ‘EGF크림’ 27만개 완판</span
-                    >
-                  </li>
-                  <li class="year-list__item">
-                    <strong class="year-list__year">2026</strong>
-                    <span class="year-list__text"
-                      >희귀질환치료제 ‘LAPS-GLP2’ 릴리 기술수출<br />한미 ‘완전두유·케어미’ 국제 우수 미각상 수상</span
-                    >
-                  </li>
-                </ul>
-                <span class="year-dots" aria-hidden="true"></span>
-              </div>
-              <figure class="year-figure">
-                <img
-                  src="./images/his5.png"
-                  alt="란셋 200주년 표지, 롤론티스 작용 기전 도식, 롤론티스 제품"
-                  width="373"
-                  height="269"
-                  loading="lazy"
-                />
-              </figure>
-            </article>
-
-            <p class="year-count year-count--end" aria-label="100주년">
-              <span class="year-count__num" aria-hidden="true">100</span>
+            <p class="year-count" aria-label="53주년">
+              <span class="year-count__num" aria-hidden="true">53</span>
               <span class="year-count__unit" aria-hidden="true">th</span>
             </p>
 
-            <!-- PC 전용 캐릭터 (Tablet/Mobile 숨김) -->
-            <div class="year-char">
-              <img
-                src="./images/con2_char.png"
-                alt="사원증을 목에 걸고 걸어가는 한미 캡슐 캐릭터"
-                width="339"
-                height="485"
-                loading="lazy"
-              />
+            <div class="year-timeline">
+              <!-- 1973~2001 -->
+              <article class="year-item year-item--a">
+                <img
+                  class="year-deco year-deco--beaker"
+                  src="./images/obj_beaker.png"
+                  alt=""
+                  width="240"
+                  height="288"
+                  loading="lazy"
+                />
+                <h3 class="year-range">1973~2001</h3>
+                <div class="year-text">
+                  <p class="year-lead">한계를 하나씩 넘을 때마다,</p>
+                  <ul class="year-list">
+                    <li class="year-list__item">
+                      <strong class="year-list__year">1973</strong>
+                      <span class="year-list__text"
+                        >한미약품공업주식회사 설립</span
+                      >
+                    </li>
+                    <li class="year-list__item">
+                      <strong class="year-list__year">1984</strong>
+                      <span class="year-list__text">팔탄 GMP 공장 신축</span>
+                    </li>
+                    <li class="year-list__item">
+                      <strong class="year-list__year">1989</strong>
+                      <span class="year-list__text"
+                        >세프트리악손 제조방법 Roche사 기술 수출</span
+                      >
+                    </li>
+                    <li class="year-list__item">
+                      <strong class="year-list__year">1997</strong>
+                      <span class="year-list__text"
+                        >마이크로에멀젼 제제기술 Novartis사 기술 수출</span
+                      >
+                    </li>
+                  </ul>
+                  <span class="year-dots" aria-hidden="true"></span>
+                </div>
+                <figure class="year-figure">
+                  <img
+                    src="./images/his1.png"
+                    alt="한미의 대표 어린이 영양제 텐텐과 쎄쎄 제품"
+                    width="375"
+                    height="202"
+                    loading="lazy"
+                  />
+                </figure>
+              </article>
+
+              <!-- 2002~2010 -->
+              <article class="year-item year-item--b">
+                <img
+                  class="year-deco year-deco--blur-blue"
+                  src="./images/obj_mol_blur1.png"
+                  alt=""
+                  width="420"
+                  height="465"
+                  loading="lazy"
+                />
+                <img
+                  class="year-deco year-deco--microscope"
+                  src="./images/obj_microscope.png"
+                  alt=""
+                  width="218"
+                  height="306"
+                  loading="lazy"
+                />
+                <h3 class="year-range">2002~2010</h3>
+                <div class="year-text">
+                  <ul class="year-list">
+                    <li class="year-list__item">
+                      <strong class="year-list__year">2004</strong>
+                      <span class="year-list__text"
+                        >국내 최초 고혈압치료제 ‘아모디핀’ 미국특허 획득</span
+                      >
+                    </li>
+                    <li class="year-list__item">
+                      <strong class="year-list__year">2006</strong>
+                      <span class="year-list__text"
+                        >세계 최초 유소아 해열 시럽제 개량신약 ‘맥시부펜’ 개발
+                        성공</span
+                      >
+                    </li>
+                    <li class="year-list__item">
+                      <strong class="year-list__year">2008</strong>
+                      <span class="year-list__text"
+                        >국내 최초 주사용항생제 세프트리악손 美 FDA 승인</span
+                      >
+                    </li>
+                    <li class="year-list__item">
+                      <strong class="year-list__year">2009</strong>
+                      <span class="year-list__text"
+                        >세계최초 암로디핀+로살탄 복합제 ‘아모잘탄’ 발매</span
+                      >
+                    </li>
+                  </ul>
+                  <span class="year-dots" aria-hidden="true"></span>
+                </div>
+                <figure class="year-figure">
+                  <img
+                    src="./images/his2.png"
+                    alt="노을 지는 해변에서 손을 잡고 함께 점프하는 사람들의 실루엣"
+                    width="415"
+                    height="300"
+                    loading="lazy"
+                  />
+                </figure>
+              </article>
+
+              <!-- 2011~2015 -->
+              <article class="year-item year-item--a">
+                <img
+                  class="year-deco year-deco--blur-gray"
+                  src="./images/obj_mol_blur2.png"
+                  alt=""
+                  width="338"
+                  height="372"
+                  loading="lazy"
+                />
+                <h3 class="year-range">2011~2015</h3>
+                <div class="year-text">
+                  <p class="year-lead">새로운 가능성이 현실이 되었어요.</p>
+                  <ul class="year-list">
+                    <li class="year-list__item">
+                      <strong class="year-list__year">2011</strong>
+                      <span class="year-list__text"
+                        >MSD와 ‘아모잘탄’ 50여개국 수출 계약 체결</span
+                      >
+                    </li>
+                    <li class="year-list__item">
+                      <strong class="year-list__year">2012</strong>
+                      <span class="year-list__text"
+                        >‘LAPS-GCSF’ 美 스펙트럼사와 공동개발 및 상업화
+                        계약</span
+                      >
+                    </li>
+                    <li class="year-list__item">
+                      <strong class="year-list__year">2013</strong>
+                      <span class="year-list__text"
+                        >국내 개량신약 최초 미국 FDA 승인 및 미국 출시
+                        ‘에소메졸’</span
+                      >
+                    </li>
+                    <li class="year-list__item">
+                      <strong class="year-list__year">2014</strong>
+                      <span class="year-list__text"
+                        >‘트리약손’ 국내 최초 유럽 4개국 시판 허가</span
+                      >
+                    </li>
+                    <li class="year-list__item">
+                      <strong class="year-list__year">2015</strong>
+                      <span class="year-list__text"
+                        >한국 사상 최대규모 릴레이 기술수출</span
+                      >
+                    </li>
+                  </ul>
+                  <span class="year-dots" aria-hidden="true"></span>
+                </div>
+                <figure class="year-figure">
+                  <img
+                    src="./images/his3.png"
+                    alt="에소메졸 20mg·40mg 제품과 스펙트럼 파마슈티컬스 로고"
+                    width="500"
+                    height="254"
+                    loading="lazy"
+                  />
+                </figure>
+              </article>
+
+              <!-- 2016~2020 -->
+              <article class="year-item year-item--b">
+                <h3 class="year-range">2016~2020</h3>
+                <div class="year-text">
+                  <ul class="year-list">
+                    <li class="year-list__item">
+                      <strong class="year-list__year">2016</strong>
+                      <span class="year-list__text"
+                        >차세대 RAF 저해제, Roche 제넨텍 기술수출</span
+                      >
+                    </li>
+                    <li class="year-list__item">
+                      <strong class="year-list__year">2017</strong>
+                      <span class="year-list__text"
+                        >‘에소메졸’ 국내 제약회사 최초 미국약전(USP) 등재</span
+                      >
+                    </li>
+                    <li class="year-list__item">
+                      <strong class="year-list__year">2018</strong>
+                      <span class="year-list__text"
+                        >‘Glucagon Analog’, ‘오락솔’ 차세대 AML 치료제 美
+                        희귀의약품 지정</span
+                      >
+                    </li>
+                    <li class="year-list__item">
+                      <strong class="year-list__year">2019</strong>
+                      <span class="year-list__text"
+                        >최근 10년간 처방실적 최다 4조 4,176억원</span
+                      >
+                    </li>
+                  </ul>
+                  <span class="year-dots" aria-hidden="true"></span>
+                </div>
+                <figure class="year-figure">
+                  <img
+                    src="./images/his4.png"
+                    alt="ASCO 로고, 로수젯 제품군, USP 로고"
+                    width="467"
+                    height="226"
+                    loading="lazy"
+                  />
+                </figure>
+              </article>
+
+              <!-- 2021~2026 -->
+              <article class="year-item year-item--a">
+                <img
+                  class="year-deco year-deco--molecule"
+                  src="./images/obj_mol_big.png"
+                  alt=""
+                  width="237"
+                  height="293"
+                  loading="lazy"
+                />
+                <h3 class="year-range">2021~2026</h3>
+                <div class="year-text">
+                  <p class="year-lead">
+                    하지만 아직, 가야 할 길이 더 남아 있습니다.
+                  </p>
+                  <ul class="year-list">
+                    <li class="year-list__item">
+                      <strong class="year-list__year">2021</strong>
+                      <span class="year-list__text"
+                        >‘로수젯’, 국내사 개발 처방의약품 매출 1위 달성</span
+                      >
+                    </li>
+                    <li class="year-list__item">
+                      <strong class="year-list__year">2022</strong>
+                      <span class="year-list__text"
+                        >‘롤론티스’ 한국 최초 FDA 허가 받은 바이오신약 등재<br />‘로수젯
+                        RACING 연구’ 세계 최고 권위 의학저널 ‘LANCET’ 등재</span
+                      >
+                    </li>
+                    <li class="year-list__item">
+                      <strong class="year-list__year">2023</strong>
+                      <span class="year-list__text"
+                        >비만 프로젝트 ‘H.O.P’ 프로젝트 가동</span
+                      >
+                    </li>
+                    <li class="year-list__item">
+                      <strong class="year-list__year">2024</strong>
+                      <span class="year-list__text"
+                        >근손실 한계 뛰어넘은 신개념 비만 신약 ‘HM17321’
+                        발표</span
+                      >
+                    </li>
+                    <li class="year-list__item">
+                      <strong class="year-list__year">2025</strong>
+                      <span class="year-list__text"
+                        >‘로수젯’ 한국 전문의약품 시장 1위 품목 등록<br />한미약품
+                        8년 연속 원외처방 1위<br />미국암연구학회(AACR)서 국내
+                        최다 11개 연구 성과 발표<br />한미사이언스 약국화장품
+                        ‘EGF크림’ 27만개 완판</span
+                      >
+                    </li>
+                    <li class="year-list__item">
+                      <strong class="year-list__year">2026</strong>
+                      <span class="year-list__text"
+                        >희귀질환치료제 ‘LAPS-GLP2’ 릴리 기술수출<br />한미
+                        ‘완전두유·케어미’ 국제 우수 미각상 수상</span
+                      >
+                    </li>
+                  </ul>
+                  <span class="year-dots" aria-hidden="true"></span>
+                </div>
+                <figure class="year-figure">
+                  <img
+                    src="./images/his5.png"
+                    alt="란셋 200주년 표지, 롤론티스 작용 기전 도식, 롤론티스 제품"
+                    width="373"
+                    height="269"
+                    loading="lazy"
+                  />
+                </figure>
+              </article>
+
+              <p class="year-count year-count--end" aria-label="100주년">
+                <span class="year-count__num" aria-hidden="true">100</span>
+                <span class="year-count__unit" aria-hidden="true">th</span>
+              </p>
+
+              <!-- PC 전용 캐릭터 (Tablet/Mobile 숨김) -->
+              <div class="year-char">
+                <img
+                  src="./images/con2_char.png"
+                  alt="사원증을 목에 걸고 걸어가는 한미 캡슐 캐릭터"
+                  width="339"
+                  height="485"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+
+            <div class="year-finish">
+              <p class="year-finish__lead">
+                한계를 넘을 때마다, 건강한 미래는 가까워졌습니다. 한계를 넘는
+                일, 우리에게는 꽤 익숙하니까.
+              </p>
+              <p class="year-finish__title">
+                수많은 도전이 오늘의 한미를 만들었습니다.<br />이제 또 다른
+                가능성을 향해 당신과 함께 나아갑니다.
+              </p>
             </div>
           </div>
-
-          <div class="year-finish">
-            <p class="year-finish__lead">
-              한계를 넘을 때마다, 건강한 미래는 가까워졌습니다. 한계를 넘는 일, 우리에게는 꽤 익숙하니까.
-            </p>
-            <p class="year-finish__title">
-              수많은 도전이 오늘의 한미를 만들었습니다.<br />이제 또 다른 가능성을 향해
-              당신과 함께 나아갑니다.
-            </p>
-          </div>
-        </div>
         </div>
 
         <!-- JS 활성 시에만 노출 (미지원 환경에서는 전체 콘텐츠가 그대로 보임) -->
-        <button class="year-fold" type="button" aria-controls="year-panel" aria-expanded="true" hidden>
+        <button
+          class="year-fold"
+          type="button"
+          aria-controls="year-panel"
+          aria-expanded="true"
+          hidden
+        >
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M5 12l7-7 7 7M5 19l7-7 7 7" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+            <path
+              d="M5 12l7-7 7 7M5 19l7-7 7 7"
+              stroke="currentColor"
+              stroke-width="1.2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
           </svg>
           <span class="year-fold__label">접기</span>
         </button>
@@ -1920,12 +2501,26 @@
       <!-- 직원소개 섹션 -->
       <section class="worker" id="worker" aria-labelledby="worker-title">
         <div class="worker__inner">
-          <img class="worker__char" src="./images/con3_char.png.png" alt="" aria-hidden="true" />
-          <img class="worker__bottle" src="./images/con3_bottle.png.png" alt="" aria-hidden="true" />
+          <img
+            class="worker__char"
+            src="./images/con3_char.png.png"
+            alt=""
+            aria-hidden="true"
+          />
+          <img
+            class="worker__bottle"
+            src="./images/con3_bottle.png.png"
+            alt=""
+            aria-hidden="true"
+          />
 
           <header class="worker__head">
             <h2 class="worker__title" id="worker-title">
-              <img class="worker__logo" src="./images/con3_logo.png.png" alt="Hanmi" />
+              <img
+                class="worker__logo"
+                src="./images/con3_logo.png.png"
+                alt="Hanmi"
+              />
               한미에서는 어떤 일을 할까요?
             </h2>
             <p class="worker__desc">
@@ -1945,7 +2540,9 @@
                   />
                 </figure>
                 <p class="worker-card__text">
-                  정밀한 시험과 분석으로 의약품의 품질을 확인해<br class="worker-br" />
+                  정밀한 시험과 분석으로 의약품의 품질을 확인해<br
+                    class="worker-br"
+                  />
                   안전하고 신뢰할 수 있는 의약품을 만들어갑니다.
                 </p>
                 <div class="worker-card__meta">
@@ -1956,7 +2553,13 @@
                   </p>
                   <span class="worker-card__arrow" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none">
-                      <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                      <path
+                        d="M5 12h14M13 6l6 6-6 6"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
                     </svg>
                   </span>
                 </div>
@@ -1972,7 +2575,9 @@
                   />
                 </figure>
                 <p class="worker-card__text">
-                  신약 후보물질의 가능성을 과학적으로 검증해<br class="worker-br" />
+                  신약 후보물질의 가능성을 과학적으로 검증해<br
+                    class="worker-br"
+                  />
                   새로운 치료제가 환자에게 향하는 첫걸음을 만듭니다.
                 </p>
                 <div class="worker-card__meta">
@@ -1983,7 +2588,13 @@
                   </p>
                   <span class="worker-card__arrow" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none">
-                      <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                      <path
+                        d="M5 12h14M13 6l6 6-6 6"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
                     </svg>
                   </span>
                 </div>
@@ -1997,8 +2608,116 @@
       </section>
 
       <!-- 회사 성장 섹션 -->
-      <section class="section" id="grow">
-        <h2 class="section__title">회사 성장</h2>
+      <section class="grow" id="grow" aria-labelledby="grow-title">
+        <!-- 배경 그라데이션 장식 (우상단 / 좌하단) -->
+        <span class="grow__glow grow__glow--tr" aria-hidden="true"></span>
+        <span class="grow__glow grow__glow--bl" aria-hidden="true"></span>
+
+        <div class="grow__inner">
+          <header class="grow__head">
+            <h2 class="grow__title" id="grow-title">
+              당신의 가능성,<br />한미그룹에서 더 크게 성장합니다
+            </h2>
+            <p class="grow__desc">
+              연구와 혁신으로 성장하며 글로벌 제약/바이오 기업을 향해
+              나아갑니다.
+            </p>
+          </header>
+
+          <div class="grow__panel">
+            <!-- 패널 상단 장식: 분자식 + 원자 모형 -->
+            <img
+              class="grow__formula"
+              src="images/ino_con4_formula.png"
+              alt=""
+              aria-hidden="true"
+            />
+            <img
+              class="grow__atom"
+              src="images/ino_obj_dna2.png"
+              alt=""
+              aria-hidden="true"
+            />
+
+            <!-- 뉴스 말풍선 (href는 실제 기사 URL로 교체) -->
+            <ul class="grow__news">
+              <li class="grow__item">
+                <a class="grow-bubble grow-bubble--orange" href="#">
+                  <span class="grow-bubble__line"
+                    >한미약품, 상반기 누적 매출 8,602억원...2분기 영업이익 117%
+                    증가</span
+                  >
+                </a>
+              </li>
+              <li class="grow__item grow__item--right">
+                <a class="grow-bubble grow-bubble--white" href="#">
+                  <span class="grow-bubble__line"
+                    >“사업형 지주사 경쟁력 입증”...한미사이언스, 2분기 영업이익
+                    71%↑</span
+                  >
+                  <span class="grow-bubble__line"
+                    >2분기 매출 3,679억원...상반기 누적 매출 7,216억원
+                    돌파</span
+                  >
+                </a>
+              </li>
+              <li class="grow__item">
+                <a class="grow-bubble grow-bubble--orange" href="#">
+                  <span class="grow-bubble__line"
+                    >한미약품, 로슈 제넨텍에 비만신약 기술수출...최대 3조
+                    2,000억 규모</span
+                  >
+                </a>
+              </li>
+              <li class="grow__item grow__item--right">
+                <a class="grow-bubble grow-bubble--white" href="#">
+                  <span class="grow-bubble__line"
+                    >“UCN2 이어 또...” 한미약품, 두 번째 근육 증가 비만신약
+                    공개</span
+                  >
+                </a>
+              </li>
+              <li class="grow__item">
+                <a class="grow-bubble grow-bubble--orange" href="#">
+                  <span class="grow-bubble__line"
+                    >명품 반열 오른 한미 ‘로수젯’...압도적 데이터 경쟁력으로
+                    시장 석권</span
+                  >
+                  <span class="grow-bubble__line"
+                    >2년 연속 국내사 개발 전문의약품 시장 ‘1위’...올해 상반기
+                    누적 처방액도 선두</span
+                  >
+                </a>
+              </li>
+              <li class="grow__item grow__item--right">
+                <a class="grow-bubble grow-bubble--white" href="#">
+                  <span class="grow-bubble__line"
+                    >“비만 넘어 항암으로 혁신 확장”...한미, AACR서 차세대 신약
+                    대거 공개</span
+                  >
+                </a>
+              </li>
+              <li class="grow__item">
+                <a class="grow-bubble grow-bubble--orange" href="#">
+                  <span class="grow-bubble__line"
+                    >한미 완전두유·케어미, 영양에 ‘맛’까지 인정...국제 우수
+                    미각상 수상</span
+                  >
+                </a>
+              </li>
+            </ul>
+
+            <p class="grow__note">말풍선을 클릭해서 기사를 확인해 보세요.</p>
+
+            <!-- 패널 좌하단 장식: 분자 모형 -->
+            <img
+              class="grow__mol"
+              src="images/ino_obj_mol.png"
+              alt=""
+              aria-hidden="true"
+            />
+          </div>
+        </div>
       </section>
 
       <!-- 회사 복지 섹션 -->
@@ -2099,7 +2818,9 @@
           return inner.offsetHeight;
         }
         function applyHeight() {
-          var h = expanded ? fullHeight() : Math.round(fullHeight() * VISIBLE_RATIO);
+          var h = expanded
+            ? fullHeight()
+            : Math.round(fullHeight() * VISIBLE_RATIO);
           panel.style.maxHeight = h + "px";
         }
         function render() {
@@ -2116,8 +2837,13 @@
           expanded = !expanded;
           render();
           if (!expanded) {
-            var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-            section.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+            var reduce = window.matchMedia(
+              "(prefers-reduced-motion: reduce)",
+            ).matches;
+            section.scrollIntoView({
+              behavior: reduce ? "auto" : "smooth",
+              block: "start",
+            });
           }
         });
 
