@@ -1526,6 +1526,12 @@
       .recruit__accordions {
         padding-bottom: 48px;
       }
+      .recruit__empty {
+        padding: 48px 40px;
+        color: #777;
+        font-size: 16px;
+        text-align: center;
+      }
       .recruit__group {
         border-bottom: 1px solid #dedede;
       }
@@ -1644,7 +1650,7 @@
       .recruit-modal__visual {
         position: relative;
         flex: none;
-        height: 150px;
+        height: 146px;
       }
       .recruit-modal__visual > img {
         width: 100%;
@@ -1671,8 +1677,12 @@
         height: 22px;
       }
       .recruit-modal__body {
-        overflow-y: auto;
-        padding: 38px 56px 44px;
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+        overflow: hidden;
+        padding: 38px 56px 0;
       }
       .recruit-modal__heading {
         display: flex;
@@ -1701,10 +1711,24 @@
       }
       .recruit-modal__employment {
         margin-top: 8px;
+        color: #777;
         font-size: 13px;
       }
+      .recruit-modal__content {
+        flex: 1 1 auto;
+        min-height: 0;
+        margin-top: 28px;
+        overflow-y: auto;
+        overscroll-behavior-y: contain;
+        padding-bottom: 44px;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+      .recruit-modal__content::-webkit-scrollbar {
+        display: none;
+      }
       .recruit-modal__section {
-        padding-top: 28px;
+        padding-top: 0;
       }
       .recruit-modal__section + .recruit-modal__section {
         margin-top: 28px;
@@ -1734,6 +1758,12 @@
         height: 5px;
         border-radius: 50%;
         background: var(--orange);
+      }
+      .recruit-modal__message {
+        margin-top: 28px;
+        color: #777;
+        font-size: 14px;
+        line-height: 1.6;
       }
       body.is-recruit-modal-open {
         overflow: hidden;
@@ -2106,7 +2136,10 @@
           height: 36px;
         }
         .recruit-modal__body {
-          padding: 24px 24px 32px;
+          padding: 24px 24px 0;
+        }
+        .recruit-modal__content {
+          padding-bottom: 32px;
         }
         .recruit-modal__heading h2 {
           font-size: 21px;
@@ -2480,7 +2513,10 @@
           padding: 12px;
         }
         .recruit-modal__body {
-          padding: 22px 18px 28px;
+          padding: 22px 18px 0;
+        }
+        .recruit-modal__content {
+          padding-bottom: 28px;
         }
         #benefit {
           padding: 72px 5% 100px;
@@ -3736,16 +3772,16 @@
               <button class="recruit__tab is-active" id="recruit-tab-rnd" type="button" role="tab" aria-selected="true" aria-controls="recruit-panels" tabindex="0" data-category="rnd">R&amp;D</button>
             </li>
             <li class="recruit__tab-item" role="presentation">
-              <button class="recruit__tab" id="recruit-tab-production" type="button" role="tab" aria-selected="false" aria-controls="recruit-panels" tabindex="-1" data-category="production">생산/품질</button>
+              <button class="recruit__tab" id="recruit-tab-prod" type="button" role="tab" aria-selected="false" aria-controls="recruit-panels" tabindex="-1" data-category="prod">생산/품질</button>
             </li>
             <li class="recruit__tab-item" role="presentation">
               <button class="recruit__tab" id="recruit-tab-sales" type="button" role="tab" aria-selected="false" aria-controls="recruit-panels" tabindex="-1" data-category="sales">영업</button>
             </li>
             <li class="recruit__tab-item" role="presentation">
-              <button class="recruit__tab" id="recruit-tab-management" type="button" role="tab" aria-selected="false" aria-controls="recruit-panels" tabindex="-1" data-category="management">경영관리</button>
+              <button class="recruit__tab" id="recruit-tab-mps" type="button" role="tab" aria-selected="false" aria-controls="recruit-panels" tabindex="-1" data-category="mps">경영관리</button>
             </li>
             <li class="recruit__tab-item" role="presentation">
-              <button class="recruit__tab" id="recruit-tab-clinical" type="button" role="tab" aria-selected="false" aria-controls="recruit-panels" tabindex="-1" data-category="clinical">임상</button>
+              <button class="recruit__tab" id="recruit-tab-cl" type="button" role="tab" aria-selected="false" aria-controls="recruit-panels" tabindex="-1" data-category="cl">임상</button>
             </li>
             <li class="recruit__tab-item" role="presentation">
               <button class="recruit__tab" id="recruit-tab-global" type="button" role="tab" aria-selected="false" aria-controls="recruit-panels" tabindex="-1" data-category="global">글로벌</button>
@@ -3760,7 +3796,7 @@
         <div class="recruit-modal" id="recruit-modal" hidden>
           <div class="recruit-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="recruit-modal-title">
             <div class="recruit-modal__visual">
-              <img src="./images/recruit_rnd_bg.jpg" alt="연구 장비를 이용하는 연구원" />
+              <img src="./images/recruit_rnd_bg.jpg" alt="" />
               <button class="recruit-modal__close" type="button" aria-label="상세 정보 닫기">
                 <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
@@ -3772,15 +3808,22 @@
                 <h2 id="recruit-modal-title"></h2>
                 <p class="recruit-modal__meta"><span id="recruit-modal-category"></span><i></i><span id="recruit-modal-location"></span></p>
               </div>
-              <p class="recruit-modal__employment">*신입/경력</p>
-              <section class="recruit-modal__section">
-                <h3>직무 내용</h3>
-                <ul id="recruit-modal-duties"></ul>
-              </section>
-              <section class="recruit-modal__section">
-                <h3>자격요건</h3>
-                <ul id="recruit-modal-qualifications"></ul>
-              </section>
+              <p class="recruit-modal__employment" id="recruit-modal-employment"></p>
+              <div class="recruit-modal__content">
+                <p class="recruit-modal__message" id="recruit-modal-message" hidden></p>
+                <section class="recruit-modal__section" id="recruit-modal-description-section">
+                  <h3>직무 내용</h3>
+                  <ul id="recruit-modal-description"></ul>
+                </section>
+                <section class="recruit-modal__section" id="recruit-modal-requirements-section">
+                  <h3>자격요건</h3>
+                  <ul id="recruit-modal-requirements"></ul>
+                </section>
+                <section class="recruit-modal__section" id="recruit-modal-preferential-section">
+                  <h3>우대사항</h3>
+                  <ul id="recruit-modal-preferential"></ul>
+                </section>
+              </div>
             </div>
           </div>
         </div>
@@ -3918,12 +3961,74 @@
         var modal = document.getElementById("recruit-modal");
         if (!tabs || !panels || !modal) return;
 
+        var popupDataUrl = new URL("./data/popup_data.json", document.baseURI);
+        var modalImage = modal.querySelector(".recruit-modal__visual img");
+        var popupDataRequest = fetch(popupDataUrl)
+          .then(function (response) {
+            if (!response.ok) {
+              throw new Error(
+                "팝업 직무 데이터를 불러오지 못했습니다. (" +
+                  response.status +
+                  ")",
+              );
+            }
+            return response.json();
+          })
+          .then(function (data) {
+            var records = Array.isArray(data) ? data : data.jobs;
+            if (
+              !Array.isArray(records) ||
+              records.some(function (record) {
+                var descriptions =
+                  record && (record.jobDescription || record.job_description);
+                var requirements =
+                  record && (record.requirements || record.qualifications);
+                var preferential =
+                  record && (record.preferential || record.preferred);
+                return (
+                  !record ||
+                  typeof record.title !== "string" ||
+                  typeof (record.department || record.category) !== "string" ||
+                  typeof record.location !== "string" ||
+                  typeof record.image !== "string" ||
+                  typeof (record.employmentType || record.category) !==
+                    "string" ||
+                  !Array.isArray(descriptions) ||
+                  !Array.isArray(requirements) ||
+                  !Array.isArray(preferential)
+                );
+              })
+            ) {
+              throw new TypeError("팝업 직무 데이터 형식이 올바르지 않습니다.");
+            }
+            return {
+              records: records.map(function (record) {
+                return {
+                  title: record.title,
+                  category: record.department || record.category,
+                  location: record.location,
+                  image: record.image,
+                  employmentType: record.employmentType || record.category,
+                  jobDescription:
+                    record.jobDescription || record.job_description,
+                  requirements: record.requirements || record.qualifications,
+                  preferential: record.preferential || record.preferred,
+                };
+              }),
+              error: null,
+            };
+          })
+          .catch(function (error) {
+            console.error("팝업 직무 데이터 로드 오류:", error);
+            return { records: null, error: error };
+          });
+
         var categoryNames = {
           rnd: "R&D",
-          production: "생산/품질",
+          prod: "생산/품질",
           sales: "영업",
-          management: "경영관리",
-          clinical: "임상",
+          mps: "경영관리",
+          cl: "임상",
           global: "글로벌",
           healthcare: "헬스케어",
         };
@@ -3931,7 +4036,8 @@
           rnd: [
             {
               name: "연구센터 (경기도 동탄)",
-              location: "연구센터",
+              location: "연구센터 (경기도 동탄)",
+              count: "6",
               roles: [
                 "NCE (New Chemical Entity)",
                 "QS&F (Quality Science & Formulation)",
@@ -3943,135 +4049,142 @@
             },
             {
               name: "제제연구소 [의약혁신센터] (경기도 광교)",
-              location: "의약혁신센터",
-              roles: ["제제연구 (Formulation Research)"],
+              location: "제제연구소 [의약혁신센터] (경기도 광교)",
+              count: "1",
+              roles: ["신제형연구 (전문연구요원)"],
             },
           ],
-          production: [
+          prod: [
             {
-              name: "팔탄공장 (경기도 화성)",
-              location: "팔탄공장",
-              roles: ["생산기술", "품질관리", "품질보증", "제조관리"],
+              name: "팔탄제조센터 (경기도 화성)",
+              location: "팔탄제조센터 (경기도 화성)",
+              count: "4",
+              roles: ["제조", "포장", "품질관리", "기술지원"],
             },
             {
-              name: "평택바이오플랜트 (경기도 평택)",
-              location: "평택바이오플랜트",
-              roles: ["바이오의약품 생산", "바이오 품질관리"],
+              name: "평택제조센터 (경기도 평택)",
+              location: "평택제조센터 (경기도 평택)",
+              count: "2",
+              roles: ["DS생산 (학사)", "DS생산 (전문학사)"],
             },
           ],
           sales: [
             {
-              name: "국내영업 (전국)",
-              location: "국내영업",
-              roles: ["전문의약품 영업", "병원 영업", "약국 영업"],
+              name: "전국 (Mobile Office)",
+              location: "전국 (Mobile Office)",
+              count: "1",
+              roles: ["제약영업"],
             },
             {
-              name: "영업기획 (서울)",
-              location: "영업기획",
-              roles: ["영업기획", "영업교육"],
-            },
-          ],
-          management: [
-            {
-              name: "경영지원본부 (서울)",
-              location: "경영지원본부",
-              roles: ["인사", "재무/회계", "구매", "홍보"],
-            },
-            {
-              name: "정보전략실 (서울)",
-              location: "정보전략실",
-              roles: ["정보기술", "데이터 분석"],
+              name: "본사 (서울시 송파구)",
+              location: "본사 (서울시 송파구)",
+              count: "2",
+              roles: ["해외영업", "IT솔루션영업"],
             },
           ],
-          clinical: [
+          mps: [
             {
-              name: "임상개발본부 (서울)",
-              location: "임상개발본부",
-              roles: ["임상시험 운영", "임상개발", "임상 데이터 관리"],
+              name: "본사 (서울시 송파구)",
+              location: "본사 (서울시 송파구)",
+              count: "5",
+              roles: ["구매", "국내법무", "특허", "안전관리", "인사총무"],
+            },
+          ],
+          cl: [
+            {
+              name: "본사 (서울시 송파구)",
+              location: "본사 (서울시 송파구)",
+              count: "4",
+              roles: [
+                "Pipeline Valuation (신약가치평가)",
+                "Market Intelligence (신약개발 전략분석)",
+                "Data Management",
+                "Biostatistician",
+              ],
             },
           ],
           global: [
             {
-              name: "글로벌사업본부 (서울)",
-              location: "글로벌사업본부",
-              roles: ["해외사업개발", "글로벌 마케팅", "해외 등록"],
+              name: "본사 (서울시 송파구)",
+              location: "본사 (서울시 송파구)",
+              count: "2",
+              roles: ["Global Regulatory Affairs", "Licensing"],
             },
           ],
           healthcare: [
             {
-              name: "헬스케어사업본부 (서울)",
-              location: "헬스케어사업본부",
-              roles: ["헬스케어 서비스 기획", "건강관리 콘텐츠 개발"],
+              name: "본사 (서울시 송파구)",
+              location: "본사 (서울시 송파구)",
+              count: "9",
+              roles: [
+                "식품영업",
+                "식품커머스운영",
+                "화장품 커머스사업기획",
+                "화장품 상품기획",
+                "화장품 홈쇼핑영업/운영",
+                "화장품 국내영업",
+                "화장품 해외영업",
+                "화장품 글로벌마케팅",
+                "해외이커머스운영",
+              ],
             },
-          ],
-        };
-        var categoryDetails = {
-          rnd: {
-            duties: [
-              "신약 후보물질 발굴 및 개발 연구",
-              "연구 데이터 분석 및 유관 부서 협업",
-            ],
-            qualifications: [
-              "관련 분야 석사 이상 학력 소지자",
-              "화학, 약학, 생명과학 등 관련 전공자",
-              "신약 개발 연구 분야 지식 보유자",
-            ],
-          },
-          production: {
-            duties: ["의약품 생산 공정 운영 및 품질 관리", "공정 개선 및 제조 관련 부서 협업"],
-            qualifications: ["관련 분야 전공 또는 직무 경험 보유자", "품질·안전 기준을 꼼꼼히 지킬 수 있는 분"],
-          },
-          sales: {
-            duties: ["담당 제품 정보 전달 및 고객 관리", "시장 동향 분석과 영업 전략 실행"],
-            qualifications: ["고객과 원활하게 소통할 수 있는 분", "목표 지향적이고 책임감 있게 업무를 수행하는 분"],
-          },
-          management: {
-            duties: ["담당 분야의 운영 및 업무 프로세스 개선", "내부 유관 부서와의 협업 및 지원"],
-            qualifications: ["관련 분야 전공 또는 직무 경험 보유자", "문서 작성 및 커뮤니케이션 역량을 갖춘 분"],
-          },
-          clinical: {
-            duties: ["임상시험 계획 및 운영 지원", "임상 데이터와 문서의 품질 관리"],
-            qualifications: ["임상·약학·생명과학 등 관련 전공자", "관련 규정과 절차를 정확히 준수하는 분"],
-          },
-          global: {
-            duties: ["해외 시장 및 파트너십 기회 발굴", "글로벌 사업 운영 및 유관 부서 협업"],
-            qualifications: ["외국어로 원활한 업무 소통이 가능한 분", "글로벌 사업 또는 관련 분야 경험 보유자 우대"],
-          },
-          healthcare: {
-            duties: ["헬스케어 서비스와 콘텐츠 기획·운영", "사용자 관점의 서비스 개선 과제 발굴"],
-            qualifications: ["헬스케어·디지털 서비스 관련 경험 보유자", "사용자 중심의 문제 해결 역량을 갖춘 분"],
-          },
-        };
-        var nceDetails = {
-          duties: [
-            "저분자 기반 비만대사 신약 개발 연구",
-            "약물설계, 유기화합물 합성 및 후보물질 탐색",
-          ],
-          qualifications: [
-            "석사 이상 학력 소지자",
-            "화학, 약학 등 관련 전공자",
-            "의약화학, 약리학 등 신약개발 연구분야 지식 보유자",
+            {
+              name: "서울/수도권/영남",
+              location: "서울/수도권/영남",
+              count: "1",
+              roles: ["의료기기영업"],
+            },
           ],
         };
 
         var modalTitle = document.getElementById("recruit-modal-title");
         var modalCategory = document.getElementById("recruit-modal-category");
         var modalLocation = document.getElementById("recruit-modal-location");
-        var modalDuties = document.getElementById("recruit-modal-duties");
-        var modalQualifications = document.getElementById(
-          "recruit-modal-qualifications",
+        var modalEmployment = document.getElementById(
+          "recruit-modal-employment",
         );
+        var modalMessage = document.getElementById("recruit-modal-message");
+        var modalRequestId = 0;
         var closeButton = modal.querySelector(".recruit-modal__close");
         var selectedCategory = "rnd";
         var returnFocusTo = null;
 
-        function createBulletList(list, items) {
+        function setModalMessage(message) {
+          modalMessage.textContent = message || "";
+          modalMessage.hidden = !message;
+        }
+
+        function renderModalSection(sectionId, listId, items) {
+          var section = document.getElementById(sectionId);
+          var list = document.getElementById(listId);
           list.replaceChildren();
+          section.hidden = items.length === 0;
           items.forEach(function (item) {
             var entry = document.createElement("li");
             entry.textContent = item;
             list.append(entry);
           });
+        }
+
+        function renderModalDetails(record) {
+          modalImage.src = new URL(record.image, popupDataUrl).href;
+          modalEmployment.textContent = record.employmentType;
+          setModalMessage("");
+          renderModalSection(
+            "recruit-modal-description-section",
+            "recruit-modal-description",
+            record.jobDescription,
+          );
+          renderModalSection(
+            "recruit-modal-requirements-section",
+            "recruit-modal-requirements",
+            record.requirements,
+          );
+          renderModalSection(
+            "recruit-modal-preferential-section",
+            "recruit-modal-preferential",
+            record.preferential,
+          );
         }
 
         function renderCategory(category) {
@@ -4081,7 +4194,16 @@
             "recruit-tab-" + category,
           );
 
-          categoryGroups[category].forEach(function (group, groupIndex) {
+          var groups = categoryGroups[category] || [];
+          if (groups.length === 0) {
+            var emptyMessage = document.createElement("p");
+            emptyMessage.className = "recruit__empty";
+            emptyMessage.textContent = "등록된 직무 정보가 없습니다.";
+            panels.append(emptyMessage);
+            return;
+          }
+
+          groups.forEach(function (group, groupIndex) {
             var section = document.createElement("section");
             var toggle = document.createElement("button");
             var label = document.createElement("span");
@@ -4097,8 +4219,8 @@
             toggle.setAttribute("aria-controls", panelId);
             label.textContent = group.name;
             count.className = "recruit__count";
-            count.textContent = group.roles.length;
-            count.setAttribute("aria-label", group.roles.length + "개 직무");
+            count.textContent = group.count;
+            count.setAttribute("aria-label", group.count + "개 직무");
             toggle.append(label, count);
 
             panel.className = "recruit__group-panel";
@@ -4159,22 +4281,54 @@
         }
 
         function openModal(roleName, category, location, trigger) {
-          var details = roleName === "NCE (New Chemical Entity)"
-            ? nceDetails
-            : categoryDetails[category];
-
+          var requestId = ++modalRequestId;
           returnFocusTo = trigger;
           modalTitle.textContent = roleName;
           modalCategory.textContent = categoryNames[category];
           modalLocation.textContent = location;
-          createBulletList(modalDuties, details.duties);
-          createBulletList(modalQualifications, details.qualifications);
+          modalEmployment.textContent = "";
+          renderModalDetails({
+            employmentType: "",
+            jobDescription: [],
+            requirements: [],
+            preferential: [],
+          });
+          setModalMessage("직무 상세 정보를 불러오는 중입니다.");
           modal.hidden = false;
           document.body.classList.add("is-recruit-modal-open");
           closeButton.focus();
+
+          popupDataRequest.then(function (result) {
+            if (modal.hidden || requestId !== modalRequestId) return;
+            if (result.error) {
+              setModalMessage("직무 상세 정보를 불러오지 못했습니다.");
+              return;
+            }
+
+            var record = result.records.find(function (item) {
+              return (
+                item.title === roleName &&
+                item.category === categoryNames[category]
+              );
+            });
+            if (!record) {
+              setModalMessage("등록된 직무 상세 정보가 없습니다.");
+              console.warn(
+                "팝업 직무 데이터에서 일치하는 항목을 찾지 못했습니다:",
+                roleName,
+              );
+              return;
+            }
+
+            modalTitle.textContent = record.title;
+            modalCategory.textContent = record.category;
+            modalLocation.textContent = record.location;
+            renderModalDetails(record);
+          });
         }
 
         function closeModal() {
+          modalRequestId += 1;
           modal.hidden = true;
           document.body.classList.remove("is-recruit-modal-open");
           if (returnFocusTo) returnFocusTo.focus();
