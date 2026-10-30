@@ -1623,6 +1623,442 @@
         margin-left: 18px;
         color: #888;
       }
+      .require {
+        position: relative;
+        overflow: hidden;
+        padding: 82px 0 96px;
+        background: var(--white);
+      }
+      .require__inner {
+        position: relative;
+        width: min(1210px, calc(100% - 80px));
+        margin: 0 auto;
+      }
+      .require__title {
+        max-width: 680px;
+        margin: 0 auto 62px;
+        font-size: clamp(30px, 3vw, 42px);
+        font-weight: 800;
+        line-height: 1.4;
+        text-align: center;
+      }
+      .require__bulb {
+        position: absolute;
+        top: -34px;
+        right: 12px;
+        width: clamp(78px, 9vw, 112px);
+        height: auto;
+      }
+      .require__tabs {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #e5e5e5;
+      }
+      .require__tab {
+        min-height: 56px;
+        padding: 12px 20px;
+        border: 0;
+        border-radius: 12px;
+        background: transparent;
+        color: #888;
+        font: inherit;
+        font-size: 15px;
+        cursor: pointer;
+      }
+      .require__tab[aria-selected="true"] {
+        background: #fffaf8;
+        box-shadow: 0 4px 12px rgba(205, 125, 96, 0.18);
+        color: var(--orange);
+        font-weight: 700;
+      }
+      .require__tab:focus-visible {
+        outline: 2px solid var(--orange);
+        outline-offset: 3px;
+      }
+      .require__panel[hidden] {
+        display: none;
+      }
+      .require__eligibility {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        border-bottom: 1px solid #e5e5e5;
+      }
+      .require__item {
+        display: flex;
+        min-height: 194px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        padding: 22px;
+        text-align: center;
+      }
+      .require__item + .require__item {
+        border-left: 1px solid #e5e5e5;
+      }
+      .require__item img {
+        width: 64px;
+        height: 64px;
+        object-fit: contain;
+      }
+      .require__item h3 {
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 1.5;
+      }
+      .require__notes {
+        display: grid;
+        gap: 10px;
+        justify-content: center;
+        padding: 36px 20px;
+        border-bottom: 1px solid #e5e5e5;
+      }
+      .require__notes li {
+        position: relative;
+        padding-left: 14px;
+        font-size: 13px;
+        line-height: 1.6;
+      }
+      .require__notes li::before {
+        position: absolute;
+        top: 0.65em;
+        left: 0;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: var(--orange);
+        content: "";
+      }
+      .require__notice {
+        padding: 34px 20px;
+        border-bottom: 1px solid #e5e5e5;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1.6;
+        text-align: center;
+      }
+      .require__notice strong {
+        color: var(--orange);
+      }
+      .require__process-group {
+        padding: 44px 36px;
+        border-bottom: 1px solid #e5e5e5;
+      }
+      .require__process-title {
+        margin-bottom: 38px;
+        font-size: 22px;
+        font-weight: 700;
+      }
+      .require__steps {
+        display: grid;
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+        align-items: start;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .require__step {
+        position: relative;
+        min-width: 0;
+        text-align: center;
+      }
+      .require__step:not(:last-child)::after {
+        position: absolute;
+        top: 12px;
+        right: -5px;
+        color: #222;
+        content: "›";
+        font-size: 28px;
+        line-height: 1;
+      }
+      .require__step-icon {
+        display: grid;
+        width: 52px;
+        height: 54px;
+        place-items: center;
+        margin: 0 auto 12px;
+        color: var(--orange);
+        font-size: 36px;
+        line-height: 1;
+      }
+      .require__step-title {
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 1.45;
+      }
+      .require__step-date {
+        margin-top: 4px;
+        color: #999;
+        font-size: 13px;
+        line-height: 1.45;
+      }
+      .require__footnotes {
+        padding: 30px 0 56px;
+        border-bottom: 1px solid #dedede;
+      }
+      .require__footnotes ul {
+        display: grid;
+        width: fit-content;
+        max-width: calc(100% - 32px);
+        gap: 12px;
+        margin: 0 auto;
+      }
+      .require__footnotes li {
+        position: relative;
+        padding-left: 16px;
+        font-size: 14px;
+        line-height: 1.6;
+      }
+      .require__footnotes li::before {
+        position: absolute;
+        top: 0.65em;
+        left: 0;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--orange);
+        content: "";
+      }
+      .expo {
+        padding: 72px 0 84px;
+        background: #fff;
+      }
+      .expo__inner {
+        width: min(1240px, calc(100% - 72px));
+        margin: 0 auto;
+      }
+      .expo__intro {
+        display: grid;
+        grid-template-columns: minmax(180px, 250px) 1fr;
+        align-items: center;
+        gap: 34px;
+        margin-bottom: 54px;
+      }
+      .expo__character {
+        width: 100%;
+        max-width: 250px;
+        height: auto;
+      }
+      .expo__title {
+        font-size: clamp(30px, 3.2vw, 42px);
+        font-weight: 800;
+        line-height: 1.35;
+      }
+      .expo__description {
+        margin-top: 16px;
+        font-size: 16px;
+        line-height: 1.65;
+      }
+      .expo__hint {
+        margin-top: 14px;
+        color: #555;
+        font-size: 12px;
+        line-height: 1.6;
+        text-align: center;
+      }
+      .expo__hint::before {
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        margin: 0 8px 2px 0;
+        border-radius: 50%;
+        background: var(--orange);
+        content: "";
+      }
+      .expo__tabs,
+      .expo__regions {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+      .expo__tab,
+      .expo__region {
+        min-width: 0;
+        min-height: 56px;
+        padding: 12px 16px;
+        border: 0;
+        border-radius: 12px;
+        background: transparent;
+        color: #888;
+        font: inherit;
+        font-size: 15px;
+        cursor: pointer;
+      }
+      .expo__tab[aria-selected="true"],
+      .expo__region[aria-pressed="true"] {
+        background: #fffaf8;
+        box-shadow: 0 4px 12px rgba(205, 125, 96, 0.18);
+        color: var(--orange);
+        font-weight: 700;
+      }
+      .expo__tab:focus-visible,
+      .expo__region:focus-visible {
+        outline: 2px solid var(--orange);
+        outline-offset: 3px;
+      }
+      .expo__panel[hidden],
+      .expo__regions-wrap[hidden] {
+        display: none;
+      }
+      .expo__regions-wrap {
+        margin-top: 18px;
+        padding: 4px 12px;
+        border-radius: 14px;
+        background: #fffaf8;
+      }
+      .expo__regions {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 8px;
+      }
+      .expo__region {
+        min-height: 48px;
+        padding: 10px 8px;
+      }
+      .expo__schedule {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        margin: 0;
+        padding: 0;
+        border-bottom: 1px solid #e5e5e5;
+        list-style: none;
+      }
+      .expo__empty {
+        display: grid;
+        grid-column: 1 / -1;
+        min-height: 164px;
+        place-items: center;
+        border-top: 1px solid #e5e5e5;
+        color: #888;
+        font-size: 14px;
+        text-align: center;
+      }
+      .expo__day {
+        display: flex;
+        min-width: 0;
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden;
+        border-bottom: 1px solid #e5e5e5;
+        text-align: center;
+        height: 22vh;
+      }
+      .expo__date {
+        position: relative;
+        width: 100%;
+        padding: 12px 6px;
+        border-top: 1px solid #e5e5e5;
+        border-bottom: 1px solid #e5e5e5;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 1.5;
+      }
+      .expo__day:not(:nth-child(5n + 1)) .expo__date::before {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 1px;
+        height: 12px;
+        transform: translateY(-50%);
+        background: #e5e5e5;
+        content: "";
+      }
+      .expo__events {
+        display: flex;
+        flex: 1;
+        min-height: 0;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        width: 100%;
+        padding: 18px 8px;
+        overflow: hidden;
+      }
+      .expo__day.is-open .expo__events {
+        padding: 0 8px 8px;
+      }
+      .expo__day.is-open .expo__event {
+        display: none;
+      }
+      .expo__event {
+        position: relative;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        color: var(--orange);
+        font: inherit;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.5;
+        text-align: center;
+      }
+      button.expo__event {
+        cursor: pointer;
+      }
+      button.expo__event:focus-visible {
+        outline: 2px solid var(--orange);
+        outline-offset: 3px;
+      }
+      .expo__event + .expo__event::before {
+        display: block;
+        width: 36px;
+        height: 1px;
+        margin: 0 auto 10px;
+        background: #ffe0d7;
+        content: "";
+      }
+      .expo__event-details {
+        display: grid;
+        flex: 1 1 0;
+        align-content: center;
+        gap: 6px;
+        width: 100%;
+        min-width: 0;
+        min-height: 0;
+        margin: 0;
+        padding: 8px 6px;
+        overflow-y: auto;
+        border-radius: 8px;
+        background: #fff7f4;
+        color: #222;
+        text-align: center;
+      }
+      .expo__event-details[hidden] {
+        display: none;
+      }
+      .expo__event-detail-row {
+        display: flex;
+        min-width: 0;
+        flex-direction: column;
+        align-items: center;
+        gap: 2px;
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 1.45;
+      }
+      .expo__event-detail-row > span:last-child {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+      }
+      .expo__event-detail-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        color: var(--orange);
+        font-size: 11px;
+        font-weight: 500;
+      }
+      .expo__event-detail-icon {
+        width: 12px;
+        height: 12px;
+        fill: none;
+        stroke: currentColor;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.7;
+      }
       .recruit-modal[hidden] {
         display: none;
       }
@@ -1771,11 +2207,11 @@
       #benefit {
         position: relative;
         display: block;
-        min-height: 0;
+        min-height: 10vh;
         overflow: hidden;
-        padding: 88px 5.2% 110px;
+        padding: 88px 5.2% clamp(140px, 15vw, 180px);
         background: #fff;
-        height: 120vh;
+        height: auto;
       }
       .benefit__inner {
         position: relative;
@@ -1807,8 +2243,8 @@
       .benefit__char--bottom {
         top: auto;
         right: auto;
-        bottom: -96px;
-        left: -10px;
+        bottom: 24px;
+        left: 5.2%;
         width: clamp(100px, 14vw, 160px);
       }
       .benefit__lead {
@@ -1857,7 +2293,15 @@
         min-height: 0;
       }
       .benefit__cards-viewport {
+        position: relative;
+        display: flex;
+        flex-direction: column;
         height: 100%;
+        overflow: hidden;
+      }
+      .benefit__cards-scroll {
+        flex: 1;
+        min-height: 0;
         padding-right: 5px;
         overflow-x: hidden;
         overflow-y: auto;
@@ -1865,18 +2309,18 @@
         scrollbar-color: var(--orange) #eee;
         scrollbar-width: thin;
       }
-      .benefit__cards-viewport::-webkit-scrollbar {
+      .benefit__cards-scroll::-webkit-scrollbar {
         width: 3px;
       }
-      .benefit__cards-viewport::-webkit-scrollbar-button {
+      .benefit__cards-scroll::-webkit-scrollbar-button {
         display: none;
         width: 0;
         height: 0;
       }
-      .benefit__cards-viewport::-webkit-scrollbar-track {
+      .benefit__cards-scroll::-webkit-scrollbar-track {
         background: #eee;
       }
-      .benefit__cards-viewport::-webkit-scrollbar-thumb {
+      .benefit__cards-scroll::-webkit-scrollbar-thumb {
         border-radius: 4px;
         background: var(--orange);
       }
@@ -1922,11 +2366,247 @@
         object-fit: contain;
       }
       .footer {
-        padding: 48px 60px;
-        background: #111;
-        color: #aaa;
-        font-size: 15px;
+        display: flex;
+        min-height: 76px;
+        align-items: center;
+        justify-content: center;
+        padding: 16px 24px;
+        background: transparent;
+      }
+      .footer__logo,
+      .footer__logo img {
+        display: block;
+        width: 150px;
+        height: auto;
+      }
+      .cont8 {
+        position: relative;
+        /* overflow: hidden; */
+        padding: 58px 0 42px;
+        background: #fff;
+        height: 100vh;
+      }
+      .cont8__inner {
+        position: relative;
+        display: grid;
+        width: min(1226px, 84.2vw);
+        min-height: 320px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        align-items: center;
+        gap: clamp(24px, 3.8vw, 56px);
+        margin: 0 auto;
+      }
+      .cont8__card {
+        position: relative;
+        display: block;
+        min-width: 0;
         text-align: center;
+      }
+      .cont8__card:nth-child(2) {
+        transform: translateY(-3.85vw);
+      }
+      .cont8__card:nth-child(3) {
+        transform: translateY(3.85vw);
+      }
+      .cont8__image-wrap {
+        position: relative;
+        display: block;
+        overflow: hidden;
+        aspect-ratio: 0.775;
+        border-radius: 9px;
+      }
+      .cont8__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.35s ease;
+      }
+      .cont8__card:hover .cont8__image,
+      .cont8__card:focus-visible .cont8__image {
+        transform: scale(1.04);
+      }
+      .cont8__caption {
+        display: block;
+        margin-top: 2vw;
+        font-size: clamp(10px, 1.35vw, 20px);
+        font-weight: 500;
+        line-height: 1.5;
+      }
+      .cont8__mark {
+        position: absolute;
+        z-index: 1;
+        width: auto;
+        height: auto;
+        pointer-events: none;
+      }
+      .cont8__mark--arrow-left {
+        top: calc(100% - 7.4vw);
+        left: 2%;
+        width: 3vw;
+      }
+      .cont8__mark--star {
+        top: calc(100% - 5.6vw);
+        right: -1vw;
+        width: 3.6vw;
+      }
+      .cont8__mark--arrow-right {
+        top: calc(100% - 5.4vw);
+        right: 3%;
+        width: 3vw;
+      }
+      .cont8__mark--circle {
+        top: 50%;
+        left: 50%;
+        width: 6vw;
+        transform: translate(-50%, -50%) rotate(-12deg);
+      }
+      .cont8__mark--underline {
+        bottom: -5px;
+        left: 50%;
+        width: 7.7vw;
+        transform: translateX(-50%);
+      }
+      .cont8__caption-word {
+        position: relative;
+        display: inline-block;
+      }
+      .cont8__link-label {
+        display: none;
+      }
+      .cont8__mobile-copy {
+        display: none;
+      }
+      .cont8__character {
+        position: absolute;
+        top: -45px;
+        right: max(24px, calc((100% - 1320px) / 2));
+        width: clamp(62px, 7vw, 100px);
+        height: auto;
+      }
+      .cont9 {
+        position: relative;
+        isolation: isolate;
+        display: flex;
+        min-height: 500px;
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden;
+        padding: 82px 24px 44px;
+        background: url("./images/cont9_bg.png") center / cover no-repeat;
+        text-align: center;
+      }
+      .cont9__title {
+        position: relative;
+        z-index: 1;
+        font-size: clamp(28px, 3.2vw, 42px);
+        font-weight: 800;
+        letter-spacing: -0.06em;
+        line-height: 1.3;
+      }
+      .cont9__countdown {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        justify-content: center;
+        gap: 0.18em;
+        margin-top: 8px;
+        font-size: clamp(25px, 3.1vw, 40px);
+        font-weight: 800;
+        letter-spacing: -0.04em;
+        line-height: 1.4;
+      }
+      .cont9__countdown[hidden],
+      .cont9__closed[hidden] {
+        display: none;
+      }
+      .cont9__countdown-value {
+        color: #f23b2e;
+        font-variant-numeric: tabular-nums;
+      }
+      .cont9__countdown-unit {
+        margin-right: 0.14em;
+        font-size: 0.78em;
+      }
+      .cont9__closed {
+        margin-top: 8px;
+        color: #f23b2e;
+        font-size: clamp(23px, 2.8vw, 36px);
+        font-weight: 800;
+      }
+      .cont9__launch {
+        position: relative;
+        display: grid;
+        width: clamp(180px, 20vw, 250px);
+        aspect-ratio: 1;
+        place-items: center;
+        margin-top: 28px;
+      }
+      .cont9__earth {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        animation: cont9-float 4s ease-in-out infinite;
+      }
+      .cont9__apply {
+        position: absolute;
+        display: inline-flex;
+        min-width: 132px;
+        min-height: 48px;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        padding: 8px 13px 8px 20px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.92);
+        box-shadow: 0 5px 20px rgba(34, 111, 155, 0.16);
+        color: var(--orange);
+        font-size: 16px;
+        font-weight: 700;
+        transition:
+          transform var(--transition),
+          box-shadow var(--transition);
+      }
+      .cont9__apply:hover,
+      .cont9__apply:focus-visible {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(34, 111, 155, 0.24);
+      }
+      .cont9__arrow {
+        display: grid;
+        width: 28px;
+        height: 28px;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--orange);
+        color: #fff;
+        font-size: 20px;
+        line-height: 1;
+      }
+      .cont9__cloud {
+        position: absolute;
+        z-index: -1;
+        bottom: -8px;
+        width: clamp(170px, 28vw, 360px);
+        height: auto;
+        pointer-events: none;
+      }
+      .cont9__cloud--left {
+        left: 0;
+      }
+      .cont9__cloud--right {
+        right: 0;
+        width: clamp(140px, 22vw, 290px);
+      }
+      @keyframes cont9-float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-8px);
+        }
       }
 
       /* 모바일 메뉴 관련 */
@@ -2357,7 +3037,7 @@
       /* Tablet */
       @media (max-width: 1024px) {
         #benefit {
-          padding: 78px 5.2% 100px;
+          padding: 78px 5.2% 150px;
         }
         .benefit__title {
           max-width: 74%;
@@ -2372,8 +3052,8 @@
         }
         .benefit__char--bottom {
           top: auto;
-          bottom: -20%;
-          left: -8px;
+          bottom: 24px;
+          left: 5.2%;
           width: clamp(90px, 16vw, 130px);
         }
         .benefit__lead {
@@ -2519,7 +3199,7 @@
           padding-bottom: 28px;
         }
         #benefit {
-          padding: 72px 5% 100px;
+          padding: 72px 5% 120px;
         }
         .benefit__title {
           max-width: 78%;
@@ -2535,6 +3215,12 @@
         .benefit__char {
           right: -4px;
           width: 32%;
+        }
+        .benefit__char--bottom {
+          right: auto;
+          bottom: 24px;
+          left: 5%;
+          width: clamp(100px, 32vw, 160px);
         }
         .benefit__lead {
           flex-wrap: wrap;
@@ -2734,6 +3420,421 @@
           font-size: clamp(10px, 2.4vw, 12px);
         }
       }
+
+      @media (max-width: 1024px) {
+        .require {
+          padding: 68px 0 76px;
+        }
+        .expo {
+          padding: 60px 0 68px;
+        }
+        .expo__inner {
+          width: calc(100% - 56px);
+        }
+        .expo__intro {
+          grid-template-columns: minmax(150px, 210px) 1fr;
+          gap: 24px;
+          margin-bottom: 42px;
+        }
+        .expo__title {
+          font-size: clamp(28px, 4vw, 36px);
+        }
+        .expo__description {
+          font-size: 15px;
+        }
+
+        .expo__event {
+          font-size: 13px;
+        }
+        .require__footnotes li {
+          font-size: 13px;
+        }
+        .require__inner {
+          width: calc(100% - 56px);
+        }
+        .require__title {
+          max-width: 72%;
+          margin-bottom: 48px;
+          font-size: clamp(28px, 4.2vw, 36px);
+        }
+        .require__bulb {
+          top: -20px;
+          width: clamp(72px, 11vw, 96px);
+        }
+        .require__item {
+          min-height: 168px;
+        }
+        .require__process-group {
+          padding: 36px 16px;
+        }
+        .require__process-title {
+          margin-bottom: 30px;
+          font-size: 19px;
+        }
+        .require__step-icon {
+          width: 44px;
+          height: 48px;
+          font-size: 32px;
+        }
+        .require__step-title {
+          font-size: clamp(11px, 1.6vw, 14px);
+        }
+        .require__step-date {
+          font-size: clamp(10px, 1.35vw, 12px);
+        }
+      }
+
+      @media (max-width: 767px) {
+        .require {
+          padding: 52px 0 64px;
+        }
+        .expo {
+          padding: 48px 0 56px;
+        }
+        .expo__inner {
+          width: calc(100% - 28px);
+        }
+        .expo__intro {
+          display: block;
+          margin-bottom: 32px;
+          text-align: center;
+        }
+        .expo__character {
+          display: none;
+        }
+        .expo__title {
+          font-size: clamp(22px, 5.5vw, 26px);
+        }
+        .expo__description {
+          margin-top: 12px;
+          font-size: 12px;
+        }
+        .expo__hint {
+          max-width: 320px;
+          margin: 12px auto 0;
+          font-size: 11px;
+        }
+        .expo__tabs {
+          gap: 4px;
+        }
+        .expo__tab {
+          min-height: 52px;
+          padding: 10px 6px;
+          font-size: 13px;
+        }
+        .expo__regions-wrap {
+          margin-top: 12px;
+          padding: 4px;
+        }
+        .expo__regions {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 2px;
+        }
+        .expo__region {
+          min-height: 44px;
+          padding: 8px 4px;
+          font-size: 12px;
+        }
+        .expo__schedule {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        /* .expo__day:nth-child(5n + 1) {
+          grid-column: 1;
+        } */
+        .expo__day {
+          height: 174px;
+        }
+        .expo__empty {
+          min-height: 174px;
+          font-size: 13px;
+        }
+        .expo__day:nth-child(odd) .expo__date::before {
+          display: none;
+        }
+        .expo__day:not(:nth-child(5n + 1)) .expo__date::before {
+          display: none;
+        }
+        .expo__day:nth-child(even) .expo__date::before {
+          position: absolute;
+          top: 50%;
+          left: 0;
+          display: block;
+          width: 1px;
+          height: 12px;
+          transform: translateY(-50%);
+          background: #e5e5e5;
+          content: "";
+        }
+        .expo__date {
+          padding: 10px 4px;
+          font-size: 12px;
+        }
+        .expo__events {
+          gap: 10px;
+          padding: 18px 4px;
+        }
+        .expo__event {
+          font-size: 12px;
+        }
+        .require__footnotes li {
+          font-size: 12px;
+        }
+        .require__inner {
+          width: calc(100% - 36px);
+        }
+        .require__title {
+          max-width: 88%;
+          margin-bottom: 34px;
+          font-size: clamp(23px, 6vw, 27px);
+        }
+        .require__bulb {
+          display: none;
+        }
+        .require__tabs {
+          gap: 4px;
+          padding-bottom: 12px;
+        }
+        .require__tab {
+          min-height: 54px;
+          padding: 10px 6px;
+          font-size: clamp(12px, 3.2vw, 14px);
+        }
+        .require__eligibility {
+          grid-template-columns: 1fr;
+        }
+        .require__item {
+          min-height: 186px;
+          gap: 10px;
+        }
+        .require__item + .require__item {
+          border-top: 1px solid #e5e5e5;
+          border-left: 0;
+        }
+        .require__item h3 {
+          font-size: 17px;
+        }
+        .require__notes {
+          gap: 12px;
+          padding: 28px 18px;
+        }
+        .require__notes li {
+          font-size: 12px;
+        }
+        .require__notice {
+          padding: 28px 8px;
+          font-size: 14px;
+        }
+        .require__process-group {
+          padding: 30px 4px;
+        }
+        .require__process-title {
+          margin-bottom: 24px;
+          font-size: 18px;
+        }
+        .require__steps {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 24px 8px;
+        }
+        .require__step:not(:last-child)::after {
+          display: none;
+        }
+        .require__step-icon {
+          margin-bottom: 8px;
+        }
+        .require__step-title {
+          font-size: 13px;
+        }
+        .require__step-date {
+          font-size: 11px;
+        }
+      }
+
+      @media (max-width: 1024px) {
+        .cont8 {
+          padding: 48px 0 34px;
+        }
+        .cont8__inner {
+          width: min(1226px, 84.2vw);
+          min-height: 290px;
+          gap: clamp(24px, 3.8vw, 56px);
+        }
+        .cont8__card:nth-child(2) {
+          transform: translateY(-3.85vw);
+        }
+        .cont8__card:nth-child(3) {
+          transform: translateY(3.85vw);
+        }
+        .cont8__character {
+          right: 24px;
+          width: 70px;
+        }
+        .cont9 {
+          min-height: 476px;
+          padding-top: 76px;
+        }
+        .cont9__title {
+          font-size: clamp(28px, 4vw, 36px);
+        }
+        .cont9__countdown {
+          font-size: clamp(23px, 3.8vw, 32px);
+        }
+        .cont9__launch {
+          width: clamp(180px, 25vw, 230px);
+          margin-top: 24px;
+        }
+        .cont9__hint {
+          margin-top: 18px;
+          font-size: 12px;
+        }
+        .footer {
+          min-height: 68px;
+        }
+        .footer__logo,
+        .footer__logo img {
+          width: 128px;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .cont8 {
+          padding: 28px 14px 36px;
+        }
+        .cont8__inner {
+          width: min(100%, 520px);
+          min-height: 0;
+          grid-template-columns: 1fr;
+          gap: 12px;
+        }
+        .cont8__card,
+        .cont8__card:nth-child(2),
+        .cont8__card:nth-child(3) {
+          transform: none;
+          text-align: left;
+        }
+        .cont8__image-wrap {
+          height: clamp(140px, 60vw, 180px);
+          aspect-ratio: auto;
+          border-radius: 9px;
+        }
+        .cont8__image-wrap::after {
+          position: absolute;
+          inset: 30% 0 0;
+          background: linear-gradient(transparent, rgba(0, 0, 0, 0.82));
+          content: "";
+        }
+        .cont8__caption {
+          display: none;
+        }
+        .cont8__mark {
+          display: none;
+        }
+        .cont8__mobile-copy {
+          position: absolute;
+          z-index: 1;
+          right: 12px;
+          bottom: 12px;
+          left: 12px;
+          display: grid;
+          justify-items: center;
+          gap: 4px;
+          color: #fff;
+          text-align: center;
+        }
+        .cont8__question {
+          font-size: clamp(10px, 3vw, 13px);
+          font-weight: 500;
+          line-height: 1.4;
+        }
+        .cont8__link-label {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          font-size: clamp(11px, 3.2vw, 14px);
+          font-weight: 700;
+          line-height: 1.4;
+        }
+        .cont8__link-label::after {
+          display: inline-grid;
+          width: 18px;
+          height: 18px;
+          place-items: center;
+          border-radius: 50%;
+          background: var(--orange);
+          content: "›";
+          font-size: 17px;
+          line-height: 1;
+        }
+        .cont8__character {
+          display: none;
+        }
+        .cont9 {
+          min-height: 360px;
+          padding: 56px 14px 28px;
+        }
+        .cont9__title {
+          font-size: clamp(20px, 5.2vw, 25px);
+          line-height: 1.4;
+        }
+        .cont9__countdown {
+          gap: 0.12em;
+          margin-top: 8px;
+          font-size: clamp(16px, 4.2vw, 21px);
+        }
+        .cont9__countdown-unit {
+          margin-right: 0.08em;
+          font-size: 0.72em;
+        }
+        .cont9__closed {
+          font-size: 20px;
+        }
+        .cont9__launch {
+          width: clamp(142px, 42vw, 178px);
+          margin-top: 12px;
+        }
+        .cont9__earth {
+          animation: none;
+        }
+        .cont9__apply {
+          min-width: 108px;
+          min-height: 38px;
+          gap: 8px;
+          padding: 6px 9px 6px 14px;
+          font-size: 13px;
+        }
+        .cont9__arrow {
+          width: 23px;
+          height: 23px;
+          font-size: 17px;
+        }
+        .cont9__hint {
+          display: none;
+        }
+        .cont9__cloud {
+          bottom: -3px;
+          width: 42vw;
+        }
+        .cont9__cloud--right {
+          width: 34vw;
+        }
+        .footer {
+          min-height: 42px;
+          padding: 8px 16px;
+        }
+        .footer__logo,
+        .footer__logo img {
+          width: 92px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .cont9__earth {
+          animation: none;
+        }
+        .cont8__image,
+        .cont9__apply {
+          transition: none;
+        }
+      }
     </style>
   </head>
   <body>
@@ -2752,10 +3853,10 @@
           <ul class="gnb__list">
             <li><a class="gnb__link link" href="#job">직무소개</a></li>
             <li>
-              <a class="gnb__link link" href="#apply">지원자격 및 접수방법</a>
+              <a class="gnb__link link" href="#require">지원자격 및 접수방법</a>
             </li>
             <li>
-              <a class="gnb__link link" href="#schedule">채용설명회 일정</a>
+              <a class="gnb__link link" href="#expo">채용설명회 일정</a>
             </li>
           </ul>
           <div class="gnb__cta">
@@ -2814,10 +3915,10 @@
       <ul class="m-menu__list">
         <li><a class="m-menu__link link" href="#job">직무소개</a></li>
         <li>
-          <a class="m-menu__link link" href="#apply">지원자격 및 접수방법</a>
+          <a class="m-menu__link link" href="#require">지원자격 및 접수방법</a>
         </li>
         <li>
-          <a class="m-menu__link link" href="#schedule">채용설명회 일정</a>
+          <a class="m-menu__link link" href="#expo">채용설명회 일정</a>
         </li>
       </ul>
       <a class="btn btn--header m-menu__cta" href="#apply">
@@ -3538,7 +4639,7 @@
             aria-hidden="true"
           />
           <div class="benefit__viewport" aria-label="회사 복지 목록">
-            <ul class="benefit__list">
+            <ul class="benefit__list" id="benefit-list">
               <li class="benefit__lead-item">
                 <div class="benefit__lead">
                   <img src="images/wf_tit1.png" alt="" aria-hidden="true" />
@@ -3625,7 +4726,7 @@
               </li>
               <li class="benefit__lead-item">
                 <div class="benefit__lead">
-                  <img src="images/wf_tit1.png" alt="" aria-hidden="true" />
+                  <img src="images/wf_tit2.png" alt="" aria-hidden="true" />
                   <h3 class="benefit__lead-title">
                     가족의 행복도 빼놓을 수 없죠!
                   </h3>
@@ -3738,13 +4839,13 @@
               </li>
             </ul>
           </div>
-          <img
-            class="benefit__char benefit__char--bottom"
-            src="images/wf_char2.png"
-            alt=""
-            aria-hidden="true"
-          />
         </div>
+        <img
+          class="benefit__char benefit__char--bottom"
+          src="images/wf_char2.png"
+          alt=""
+          aria-hidden="true"
+        />
       </section>
 
       <!-- 직무 탐색 섹션 -->
@@ -3829,14 +4930,449 @@
         </div>
       </section>
 
-      <!-- 지원하기 섹션 -->
-      <section class="section" id="apply">
-        <h2 class="section__title">지원하기</h2>
+      <section class="require" id="require" aria-labelledby="require-title">
+        <div class="require__inner">
+          <h2 class="require__title" id="require-title">
+            한미그룹과 함께하는 문은<br />
+            활짝 열려 있습니다
+          </h2>
+          <img
+            class="require__bulb"
+            src="images/require_obj_bulb.png.png"
+            alt=""
+            aria-hidden="true"
+          />
+
+          <div class="require__tabs" role="tablist" aria-label="채용 안내">
+            <button
+              class="require__tab"
+              id="require-tab-eligibility"
+              type="button"
+              role="tab"
+              aria-selected="true"
+              aria-controls="require-panel-eligibility"
+              tabindex="0"
+              data-require-tab="eligibility"
+            >
+              지원자격
+            </button>
+            <button
+              class="require__tab"
+              id="require-tab-process"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="require-panel-process"
+              tabindex="-1"
+              data-require-tab="process"
+            >
+              전형절차 및 접수방법
+            </button>
+          </div>
+
+          <div
+            class="require__panel"
+            id="require-panel-eligibility"
+            role="tabpanel"
+            aria-labelledby="require-tab-eligibility"
+            tabindex="0"
+          >
+            <div class="require__eligibility">
+              <article class="require__item">
+                <img
+                  src="images/require_ico_calendar_3d.png"
+                  alt=""
+                  aria-hidden="true"
+                />
+                <h3>27년 1월 입사가 가능한 자</h3>
+              </article>
+              <article class="require__item">
+                <img
+                  src="images/require_ico_gradcap_3d.png"
+                  alt=""
+                  aria-hidden="true"
+                />
+                <h3>기졸업자 또는 27년 2월 졸업 예정자</h3>
+              </article>
+            </div>
+            <ul class="require__notes">
+              <li>남성의 경우 병역을 마쳤거나 면제인 분</li>
+              <li>해외여행 (또는 해외 출장)에 결격사유가 없는 분</li>
+              <li>취업보호대상자는 관련 법령에 의거하여 우대</li>
+            </ul>
+            <p class="require__notice">
+              모집 직무별로 지원자격이 상이하오니 반드시
+              <strong>채용 공고</strong>를 확인해 주시기 바랍니다.
+            </p>
+          </div>
+
+          <div
+            class="require__panel"
+            id="require-panel-process"
+            role="tabpanel"
+            aria-labelledby="require-tab-process"
+            tabindex="0"
+            hidden
+          >
+            <section class="require__process-group">
+              <h3 class="require__process-title">영업직군</h3>
+              <ol class="require__steps">
+                <li class="require__step">
+                  <span class="require__step-icon" aria-hidden="true">🗓️</span>
+                  <h4 class="require__step-title">지원접수</h4>
+                  <p class="require__step-date">9.28~10.18</p>
+                </li>
+                <li class="require__step">
+                  <span class="require__step-icon" aria-hidden="true">📄</span>
+                  <h4 class="require__step-title">서류전형</h4>
+                  <p class="require__step-date">10.19~10.20</p>
+                </li>
+                <li class="require__step">
+                  <span class="require__step-icon" aria-hidden="true">🔎</span>
+                  <h4 class="require__step-title">AI역량검사</h4>
+                  <p class="require__step-date">10.21~10.25</p>
+                </li>
+                <li class="require__step">
+                  <span class="require__step-icon" aria-hidden="true">👤</span>
+                  <h4 class="require__step-title">1차면접</h4>
+                  <p class="require__step-date">11월 중</p>
+                </li>
+                <li class="require__step">
+                  <span class="require__step-icon" aria-hidden="true">📍</span>
+                  <h4 class="require__step-title">현장체험</h4>
+                  <p class="require__step-date">12월 초</p>
+                </li>
+                <li class="require__step">
+                  <span class="require__step-icon" aria-hidden="true">💬</span>
+                  <h4 class="require__step-title">2차면접</h4>
+                  <p class="require__step-date">12월 중</p>
+                </li>
+                <li class="require__step">
+                  <span class="require__step-icon" aria-hidden="true">📚</span>
+                  <h4 class="require__step-title">교육전형</h4>
+                  <p class="require__step-date">27.1.4~</p>
+                </li>
+              </ol>
+            </section>
+            <section class="require__process-group">
+              <h3 class="require__process-title">영업 외 전직군</h3>
+              <ol class="require__steps">
+                <li class="require__step">
+                  <span class="require__step-icon" aria-hidden="true">🗓️</span>
+                  <h4 class="require__step-title">지원접수</h4>
+                  <p class="require__step-date">9.28~10.18</p>
+                </li>
+                <li class="require__step">
+                  <span class="require__step-icon" aria-hidden="true">📄</span>
+                  <h4 class="require__step-title">서류전형</h4>
+                  <p class="require__step-date">10.19~10.20</p>
+                </li>
+                <li class="require__step">
+                  <span class="require__step-icon" aria-hidden="true">🔎</span>
+                  <h4 class="require__step-title">AI역량검사</h4>
+                  <p class="require__step-date">10.21~10.25</p>
+                </li>
+                <li class="require__step">
+                  <span class="require__step-icon" aria-hidden="true">👤</span>
+                  <h4 class="require__step-title">1차면접</h4>
+                  <p class="require__step-date">11월 중</p>
+                </li>
+                <li class="require__step">
+                  <span class="require__step-icon" aria-hidden="true">💬</span>
+                  <h4 class="require__step-title">2차면접</h4>
+                  <p class="require__step-date">12월 중</p>
+                </li>
+                <li class="require__step">
+                  <span class="require__step-icon" aria-hidden="true">🏢</span>
+                  <h4 class="require__step-title">입사</h4>
+                  <p class="require__step-date">
+                    27.1.4<br />(경력직 협의 가능)
+                  </p>
+                </li>
+              </ol>
+            </section>
+          </div>
+          <div class="require__footnotes" id="require-footnotes" hidden>
+            <ul>
+              <li>
+                상기 일정은 상황에 따라 변경될 수 있으며 각 전형별 상세 일정은 대상자에 한해 개별 안내 예정입니다
+              </li>
+              <li>
+                입사지원서에 허위 기재가 있거나 제출서류가 허위로 판명되는 경우, 또는 입사 이후 자격 미확보 및 상실하는 경우는 입사가 취소될 수 있습니다.
+              </li>
+              <li>
+                지원서 제출 후에는 수정이 절대 불가하오니, 주의하시기 바랍니다.
+              </li>
+              <li>
+                전형단계별 결과는 E-Mail 및 SMS를 통하여 안내하오니 E-Mail 주소 및 휴대전화 번호를 정확히 기재해주시기 바랍니다.
+              </li>
+              <li>
+                입사 후 3개월간 수습기간이 적용되며, 수습 기간 중 성적이 불량하거나 직무 수행 능력이 부족하다고 판단되는 경우 입사가 취소될 수 있습니다.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="expo" id="expo" aria-labelledby="expo-title">
+        <div class="expo__inner">
+          <div class="expo__intro">
+            <img
+              class="expo__character"
+              src="images/expo_char.png"
+              alt=""
+              aria-hidden="true"
+            />
+            <div class="expo__intro-copy">
+              <h2 class="expo__title" id="expo-title">
+                Hanmi 박람회/캠퍼스로 출발!
+              </h2>
+              <p class="expo__description">
+                한미그룹이 여러분을 만나러 박람회와 캠퍼스로 찾아갑니다.<br />
+                우리가 어디서 만날지 궁금하다면 아래 지역에서 찾아보세요!
+              </p>
+              <p class="expo__hint">
+                학교명/장소를 클릭하거나 터치하면 세부장소를 확인하실 수 있습니다.
+              </p>
+            </div>
+          </div>
+
+          <div class="expo__tabs" role="tablist" aria-label="채용 행사 종류">
+            <button
+              class="expo__tab"
+              id="expo-tab-fair"
+              type="button"
+              role="tab"
+              aria-selected="true"
+              aria-controls="expo-panel-fair"
+              tabindex="0"
+              data-expo-tab="fair"
+            >
+              박람회
+            </button>
+            <button
+              class="expo__tab"
+              id="expo-tab-campus"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="expo-panel-campus"
+              tabindex="-1"
+              data-expo-tab="campus"
+            >
+              캠퍼스
+            </button>
+          </div>
+
+          <div
+            class="expo__panel"
+            id="expo-panel-fair"
+            role="tabpanel"
+            aria-labelledby="expo-tab-fair"
+            tabindex="0"
+          >
+            <ul class="expo__schedule" id="expo-fair-schedule"></ul>
+          </div>
+          <div
+            class="expo__panel"
+            id="expo-panel-campus"
+            role="tabpanel"
+            aria-labelledby="expo-tab-campus"
+            tabindex="0"
+            hidden
+          >
+            <div class="expo__regions-wrap">
+              <div class="expo__regions" role="group" aria-label="캠퍼스 지역">
+                <button class="expo__region" type="button" aria-pressed="true" data-region="seoul">서울</button>
+                <button class="expo__region" type="button" aria-pressed="false" data-region="gyeonggi">경기</button>
+                <button class="expo__region" type="button" aria-pressed="false" data-region="gangwon">강원</button>
+                <button class="expo__region" type="button" aria-pressed="false" data-region="gyeongsang">경상</button>
+                <button class="expo__region" type="button" aria-pressed="false" data-region="chungcheong">충청</button>
+                <button class="expo__region" type="button" aria-pressed="false" data-region="jeolla">전라</button>
+              </div>
+            </div>
+            <ul
+              class="expo__schedule"
+              id="expo-campus-schedule"
+              aria-live="polite"
+            ></ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="cont8" id="cont8" aria-label="한미그룹 바로가기">
+        <img
+          class="cont8__character"
+          src="./images/cont8_char.png"
+          alt=""
+          aria-hidden="true"
+        />
+        <div class="cont8__inner">
+          <a class="cont8__card" href="#benefit">
+            <span class="cont8__image-wrap">
+              <img
+                class="cont8__image"
+                src="./images/cont8_img1.png"
+                alt=""
+                aria-hidden="true"
+              />
+              <span class="cont8__mobile-copy">
+                <span class="cont8__question">
+                  한미그룹의 문화와 복지가 궁금하다면?
+                </span>
+                <span class="cont8__link-label">한미그룹 복지 보러가기</span>
+              </span>
+            </span>
+            <img
+              class="cont8__mark cont8__mark--arrow-left"
+              src="./images/cont8-1.png"
+              alt=""
+              aria-hidden="true"
+            />
+            <img
+              class="cont8__mark cont8__mark--star"
+              src="./images/cont8-3.png"
+              alt=""
+              aria-hidden="true"
+            />
+            <span class="cont8__caption">
+              한미그룹의 문화와
+              <span class="cont8__caption-word">
+                복지가
+                <img
+                  class="cont8__mark cont8__mark--underline"
+                  src="./images/cont8-2.png"
+                  alt=""
+                  aria-hidden="true"
+                />
+              </span>
+              궁금하다면?
+            </span>
+          </a>
+          <a class="cont8__card" href="#job">
+            <span class="cont8__image-wrap">
+              <img
+                class="cont8__image"
+                src="./images/cont8_img2.png"
+                alt=""
+                aria-hidden="true"
+              />
+              <span class="cont8__mobile-copy">
+                <span class="cont8__question">
+                  한미그룹의 직무가 궁금하다면?
+                </span>
+                <span class="cont8__link-label">한미그룹 직무 소개 페이지</span>
+              </span>
+            </span>
+            <img
+              class="cont8__mark cont8__mark--arrow-right"
+              src="./images/cont8-5.png"
+              alt=""
+              aria-hidden="true"
+            />
+            <span class="cont8__caption">
+              한미그룹의
+              <span class="cont8__caption-word">
+                직무
+                <img
+                  class="cont8__mark cont8__mark--circle"
+                  src="./images/cont8-4.png"
+                  alt=""
+                  aria-hidden="true"
+                />
+              </span>
+              가 궁금하다면?
+            </span>
+          </a>
+          <a class="cont8__card" href="#require">
+            <span class="cont8__image-wrap">
+              <img
+                class="cont8__image"
+                src="./images/cont8_img3.png"
+                alt=""
+                aria-hidden="true"
+              />
+              <span class="cont8__mobile-copy">
+                <span class="cont8__question">
+                  한미그룹의 채용소식을 빠르게 받고 싶다면?
+                </span>
+                <span class="cont8__link-label">한미그룹 채용 홈페이지</span>
+              </span>
+            </span>
+            <span class="cont8__caption">
+              한미그룹의
+              <span class="cont8__caption-word">
+                채용소식
+                <img
+                  class="cont8__mark cont8__mark--underline"
+                  src="./images/cont8-2.png"
+                  alt=""
+                  aria-hidden="true"
+                />
+              </span>
+              을 빠르게 받고 싶다면?
+            </span>
+          </a>
+        </div>
+      </section>
+
+      <section class="cont9" id="cont9" aria-labelledby="cont9-title">
+        <img
+          class="cont9__cloud cont9__cloud--left"
+          src="./images/cont9_cloud_l.png"
+          alt=""
+          aria-hidden="true"
+        />
+        <img
+          class="cont9__cloud cont9__cloud--right"
+          src="./images/cont9_cloud_r.png"
+          alt=""
+          aria-hidden="true"
+        />
+        <h2 class="cont9__title" id="cont9-title">
+          당신에게 딱 맞는 자리를 찾으러 출발!
+        </h2>
+        <time class="cont9__countdown" id="cont9-countdown" aria-live="off">
+          <span class="cont9__countdown-part" data-unit="day">
+            <span class="cont9__countdown-value" data-countdown-value>00</span>
+            <span class="cont9__countdown-unit">일</span>
+          </span>
+          <span class="cont9__countdown-part" data-unit="hour">
+            <span class="cont9__countdown-value" data-countdown-value>00</span>
+            <span class="cont9__countdown-unit">시간</span>
+          </span>
+          <span class="cont9__countdown-part" data-unit="minute">
+            <span class="cont9__countdown-value" data-countdown-value>00</span>
+            <span class="cont9__countdown-unit">분</span>
+          </span>
+          <span class="cont9__countdown-part" data-unit="second">
+            <span class="cont9__countdown-value" data-countdown-value>00</span>
+            <span class="cont9__countdown-unit">초 남았어요</span>
+          </span>
+        </time>
+        <p class="cont9__closed" id="cont9-closed" hidden>
+          지원 접수가 마감되었습니다.
+        </p>
+        <div class="cont9__launch">
+          <img
+            class="cont9__earth"
+            src="./images/cont9_earth.png"
+            alt=""
+            aria-hidden="true"
+          />
+          <a class="cont9__apply" id="apply" href="#require">
+            지원하기
+            <span class="cont9__arrow" aria-hidden="true">›</span>
+          </a>
+        </div>
+        <p class="cont9__hint">아이콘을 클릭해서 지원해주세요!</p>
       </section>
     </main>
 
     <footer class="footer">
-      <p>© Hanmi Group. All rights reserved.</p>
+      <a class="footer__logo" href="./" aria-label="한미그룹 홈">
+        <img src="./images/기본.svg" alt="Hanmi 한미그룹" width="182" height="31" />
+      </a>
     </footer>
 
     <script>
@@ -3851,6 +5387,606 @@
             if (target) target.scrollIntoView({ behavior: "smooth" });
           });
         }
+      })();
+
+      (function () {
+        var tabs = Array.from(
+          document.querySelectorAll(".require__tab[data-require-tab]"),
+        );
+        var panels = tabs.map(function (tab) {
+          return document.getElementById(
+            "require-panel-" + tab.dataset.requireTab,
+          );
+        });
+        if (
+          !tabs.length ||
+          panels.some(function (panel) {
+            return !panel;
+          })
+        )
+          return;
+
+        function activateTab(activeIndex, moveFocus) {
+          tabs.forEach(function (tab, index) {
+            var isActive = index === activeIndex;
+            tab.setAttribute("aria-selected", String(isActive));
+            tab.tabIndex = isActive ? 0 : -1;
+            panels[index].hidden = !isActive;
+          });
+          var footnotes = document.getElementById("require-footnotes");
+          if (footnotes) {
+            footnotes.hidden = tabs[activeIndex].dataset.requireTab !== "process";
+          }
+          if (moveFocus) tabs[activeIndex].focus();
+        }
+
+        tabs.forEach(function (tab, index) {
+          tab.addEventListener("click", function () {
+            activateTab(index, false);
+          });
+          tab.addEventListener("keydown", function (event) {
+            var nextIndex = index;
+            if (event.key === "ArrowRight") {
+              nextIndex = (index + 1) % tabs.length;
+            } else if (event.key === "ArrowLeft") {
+              nextIndex = (index - 1 + tabs.length) % tabs.length;
+            } else if (event.key === "Home") {
+              nextIndex = 0;
+            } else if (event.key === "End") {
+              nextIndex = tabs.length - 1;
+            } else {
+              return;
+            }
+            event.preventDefault();
+            activateTab(nextIndex, true);
+          });
+        });
+      })();
+
+      (function () {
+        var expo = document.getElementById("expo");
+        if (!expo) return;
+
+        var exhibitionWeeks = [
+          [
+            { date: "8월 31일 (월)", events: ["KAIST"] },
+            {
+              date: "9월 1일 (화)",
+              events: ["서울대학교", "서강대학교", "연세대학교"],
+            },
+            { date: "9월 2일 (수)", events: ["UNIST", "한양대학교"] },
+            { date: "9월 3일 (목)", events: ["GIST"] },
+            {
+              date: "9월 4일 (금)",
+              events: ["고려대학교", "성균관대학교(자연)"],
+            },
+          ],
+          [
+            { date: "9월 7일 (월)", events: ["KIST", "동국대학교"] },
+            {
+              date: "9월 8일 (화)",
+              events: ["이화여자대학교", "중견기업박람회(대전)"],
+            },
+            { date: "9월 9일 (수)", events: ["POSTECH"] },
+            { date: "", events: [] },
+            { date: "10월 7일 (수)", events: ["서울고용센터"] },
+          ],
+        ];
+        var campusScheduleData = [];
+        var campusRegionNames = {
+          seoul: "서울",
+          gyeonggi: "경기",
+          gangwon: "강원",
+          gyeongsang: "경상",
+          chungcheong: "충청",
+          jeolla: "전라",
+        };
+        var campusWeekdays = ["일", "월", "화", "수", "목", "금", "토"];
+        var selectedCampusRegion = "서울";
+        var fairSchedule = document.getElementById("expo-fair-schedule");
+        var campusSchedule = document.getElementById("expo-campus-schedule");
+        var expoTabs = Array.from(expo.querySelectorAll(".expo__tab"));
+        var expoPanels = expoTabs.map(function (tab) {
+          return document.getElementById("expo-panel-" + tab.dataset.expoTab);
+        });
+        var regionButtons = Array.from(
+          expo.querySelectorAll(".expo__region[data-region]"),
+        );
+
+        function createDetailIcon(type) {
+          var namespace = "http://www.w3.org/2000/svg";
+          var icon = document.createElementNS(namespace, "svg");
+          icon.classList.add("expo__event-detail-icon");
+          icon.setAttribute("viewBox", "0 0 24 24");
+          icon.setAttribute("aria-hidden", "true");
+
+          if (type === "location") {
+            var pin = document.createElementNS(namespace, "path");
+            pin.setAttribute(
+              "d",
+              "M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z",
+            );
+            var pinCenter = document.createElementNS(namespace, "circle");
+            pinCenter.setAttribute("cx", "12");
+            pinCenter.setAttribute("cy", "10");
+            pinCenter.setAttribute("r", "2.5");
+            icon.append(pin, pinCenter);
+          } else {
+            var clock = document.createElementNS(namespace, "circle");
+            clock.setAttribute("cx", "12");
+            clock.setAttribute("cy", "12");
+            clock.setAttribute("r", "9");
+            var clockHands = document.createElementNS(namespace, "path");
+            clockHands.setAttribute("d", "M12 7v5l3 2");
+            icon.append(clock, clockHands);
+          }
+          return icon;
+        }
+
+        function closeCampusDetails() {
+          campusSchedule
+            .querySelectorAll("button.expo__event[aria-expanded='true']")
+            .forEach(function (button) {
+              button.setAttribute("aria-expanded", "false");
+              var day = button.closest(".expo__day");
+              if (day) day.classList.remove("is-open");
+              var details = document.getElementById(
+                button.getAttribute("aria-controls"),
+              );
+              if (details) details.hidden = true;
+            });
+        }
+
+        function renderWeeks(target, weeks, showCampusDetails) {
+          target.replaceChildren();
+          var eventId = 0;
+          weeks.forEach(function (week) {
+            week.forEach(function (day) {
+              var dayElement = document.createElement("li");
+              dayElement.className = "expo__day";
+              var date = document.createElement("h3");
+              date.className = "expo__date";
+              date.textContent = day.date;
+              var events = document.createElement("span");
+              events.className = "expo__events";
+              (day.events || []).forEach(function (eventData) {
+                var eventElement = document.createElement(
+                  showCampusDetails ? "button" : "p",
+                );
+                eventElement.className = "expo__event";
+                eventElement.textContent =
+                  typeof eventData === "string" ? eventData : eventData.name;
+                if (showCampusDetails) {
+                  eventElement.type = "button";
+                  eventElement.setAttribute("aria-expanded", "false");
+                  eventId += 1;
+                  var details = document.createElement("span");
+                  details.className = "expo__event-details";
+                  details.id = "expo-campus-event-details-" + eventId;
+                  details.setAttribute("role", "group");
+                  details.setAttribute(
+                    "aria-label",
+                    eventElement.textContent + " 상세 일정",
+                  );
+                  details.tabIndex = -1;
+                  details.hidden = true;
+                  eventElement.setAttribute("aria-controls", details.id);
+                  var campusEvent =
+                    typeof eventData === "string" ? {} : eventData;
+
+                  [
+                    [
+                      "location",
+                      "장소",
+                      campusEvent.location || "추후 안내 예정",
+                    ],
+                    ["time", "시간", campusEvent.time || "추후 안내 예정"],
+                  ].forEach(function (detail) {
+                    var row = document.createElement("span");
+                    row.className = "expo__event-detail-row";
+                    var label = document.createElement("span");
+                    label.className = "expo__event-detail-label";
+                    label.append(createDetailIcon(detail[0]), detail[1]);
+                    var value = document.createElement("span");
+                    value.textContent = detail[2];
+                    row.append(label, value);
+                    details.append(row);
+                  });
+                  events.append(eventElement, details);
+                  return;
+                }
+                events.append(eventElement);
+              });
+              dayElement.append(date, events);
+              target.append(dayElement);
+            });
+          });
+        }
+
+        function renderCampusRegion(region) {
+          closeCampusDetails();
+          var events = campusScheduleData
+            .filter(function (event) {
+              return event.region === region;
+            })
+            .map(function (event) {
+              return {
+                date: event.date,
+                parsedDate: parseCampusDate(event.date),
+                name: event.school,
+                location: event.location,
+                time: event.time,
+              };
+            });
+
+          if (!events.length) {
+            var empty = document.createElement("li");
+            empty.className = "expo__empty";
+            empty.textContent = "등록된 캠퍼스 일정이 없습니다.";
+            campusSchedule.replaceChildren(empty);
+            return;
+          }
+
+          var firstDate = new Date(
+            Math.min.apply(
+              null,
+              events.map(function (event) {
+                return event.parsedDate.getTime();
+              }),
+            ),
+          );
+          var lastDate = new Date(
+            Math.max.apply(
+              null,
+              events.map(function (event) {
+                return event.parsedDate.getTime();
+              }),
+            ),
+          );
+          var calendarDate = new Date(firstDate);
+          calendarDate.setDate(
+            calendarDate.getDate() - ((calendarDate.getDay() + 6) % 7),
+          );
+
+          var eventsByDate = new Map();
+          events.forEach(function (event) {
+            var key = [
+              event.parsedDate.getFullYear(),
+              event.parsedDate.getMonth(),
+              event.parsedDate.getDate(),
+            ].join("-");
+            if (!eventsByDate.has(key)) eventsByDate.set(key, []);
+            eventsByDate.get(key).push(event);
+          });
+
+          var calendarDays = [];
+          while (calendarDate <= lastDate) {
+            var weekday = calendarDate.getDay();
+            if (weekday !== 0 && weekday !== 6) {
+              var dateKey = [
+                calendarDate.getFullYear(),
+                calendarDate.getMonth(),
+                calendarDate.getDate(),
+              ].join("-");
+              calendarDays.push({
+                date:
+                  (calendarDate.getMonth() + 1) +
+                  "월 " +
+                  calendarDate.getDate() +
+                  "일 (" +
+                  campusWeekdays[weekday] +
+                  ")",
+                events: eventsByDate.get(dateKey) || [],
+              });
+            }
+            calendarDate.setDate(calendarDate.getDate() + 1);
+          }
+
+          renderWeeks(campusSchedule, [calendarDays], true);
+        }
+
+        function parseCampusDate(dateText) {
+          var match = /^(\d{1,2})월\s*(\d{1,2})일\s*\(([^)]+)\)$/.exec(
+            dateText,
+          );
+          if (!match) {
+            throw new Error("캠퍼스 일정 날짜 형식이 올바르지 않습니다.");
+          }
+
+          var date = new Date(2026, Number(match[1]) - 1, Number(match[2]));
+          if (
+            date.getMonth() !== Number(match[1]) - 1 ||
+            date.getDate() !== Number(match[2]) ||
+            campusWeekdays[date.getDay()] !== match[3]
+          ) {
+            throw new Error("캠퍼스 일정 날짜가 유효하지 않거나 요일과 다릅니다.");
+          }
+          return date;
+        }
+
+        function showCampusScheduleError(error) {
+          console.error("캠퍼스 일정을 불러오지 못했습니다:", error);
+          var message = document.createElement("li");
+          message.className = "expo__empty";
+          message.setAttribute("role", "alert");
+          message.textContent =
+            "캠퍼스 일정을 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.";
+          campusSchedule.replaceChildren(message);
+        }
+
+        function activateExpoTab(index, moveFocus) {
+          expoTabs.forEach(function (tab, tabIndex) {
+            var active = tabIndex === index;
+            tab.setAttribute("aria-selected", String(active));
+            tab.tabIndex = active ? 0 : -1;
+            expoPanels[tabIndex].hidden = !active;
+          });
+          if (moveFocus) expoTabs[index].focus();
+        }
+
+        expoTabs.forEach(function (tab, index) {
+          tab.addEventListener("click", function () {
+            activateExpoTab(index, false);
+          });
+          tab.addEventListener("keydown", function (event) {
+            var nextIndex = index;
+            if (event.key === "ArrowRight") {
+              nextIndex = (index + 1) % expoTabs.length;
+            } else if (event.key === "ArrowLeft") {
+              nextIndex = (index - 1 + expoTabs.length) % expoTabs.length;
+            } else if (event.key === "Home") {
+              nextIndex = 0;
+            } else if (event.key === "End") {
+              nextIndex = expoTabs.length - 1;
+            } else {
+              return;
+            }
+            event.preventDefault();
+            activateExpoTab(nextIndex, true);
+          });
+        });
+
+        regionButtons.forEach(function (button) {
+          button.addEventListener("click", function () {
+            regionButtons.forEach(function (regionButton) {
+              regionButton.setAttribute(
+                "aria-pressed",
+                String(regionButton === button),
+              );
+            });
+            selectedCampusRegion =
+              campusRegionNames[button.dataset.region] || "";
+            renderCampusRegion(selectedCampusRegion);
+          });
+        });
+
+        campusSchedule.addEventListener("click", function (event) {
+          var selectedEvent = event.target.closest("button.expo__event");
+          if (!selectedEvent || !campusSchedule.contains(selectedEvent)) return;
+
+          var expand = selectedEvent.getAttribute("aria-expanded") !== "true";
+          closeCampusDetails();
+          var day = selectedEvent.closest(".expo__day");
+          selectedEvent.setAttribute("aria-expanded", String(expand));
+          if (day) day.classList.toggle("is-open", expand);
+          var selectedDetails = document.getElementById(
+            selectedEvent.getAttribute("aria-controls"),
+          );
+          if (selectedDetails) {
+            selectedDetails.hidden = !expand;
+            if (expand) selectedDetails.focus();
+          }
+        });
+
+        document.addEventListener("focusin", function (event) {
+          var expandedEvent = campusSchedule.querySelector(
+            "button.expo__event[aria-expanded='true']",
+          );
+          var activeDay = expandedEvent && expandedEvent.closest(".expo__day");
+          if (activeDay && !activeDay.contains(event.target)) {
+            closeCampusDetails();
+          }
+        });
+
+        document.addEventListener("pointerdown", function (event) {
+          var expandedEvent = campusSchedule.querySelector(
+            "button.expo__event[aria-expanded='true']",
+          );
+          var activeDay = expandedEvent && expandedEvent.closest(".expo__day");
+          if (activeDay && !activeDay.contains(event.target)) {
+            closeCampusDetails();
+          }
+        });
+
+        campusSchedule.addEventListener("keydown", function (event) {
+          if (event.key !== "Escape") return;
+          var expandedEvent = campusSchedule.querySelector(
+            "button.expo__event[aria-expanded='true']",
+          );
+          if (!expandedEvent) return;
+          event.preventDefault();
+          closeCampusDetails();
+          expandedEvent.focus();
+        });
+
+        renderWeeks(fairSchedule, exhibitionWeeks, false);
+        var loading = document.createElement("li");
+        loading.className = "expo__empty";
+        loading.textContent = "캠퍼스 일정을 불러오는 중입니다.";
+        campusSchedule.append(loading);
+
+        fetch(
+          new URL("./data/campus_recruiting_schedule.json", document.baseURI),
+        )
+          .then(function (response) {
+            if (!response.ok) {
+              throw new Error(
+                "캠퍼스 일정 데이터를 불러오지 못했습니다. (" +
+                  response.status +
+                  ")",
+              );
+            }
+            return response.json();
+          })
+          .then(function (records) {
+            if (
+              !Array.isArray(records) ||
+              records.length === 0 ||
+              records.some(function (record) {
+                return (
+                  !record ||
+                  typeof record.region !== "string" ||
+                  !Object.values(campusRegionNames).includes(record.region) ||
+                  typeof record.date !== "string" ||
+                  typeof record.school !== "string" ||
+                  !record.school.trim() ||
+                  typeof record.location !== "string" ||
+                  !record.location.trim() ||
+                  typeof record.time !== "string" ||
+                  !record.time.trim()
+                );
+              })
+            ) {
+              throw new Error("캠퍼스 일정 데이터 형식이 올바르지 않습니다.");
+            }
+
+            records.forEach(function (record) {
+              parseCampusDate(record.date);
+            });
+            campusScheduleData = records;
+            renderCampusRegion(selectedCampusRegion);
+          })
+          .catch(showCampusScheduleError);
+      })();
+
+      // 복지 목록은 JSON의 카테고리 구조를 기준으로 렌더링합니다.
+      (function () {
+        var list = document.getElementById("benefit-list");
+        if (!list) return;
+
+        function createLeadItem(category, description) {
+          var item = document.createElement("li");
+          item.className = "benefit__lead-item";
+
+          var lead = document.createElement("div");
+          lead.className = "benefit__lead";
+
+          var icon = document.createElement("img");
+          icon.src = "images/wf_tit1.png";
+          icon.alt = "";
+          icon.setAttribute("aria-hidden", "true");
+
+          var title = document.createElement("h3");
+          title.className = "benefit__lead-title";
+          title.textContent = category;
+
+          var desc = document.createElement("p");
+          desc.className = "benefit__lead-desc";
+          desc.textContent = description;
+
+          lead.append(icon, title, desc);
+          item.append(lead);
+          return item;
+        }
+
+        function showLoadError(error) {
+          console.error("복지 데이터를 불러오지 못했습니다:", error);
+          list.replaceChildren();
+
+          var errorItem = document.createElement("li");
+          errorItem.className = "benefit__lead-item";
+          errorItem.setAttribute("role", "alert");
+          errorItem.textContent =
+            "복지 목록을 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.";
+          list.append(errorItem);
+        }
+
+        list.replaceChildren();
+        fetch(new URL("./data/benefit_data.json", document.baseURI))
+          .then(function (response) {
+            if (!response.ok) {
+              throw new Error(
+                "복지 데이터를 불러오지 못했습니다. (" +
+                  response.status +
+                  ")",
+              );
+            }
+            return response.json();
+          })
+          .then(function (categories) {
+            if (
+              !Array.isArray(categories) ||
+              categories.length === 0 ||
+              categories.some(function (category) {
+                return (
+                  !category ||
+                  typeof category.category !== "string" ||
+                  typeof category.description !== "string" ||
+                  !Array.isArray(category.benefits) ||
+                  category.benefits.some(function (benefit) {
+                    return (
+                      !benefit ||
+                      typeof benefit.title !== "string" ||
+                      typeof benefit.description !== "string"
+                    );
+                  })
+                );
+              })
+            ) {
+              throw new Error("복지 데이터의 형식이 올바르지 않습니다.");
+            }
+
+            var cardsItem = document.createElement("li");
+            cardsItem.className = "benefit__cards-item";
+            var cardsViewport = document.createElement("div");
+            cardsViewport.className = "benefit__cards-viewport";
+            var cardsScroll = document.createElement("div");
+            cardsScroll.className = "benefit__cards-scroll";
+            var cards = document.createElement("ul");
+            cards.className = "benefit__cards";
+
+            var iconIndex = 0;
+            categories.forEach(function (category, categoryIndex) {
+              var leadItem = createLeadItem(
+                category.category,
+                category.description,
+              );
+              cards.append(leadItem);
+
+              category.benefits.forEach(function (benefit) {
+                iconIndex += 1;
+                var card = document.createElement("li");
+                card.className = "benefit-card";
+
+                var copy = document.createElement("div");
+                copy.className = "benefit-card__copy";
+
+                var title = document.createElement("h3");
+                title.className = "benefit-card__title";
+                title.textContent = benefit.title;
+
+                var desc = document.createElement("p");
+                desc.className = "benefit-card__desc";
+                desc.textContent = benefit.description;
+
+                var icon = document.createElement("img");
+                icon.className = "benefit-card__icon";
+                icon.src = "images/wf_ico" + iconIndex + ".png";
+                icon.alt = "";
+                icon.setAttribute("aria-hidden", "true");
+
+                copy.append(title, desc);
+                card.append(copy, icon);
+                cards.append(card);
+              });
+            });
+
+            cardsScroll.append(cards);
+            cardsViewport.append(cardsScroll);
+            cardsItem.append(cardsViewport);
+            list.append(cardsItem);
+          })
+          .catch(showLoadError);
       })();
 
       // 모바일 전체메뉴 열기/닫기
@@ -4379,6 +6515,50 @@
         });
 
         renderCategory(selectedCategory);
+      })();
+
+      (function () {
+        var countdown = document.getElementById("cont9-countdown");
+        var closedMessage = document.getElementById("cont9-closed");
+        if (!countdown || !closedMessage) return;
+
+        var deadline = new Date(2026, 9, 18, 23, 59, 59).getTime();
+        var parts = {
+          day: countdown.querySelector('[data-unit="day"] [data-countdown-value]'),
+          hour: countdown.querySelector('[data-unit="hour"] [data-countdown-value]'),
+          minute: countdown.querySelector(
+            '[data-unit="minute"] [data-countdown-value]',
+          ),
+          second: countdown.querySelector(
+            '[data-unit="second"] [data-countdown-value]',
+          ),
+        };
+
+        function updateCountdown() {
+          var remaining = deadline - Date.now();
+          if (remaining <= 0) {
+            countdown.hidden = true;
+            closedMessage.hidden = false;
+            return false;
+          }
+
+          var seconds = Math.floor(remaining / 1000);
+          parts.day.textContent = String(Math.floor(seconds / 86400));
+          parts.hour.textContent = String(
+            Math.floor((seconds % 86400) / 3600),
+          ).padStart(2, "0");
+          parts.minute.textContent = String(
+            Math.floor((seconds % 3600) / 60),
+          ).padStart(2, "0");
+          parts.second.textContent = String(seconds % 60).padStart(2, "0");
+          return true;
+        }
+
+        if (updateCountdown()) {
+          var countdownTimer = window.setInterval(function () {
+            if (!updateCountdown()) window.clearInterval(countdownTimer);
+          }, 1000);
+        }
       })();
     </script>
   </body>
