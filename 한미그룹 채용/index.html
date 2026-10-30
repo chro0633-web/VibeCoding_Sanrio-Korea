@@ -14,6 +14,14 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css"
     />
+    <script>
+      if (
+        "IntersectionObserver" in window &&
+        !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      ) {
+        document.documentElement.classList.add("has-scroll-reveal");
+      }
+    </script>
     <style>
       /* ---------- Reset & Variables ---------- */
       :root {
@@ -33,6 +41,20 @@
       }
       html {
         scroll-behavior: smooth;
+      }
+      html.has-scroll-reveal .scroll-reveal-item {
+        opacity: 0;
+        translate: 0 20%;
+      }
+      html.has-scroll-reveal .scroll-reveal-item.scroll-reveal-ready {
+        transition:
+          opacity 0.85s ease,
+          translate 0.85s cubic-bezier(0.2, 0.7, 0.25, 1);
+        transition-delay: var(--reveal-delay, 0ms);
+      }
+      html.has-scroll-reveal .scroll-reveal-item.is-visible {
+        opacity: 1;
+        translate: 0 0;
       }
       body {
         margin: 0;
@@ -69,12 +91,29 @@
 
       /* ---------- Header ---------- */
       .header {
-        position: absolute;
+        position: fixed;
         top: 0;
         left: 0;
         right: 0;
         height: 100px;
-        z-index: 10;
+        z-index: 100;
+        background-color: transparent;
+        box-shadow: 0 0 0 transparent;
+        transition:
+          transform 0.35s ease,
+          background-color 0.35s ease,
+          box-shadow 0.35s ease;
+      }
+      .header.is-hidden {
+        transform: translateY(-100%);
+      }
+      .header.is-scrolled {
+        background-color: #fff;
+        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+        transition: .5s ease;
+      }
+      html.is-menu-open .header {
+        transform: translateY(0);
       }
       .header__inner {
         display: flex;
@@ -3827,6 +3866,9 @@
       }
 
       @media (prefers-reduced-motion: reduce) {
+        .header {
+          transition: none;
+        }
         .cont9__earth {
           animation: none;
         }
@@ -3851,7 +3893,7 @@
 
         <nav class="gnb" aria-label="주요 메뉴">
           <ul class="gnb__list">
-            <li><a class="gnb__link link" href="#job">직무소개</a></li>
+            <li><a class="gnb__link link" href="#worker">직무소개</a></li>
             <li>
               <a class="gnb__link link" href="#require">지원자격 및 접수방법</a>
             </li>
@@ -5387,6 +5429,124 @@
             if (target) target.scrollIntoView({ behavior: "smooth" });
           });
         }
+      })();
+
+      (function () {
+        var header = document.querySelector(".header");
+        if (!header) return;
+
+        var previousScrollY = window.scrollY;
+        var scrollThreshold = 4;
+        var visibleBackgroundThreshold = 100;
+
+        if (previousScrollY > visibleBackgroundThreshold) {
+          header.classList.add("is-scrolled");
+        }
+
+        function updateHeaderOnScroll() {
+          var currentScrollY = Math.max(window.scrollY, 0);
+          var scrollDifference = currentScrollY - previousScrollY;
+
+          if (currentScrollY <= visibleBackgroundThreshold) {
+            header.classList.remove("is-hidden", "is-scrolled");
+          } else if (scrollDifference > scrollThreshold) {
+            header.classList.add("is-hidden");
+          } else if (scrollDifference < -scrollThreshold) {
+            header.classList.remove("is-hidden");
+            header.classList.add("is-scrolled");
+          }
+
+          previousScrollY = currentScrollY;
+        }
+
+        window.addEventListener("scroll", updateHeaderOnScroll, {
+          passive: true,
+        });
+        updateHeaderOnScroll();
+      })();
+
+      (function () {
+        if (!document.documentElement.classList.contains("has-scroll-reveal")) {
+          return;
+        }
+
+        var targetSelectors = [
+          "#job .job__title, #job .job__char",
+          "#year .year-title, #year .year-count, #year .year-item",
+          "#worker .worker__title, #worker .worker__desc, #worker .worker-card, #worker .worker__cta",
+          "#grow .grow__title, #grow .grow__desc, #grow .grow__item",
+          "#benefit .benefit__title, #benefit .benefit__desc, #benefit .benefit__lead-item, #benefit .benefit-card",
+          "#recruit .recruit__intro, #recruit .recruit__tab-item, #recruit .recruit__group-toggle, #recruit .recruit-card",
+          "#require .require__title, #require .require__tab, #require .require__item, #require .require__notes li, #require .require__notice, #require .require__step, #require .require__footnotes li",
+          "#expo .expo__title, #expo .expo__description, #expo .expo__hint, #expo .expo__tab, #expo .expo__region, #expo .expo__day",
+          "#cont8 .cont8__card",
+        ].join(", ");
+        var sections = Array.from(
+          document.querySelectorAll(
+            "main > section:not(.main-visual):not(#cont9)",
+          ),
+        );
+        if (!sections.length) return;
+
+        var observer = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              entry.target.classList.toggle(
+                "is-visible",
+                entry.isIntersecting,
+              );
+            });
+          },
+          {
+            rootMargin: "-20% 0px -20% 0px",
+            threshold: 0.01,
+          },
+        );
+
+        function prepareRevealTargets(root) {
+          var targets = [];
+          if (root.nodeType !== Node.ELEMENT_NODE) return targets;
+          if (root.matches(targetSelectors)) targets.push(root);
+          targets.push.apply(
+            targets,
+            Array.from(root.querySelectorAll(targetSelectors)),
+          );
+          targets.forEach(function (target) {
+            if (target.classList.contains("scroll-reveal-item")) return;
+            var siblings = Array.from(target.parentElement.children).filter(
+              function (sibling) {
+                return sibling.matches(targetSelectors);
+              },
+            );
+            var siblingIndex = siblings.indexOf(target);
+            target.style.setProperty(
+              "--reveal-delay",
+              Math.min(siblingIndex, 4) * 70 + "ms",
+            );
+            target.classList.add("scroll-reveal-item");
+            window.requestAnimationFrame(function () {
+              target.classList.add("scroll-reveal-ready");
+              observer.observe(target);
+            });
+          });
+          return targets;
+        }
+
+        sections.forEach(prepareRevealTargets);
+
+        var contentObserver = new MutationObserver(function (mutations) {
+          mutations.forEach(function (mutation) {
+            mutation.addedNodes.forEach(function (node) {
+              prepareRevealTargets(node);
+            });
+          });
+        });
+        sections.forEach(function (section) {
+          contentObserver.observe(section, {
+            childList: true,
+            subtree: true,
+          });
+        });
       })();
 
       (function () {
